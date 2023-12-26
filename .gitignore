@@ -1,0 +1,24 @@
+# 의존성
+/node_modules
+
+# 버전 관리 시스템
+/.idea
+/.vscode
+*.swp
+*.swo
+
+# OS 파일
+.DS_Store
+Thumbs.db
+
+# 빌드 결과물
+ios/build
+android/build
+android/app/build
+
+# 임시 파일
+*.tmp
+*.temp
+
+# Metro bundler cache
+.metro
