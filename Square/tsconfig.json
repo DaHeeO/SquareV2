@@ -1,0 +1,14 @@
+{
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    // 기존 옵션들...
+    "baseUrl": "./",
+    "paths": {
+    "@component/": ["./src/component/"],
+    "@model/": ["./src/model/"],
+    "@model": ["./src/model"],
+    // styled-component 옵션 추가
+    "types": ["styled-components-react-native"],
+    }
+    },
+}
