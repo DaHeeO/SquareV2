@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Square.app"
-               BlueprintName = "Square"
-               ReferencedContainer = "container:Square.xcodeproj">
+               BuildableName = "square.app"
+               BlueprintName = "square"
+               ReferencedContainer = "container:square.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "SquareTests.xctest"
-               BlueprintName = "SquareTests"
-               ReferencedContainer = "container:Square.xcodeproj">
+               BuildableName = "squareTests.xctest"
+               BlueprintName = "squareTests"
+               ReferencedContainer = "container:square.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Square.app"
-            BlueprintName = "Square"
-            ReferencedContainer = "container:Square.xcodeproj">
+            BuildableName = "square.app"
+            BlueprintName = "square"
+            ReferencedContainer = "container:square.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Square.app"
-            BlueprintName = "Square"
-            ReferencedContainer = "container:Square.xcodeproj">
+            BuildableName = "square.app"
+            BlueprintName = "square"
+            ReferencedContainer = "container:square.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
