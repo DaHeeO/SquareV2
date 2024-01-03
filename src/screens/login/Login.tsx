@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
-import { Text, View } from 'react-native';
+import React from 'react';
 
 import * as S from './Login.styles';
 import Wave from './Wave';
 
 import Kakao from '../../assets/images/kakaoIcon.png'
-import { useSharedValue, withDelay, withRepeat, withTiming } from 'react-native-reanimated';
 
 const Login = ({ navigation }: any) => {
 
@@ -16,7 +14,8 @@ const Login = ({ navigation }: any) => {
             <S.ExtraBold>SQUARE</S.ExtraBold>
         </S.TextBox>
         <S.BoxContainer>
-            <S.KaKaoButton>
+            <S.KaKaoButton onPress={() => navigation.navigate('Kakao')}>
+            {/* <S.KaKaoButton onPress={cmmReqCameraPermission}> */}
                 <S.Icon source={Kakao} />
                 <S.SemiBold>카카오로 시작하기</S.SemiBold>
             </S.KaKaoButton>
