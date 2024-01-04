@@ -20,6 +20,11 @@ function App(){
             component={Login}
             options={{ headerShown: false }}
           />
+          <Stack.Screen
+            name="BottomTab"
+            component={BottomTab}
+            options={{ headerShown: false }} // BottomTab의 헤더 숨기기
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </RecoilRoot>
