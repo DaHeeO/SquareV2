@@ -3,7 +3,7 @@ import React from 'react';
 import * as S from './Login.styles';
 import Wave from './Wave';
 
-import Kakao from '../../assets/images/kakaoIcon.png'
+import Kakao from '../../assets/images/KakaoIcon.png'
 
 const Login = ({ navigation }: any) => {
 

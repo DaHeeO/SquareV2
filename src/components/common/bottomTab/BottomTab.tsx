@@ -21,10 +21,11 @@ import BottomTabIcon from './BottomTabIcon';
 import BottomBarIcon from '@/assets/icons/BottomBarIcon.svg';
 
 // stackNavigator
-// import MainStackNavigators from '../../../navigations/MainStackNavigation';
-// import ProfileStackNavigators from '../../../navigations/ProfileStackNavigators';
-// import ChartStackNavigators from '../../../navigations/ChartStackNavigators';
-// import SocialStackNavigators from '../../../navigations/SocialStackNavigators';
+import MainStackNavigators from '../../../navigations/MainStackNavigation';
+import ProfileStackNavigators from '../../../navigations/ProfileStackNavigation';
+import PickUpStackNavigators from '../../../navigations/PickUpStackNavigation';
+import RegularStackNavigators from '../../../navigations/RegularStackNavigation';
+import ExploreStackNavigators from '../../../navigations/ExploreStackNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -146,7 +147,7 @@ function BottomTab() {
       />
       <Tab.Screen
         name="Profile"
-        component={Profile}
+        component={ProfileStackNavigators}
         options={{
           tabBarIcon: ({focused}) => (
             <BottomTabIcon focused={focused} type="profile" />

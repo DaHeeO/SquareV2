@@ -1,18 +1,18 @@
 import {useState, useEffect} from 'react';
 
 // icons
-import MainIcon from '../../../assets/icons/MainIcon';
-import PickUpIcon from '../../../assets/icons/ChartIcon';
-import ExploreIcon from '../../../assets/icons/SocialIcon';
-import RegularIcon from '../../../assets/icons/EditIcon';
-import ProfileIcon from '../../../assets/icons/ProfileIcon';
+import MainIcon from '../../../assets/icons/MainIcon.png';
+import PickUpIcon from '../../../assets/icons/PickUpIcon.png';
+import ExploreIcon from '../../../assets/icons/ExploreIcon.png';
+import RegularIcon from '../../../assets/icons/RegularIcon.png';
+import ProfileIcon from '../../../assets/icons/ProfileIcon.png';
 
 // styles
 import * as varStyles from '../globalStyles';
 
 interface NavIconProps {
   focused: boolean;
-  type: 'main' | 'social' | 'chart' | 'edit' | 'profile';
+  type: 'main' | 'pickup' | 'regular' | 'explore' | 'profile';
 }
 
 const getNavIconColor = (focused: boolean) => {
