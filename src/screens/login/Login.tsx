@@ -14,7 +14,7 @@ const Login = ({ navigation }: any) => {
             <S.ExtraBold>SQUARE</S.ExtraBold>
         </S.TextBox>
         <S.BoxContainer>
-            <S.KaKaoButton onPress={() => navigation.navigate('Kakao')}>
+            <S.KaKaoButton onPress={() => navigation.navigate('MainStack')}>
             {/* <S.KaKaoButton onPress={cmmReqCameraPermission}> */}
                 <S.Icon source={Kakao} />
                 <S.SemiBold>카카오로 시작하기</S.SemiBold>

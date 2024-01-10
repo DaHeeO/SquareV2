@@ -52,7 +52,7 @@ function App(){
   return (
     <RecoilRoot>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="MainStack">
+        <Stack.Navigator initialRouteName="Main">
           <Stack.Screen
             name="Login"
             component={Login}
@@ -68,22 +68,27 @@ function App(){
             component={MainStack}
             options={{ headerShown: false }}
           />
-                    <Stack.Screen
+          <Stack.Screen
             name="ExploreStack"
             component={ExploreStack}
             options={{ headerShown: false }}
           />
-                    <Stack.Screen
+          <Stack.Screen
+            name="PickUpStack"
+            component={PickupStack}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
             name="RegularStack"
             component={RegularStack}
             options={{ headerShown: false }}
           />
-                    <Stack.Screen
+          <Stack.Screen
             name="ProfileStack"
             component={ProfileStack}
             options={{ headerShown: false }}
           />
-        </Stack.Navigator>
+        </Stack.Navigator> 
       </NavigationContainer>
     </RecoilRoot>
   );
