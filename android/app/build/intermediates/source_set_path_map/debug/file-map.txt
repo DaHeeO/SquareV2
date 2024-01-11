@@ -38,7 +38,9 @@ com.square.app-merged_res-36 /Users/odahui/Desktop/Square/square-mobile/android/
 com.square.app-debug-37 /Users/odahui/Desktop/Square/square-mobile/android/app/src/debug/res
 com.square.app-main-38 /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/res
 com.square.app-packaged_res-39 /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-gesture-handler/android/build/intermediates/packaged_res/debug
-com.square.app-packaged_res-40 /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-reanimated/android/build/intermediates/packaged_res/debug
-com.square.app-packaged_res-41 /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-safe-area-context/android/build/intermediates/packaged_res/debug
-com.square.app-packaged_res-42 /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-screens/android/build/intermediates/packaged_res/debug
-com.square.app-packaged_res-43 /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-svg/android/build/intermediates/packaged_res/debug
+com.square.app-packaged_res-40 /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-permissions/android/build/intermediates/packaged_res/debug
+com.square.app-packaged_res-41 /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-reanimated/android/build/intermediates/packaged_res/debug
+com.square.app-packaged_res-42 /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-safe-area-context/android/build/intermediates/packaged_res/debug
+com.square.app-packaged_res-43 /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-screens/android/build/intermediates/packaged_res/debug
+com.square.app-packaged_res-44 /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-svg/android/build/intermediates/packaged_res/debug
+com.square.app-packaged_res-45 /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-webview/android/build/intermediates/packaged_res/debug

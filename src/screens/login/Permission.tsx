@@ -1,13 +1,18 @@
 import React, { useEffect } from 'react';
 import { Alert, Platform } from 'react-native';
 import { PERMISSIONS, RESULTS, request } from "react-native-permissions";
+
+// styled 
 import * as S from './Permission.styles';
 import {Text} from '../../components/common/fonts';
-import {colors} from '../../components/common/globalStyles'
+import {colors} from '../../components/common/globalStyles';
 
 // icon
 import Notification from '../../assets/icons/Notification';
 import Pin from '../../assets/icons/Pin';
+
+//componet
+import PermissionDiv from '../../components/Login/PermissionDiv';
 
 const Permission = ({ navigation }: any) => {
 
@@ -52,7 +57,7 @@ const Permission = ({ navigation }: any) => {
         size={20} 
         color={colors.text._primary} 
         weight={'Bold'}
-        style={{marginTop: 10}}
+        style={{marginBottom: 20}}
         >
         SQUARE 서비스 이용을 위해 {'\n'}
         필요한 접근권한 안내입니다.
@@ -61,65 +66,36 @@ const Permission = ({ navigation }: any) => {
         size={14} 
         color={colors.text._secondary} 
         weight={'Regular'}
-        style={{marginTop: 10, marginBottom: 20}}
+        style={{marginBottom: 20}}
         >
         선택적 접근권한 허용 거부 시 일부 서비스 이용에 {'\n'}
         제한이 있을 수 있습니다. {'\n'}
         접근권한은 [설정 &gt; Square] 에서 변경하실 수 있습니다.
         </Text>
-        <S.Notification>
-          <Pin  color={'#111111'} width={24} height={24} />
-          <S.Div>
-            <S.TextForm>
-              <Text size={16} color={colors.text._primary} weight={'SemiBold'}>
-                위치
-              </Text>
-              <Text 
-              size={16} 
-              color={colors.text._secondary} 
-              weight={'Regular'}
-              style={{marginLeft: 4}}
-              >
-                (필수)
-              </Text>
-            </S.TextForm>
-            <Text 
-            size={14} 
-            color={colors.text._secondary} 
-            weight={'Regular'}
-            >
-              매장 위치 확인 및 검색, 주문 등에 사용
-            </Text>
-          </S.Div>
-        </S.Notification>
-        <S.Notification>
-          <Notification  color={'#111111'} width={24} height={24} />
-          <S.Div>
-            <S.TextForm>
-              <Text size={16} color={colors.text._primary} weight={'SemiBold'}>
-                알림
-              </Text>
-              <Text 
-              size={16} 
-              color={colors.text._secondary} 
-              weight={'Regular'}
-              style={{marginLeft: 4}}
-              >
-                (필수)
-              </Text>
-            </S.TextForm>
-            <Text 
-            size={14} 
-            color={colors.text._secondary} 
-            weight={'Regular'}
-            >
-              주문 정보 및 공지, 이벤트 알림 시 사용
-            </Text>
-          </S.Div>
-        </S.Notification>
-
+        {/* 필요한 권한 추가 */}
+        <PermissionDiv 
+        icon={<Pin  color={'#111111'} width={24} height={24} />}
+        permission={'위치'}
+        isNeccessary={true}
+        subText={'매장 위치 확인 및 검색, 주문 등에 사용'}
+        />
+        <PermissionDiv 
+        icon={<Notification  color={'#111111'} width={24} height={24} />}
+        permission={'알림'}
+        isNeccessary={true}
+        subText={'주문 정보 및 공지, 이벤트 알림 시 사용'}
+        />
       </S.Main>
-
+      <S.Bottom onPress={() => navigation.reset({routes: [{name: 'Login'}]})}>
+      {/* <S.Bottom onPress={() => navigation.navigate('Login')}> */}
+        <Text 
+        size={16} 
+        color={'white'} 
+        weight={'Bold'}
+        >
+          확인
+        </Text>
+      </S.Bottom>
     </S.Container>
   );
 };

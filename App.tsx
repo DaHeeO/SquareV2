@@ -7,6 +7,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import Login from './src/screens/login/Login';
 import Kakao from './src/screens/login/KakaoLogin';
 import Permission from './src/screens/login/Permission';
+import Location from './src/screens/settings/Location';
+
 const Stack = createStackNavigator();
 
 function App(){
@@ -28,6 +30,11 @@ function App(){
           <Stack.Screen
             name="Permission"
             component={Permission}
+            options={{headerShown: false}}
+          />
+           <Stack.Screen
+            name="Location"
+            component={Location}
             options={{headerShown: false}}
           />
         </Stack.Navigator>
