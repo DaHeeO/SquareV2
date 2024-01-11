@@ -5,29 +5,26 @@ export const Container = styled.View`
   flex: 1;
   justify-content: flex-start;
   align-items: flex-start;
+  margin: 0px 24px;
 `;
 
 export const Top = styled.View`
   align-items: center;
-  padding: 10px 0px;
+  padding: 20px 0px 40px 0px;
   width: 100%;
 `;
 
 export const Main = styled.View`
-  padding: 10px 0px;
-  margin: 0px 24px;
+  width: 100%;
 `;
 
-export const Notification = styled.View`
-  flex-direction: row;
+export const Bottom = styled.TouchableOpacity`
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  height: 60px;
   align-items: center;
-  margin: 20px 0px;
-`
-
-export const Div = styled.View`
-  margin-left: 12px;
-`
-
-export const TextForm = styled.View`
-  flex-direction: row;
+  justify-content: center;
+  background-color: ${colors.text._primary};
+  border-radius: 10px;
 `
