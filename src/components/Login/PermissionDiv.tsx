@@ -37,7 +37,7 @@ const PermissionDiv = (comp: any) => {
             weight={'Regular'}
             >
               {comp.subText}
-            </Text>
+          </Text>
         </TextContatiner>
    </BoxContainer>
   );
@@ -47,7 +47,7 @@ const PermissionDiv = (comp: any) => {
 const BoxContainer = styled.View`
   flex-direction: row;
   align-items: center;
-  margin: 20px 0px;
+  margin: 15px 0px;
 `
 const TextContatiner = styled.View`
   margin-left: 12px;

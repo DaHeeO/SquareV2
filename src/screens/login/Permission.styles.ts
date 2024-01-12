@@ -15,6 +15,7 @@ export const Top = styled.View`
 `;
 
 export const Main = styled.View`
+  flex: 1;
   width: 100%;
 `;
 
@@ -25,6 +26,6 @@ export const Bottom = styled.TouchableOpacity`
   height: 60px;
   align-items: center;
   justify-content: center;
-  background-color: ${colors.text._primary};
+  background-color: ${colors.green._300};
   border-radius: 10px;
 `
