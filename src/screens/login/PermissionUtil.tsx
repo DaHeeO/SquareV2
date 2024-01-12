@@ -39,13 +39,15 @@ class PermissionUtil {
                 switch (permsCheck) {
                     // [CASE1] 권한 상태가 수락(granted) 상태인 경우
                     case "granted":
+                    case "limited":
                         break;
                     // [CASE2] 권한 상태가 수락되지 않은 상태 : 배열을 저장합니다.
                     case "blocked":
                     case "denied":
-                    case "limited":
+                    // case "limited":
                     case "unavailable":
                         notGrantedArr.push(permsItem);
+                        console.log(notGrantedArr);
                         break;
                 }
             }
@@ -81,10 +83,10 @@ class PermissionUtil {
                     let permsCnt = 0;   // 허용되지 않은 권한의 종류
                     notGrantedArr.map((permsItem) => statues[permsItem] === RESULTS.GRANTED ? permsCnt += 1 : 0);
                     if (notGrantedArrLen === permsCnt) return;
-                    // else {
-                    //     Linking.openSettings(); // 핸드폰 상 설정 페이지
-                    //     Alert.alert("권한을 모두 허용해주세요");
-                    // }
+                    else {
+                        Linking.openSettings(); // 핸드폰 상 설정 페이지
+                        Alert.alert("권한을 모두 허용해주세요");
+                    }
                 })
                 .catch((e) => {
                     console.log("[-] 권한 요청에서 에러가 발생하였습니다.", e)
