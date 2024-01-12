@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import { Text, View } from 'react-native';
 import Main from '@/screens/main/Main';
+import Search from '@/screens/explore/Explore';
+import Explore from '@/screens/explore/Explore';
 
 
 const ExploreStack = createStackNavigator();
@@ -18,7 +20,7 @@ function ExploreStackNavigators() {
     <ExploreStack.Navigator initialRouteName="Search">
       <ExploreStack.Screen
         name="Search"
-        component={Main}
+        component={Explore}
         options={{headerShown: false}}
       />
       <ExploreStack.Screen

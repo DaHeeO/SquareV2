@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import { Text, View } from 'react-native';
 import Main from '@/screens/main/Main';
+import Profile from '@/screens/profile/Profile';
 
 const ProfileStack = createStackNavigator();
 
@@ -15,9 +16,9 @@ const ProfileStack = createStackNavigator();
 function ProfileStackNavigators() {
   return (
     <ProfileStack.Navigator initialRouteName="Profile">
-              <ProfileStack.Screen
+      <ProfileStack.Screen
         name="Profile"
-        component={Main}
+        component={Profile}
         options={{headerShown: false}}
       />
         <ProfileStack.Screen

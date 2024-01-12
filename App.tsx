@@ -21,7 +21,7 @@ function App(){
   return (
     <RecoilRoot>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Permission">
+        <Stack.Navigator initialRouteName="MainStack">
           <Stack.Screen
             name="Login"
             component={Login}

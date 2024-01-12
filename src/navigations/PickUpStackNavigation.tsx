@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import { Text, View } from 'react-native';
-import Main from '@/screens/main/Main';
+import PickUp from '@/screens/pickup/PickUp';
 
 const PickUpStack = createStackNavigator();
 
@@ -16,7 +16,7 @@ function PickUpStackNavigators() {
     <PickUpStack.Navigator initialRouteName="Order">
       <PickUpStack.Screen
         name="Order"
-        component={Main}
+        component={PickUp}
         options={{headerShown: false}}
       />
 

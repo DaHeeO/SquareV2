@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import { Text, View } from 'react-native';
-import Main from '@/screens/main/Main';
+import Regular from '@/screens/regular/Regular';
 
 const RegularStack = createStackNavigator();
 
@@ -14,7 +14,7 @@ function RegularStackNavigators() {
     <RegularStack.Navigator initialRouteName="Regular">
       <RegularStack.Screen
         name="Regular"
-        component={Main}
+        component={Regular}
         options={{headerShown: false}}
       />
 

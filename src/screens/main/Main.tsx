@@ -9,8 +9,7 @@ const Main = () => {
     <S.Container>
       <StatusBar barStyle="dark-content" />
       <S.TopBar>
-        {/* 상단 네비게이션 바 컴포넌트 */}]
-        
+
       </S.TopBar>
       <S.SearchBar>
         {/* 검색 바 컴포넌트 */}
@@ -18,14 +17,11 @@ const Main = () => {
       </S.SearchBar>
       <S.CategoryMenu>
         {/* 카테고리 선택 메뉴 컴포넌트 */}
-
+ 
       </S.CategoryMenu>
 
-      <S.NavigationTab>
-
-        {/* 하단 네비게이션 탭 컴포넌트 */}
-        <BottomTab></BottomTab>
-      </S.NavigationTab>
+      <BottomTab>
+        </BottomTab>
     </S.Container>
   );
 };
