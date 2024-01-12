@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import { Alert, Platform } from 'react-native';
-import { PERMISSIONS, RESULTS, request } from "react-native-permissions";
 
 // styled 
 import * as S from './Permission.styles';
@@ -10,41 +8,19 @@ import {colors} from '../../components/common/globalStyles';
 // icon
 import Notification from '../../assets/icons/Notification';
 import Pin from '../../assets/icons/Pin';
+import User from '../../assets/icons/User';
+import Camera from '../../assets/icons/Camera';
+import Photo from '../../assets/icons/Photo';
 
 //componet
 import PermissionDiv from '../../components/Login/PermissionDiv';
+import PermissionUtil from './PermissionUtil';
+import { APP_PERMISSION_CODE } from '../../components/common/PermissionCode';
 
 const Permission = ({ navigation }: any) => {
 
-  const cmmDevicePlatformCheck = (): boolean => {
-    let isUseDevice = true;
-    if (Platform.OS !== 'ios' && Platform.OS !== 'android') !isUseDevice;
-    return isUseDevice;
-  };
-
   useEffect(() => {
-    const cmmReqLocationPermission = async (): Promise<void> => {
-      // 모든 권한에 대해 디바이스 플랫폼을 체크합니다. (해당 되지 않는 경우 종료합니다.)
-      if (!cmmDevicePlatformCheck()) return;
-      const platformPermissions =
-        Platform.OS === 'ios' ? PERMISSIONS.IOS.LOCATION_ALWAYS : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION;
-      try {
-        // Request Permission
-        const result = await request(platformPermissions);
-
-        if (result === RESULTS.GRANTED) {
-          console.log('권한이 허용되었습니다.');
-        }
-      } catch (err) {
-        Alert.alert('Location permission err');
-        console.warn(err);
-      }
-
-      // Display notification alert
-      // Alert.alert('Welcome', 'Thank you for launching the app!');
-    };
-
-    cmmReqLocationPermission();
+    PermissionUtil.cmmReqPermis([...APP_PERMISSION_CODE.location, ...APP_PERMISSION_CODE.notification, ...APP_PERMISSION_CODE.camera, ...APP_PERMISSION_CODE.photo, ...APP_PERMISSION_CODE.contact]);
   }, []);
 
   return (
@@ -57,7 +33,7 @@ const Permission = ({ navigation }: any) => {
         size={20} 
         color={colors.text._primary} 
         weight={'Bold'}
-        style={{marginBottom: 20}}
+        style={{marginBottom: 10}}
         >
         SQUARE 서비스 이용을 위해 {'\n'}
         필요한 접근권한 안내입니다.
@@ -66,7 +42,7 @@ const Permission = ({ navigation }: any) => {
         size={14} 
         color={colors.text._secondary} 
         weight={'Regular'}
-        style={{marginBottom: 20}}
+        style={{marginBottom: 10}}
         >
         선택적 접근권한 허용 거부 시 일부 서비스 이용에 {'\n'}
         제한이 있을 수 있습니다. {'\n'}
@@ -82,12 +58,29 @@ const Permission = ({ navigation }: any) => {
         <PermissionDiv 
         icon={<Notification  color={'#111111'} width={24} height={24} />}
         permission={'알림'}
-        isNeccessary={true}
+        isNeccessary={false}
         subText={'주문 정보 및 공지, 이벤트 알림 시 사용'}
+        />
+        <PermissionDiv 
+        icon={<Camera  color={'#111111'} width={24} height={24} />}
+        permission={'카메라'}
+        isNeccessary={false}
+        subText={'사진리뷰 및 프로필 설정 시 사진촬영, 주문 시 QR \n코드 스캔'}
+        />
+        <PermissionDiv 
+        icon={<Photo  color={'#111111'} width={24} height={24} />}
+        permission={'사진'}
+        isNeccessary={false}
+        subText={'사진리뷰 및 프로필 설정 시 이미지 첨부'}
+        />
+        <PermissionDiv 
+        icon={<User  color={'#111111'} width={24} height={24} />}
+        permission={'연락처'}
+        isNeccessary={false}
+        subText={'공유 시 연락처 목록 불러오기'}
         />
       </S.Main>
       <S.Bottom onPress={() => navigation.reset({routes: [{name: 'Login'}]})}>
-      {/* <S.Bottom onPress={() => navigation.navigate('Login')}> */}
         <Text 
         size={16} 
         color={'white'} 
