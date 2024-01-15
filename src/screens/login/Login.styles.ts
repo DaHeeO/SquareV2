@@ -1,7 +1,6 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
 import {colors} from '../../components/common/globalStyles';
-import { Image } from "react-native";
-
+import {Image} from 'react-native';
 
 export const Container = styled.View`
   flex: 1;
@@ -12,14 +11,14 @@ export const Container = styled.View`
 
 export const TextBox = styled.View`
   padding: 300px 24px 0px;
-`
+`;
 
 export const ButtonContainer = styled.View`
   position: absolute;
   bottom: 40px;
   width: 100%;
   padding: 0px 24px;
-`
+`;
 
 export const KaKaoButton = styled.TouchableOpacity`
   width: 100%;
@@ -27,7 +26,7 @@ export const KaKaoButton = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   border-radius: 10px;
-  background-color: #FEE500;
+  background-color: #fee500;
   padding-left: 28px;
   z-index: 5;
 `;
@@ -37,4 +36,3 @@ export const Icon = styled(Image)`
   height: 20px;
   margin-right: 64px;
 `;
-

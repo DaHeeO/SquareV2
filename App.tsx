@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 
-import { createStackNavigator } from '@react-navigation/stack';
-import { RecoilRoot } from 'recoil';
-import { NavigationContainer } from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {RecoilRoot} from 'recoil';
+import {NavigationContainer} from '@react-navigation/native';
 
 import Login from './src/screens/login/Login';
 import Kakao from './src/screens/login/KakaoLogin';
@@ -11,21 +11,20 @@ import Location from './src/screens/settings/Location';
 
 const Stack = createStackNavigator();
 
-function App(){
-
+function App() {
   return (
     <RecoilRoot>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Permission">
+        <Stack.Navigator initialRouteName="Login">
           <Stack.Screen
             name="Login"
             component={Login}
-            options={{ headerShown: false }}
+            options={{headerShown: false}}
           />
           <Stack.Screen
             name="Kakao"
             component={Kakao}
-            options={{ headerShown: false }}
+            options={{headerShown: false}}
           />
           <Stack.Screen
             name="Permission"
