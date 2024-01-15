@@ -13,7 +13,7 @@ const KakaoLogin = ({navigation}: any) => {
     if (match) {
       const token = match[1];
       await axios
-        .get(`http://121.184.131.115:8080/buyer/login?token=${token}`, {
+        .get(`http://121.184.131.37:8080/buyer/login?token=${token}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -34,7 +34,7 @@ const KakaoLogin = ({navigation}: any) => {
       }}
       //웹뷰에서 보여줄주소
       source={{
-        uri: 'http://121.184.131.115:8080/oauth2/authorization/kakao',
+        uri: 'http://121.184.131.37:8080/oauth2/authorization/kakao',
         method: 'GET',
         headers: {
           'Accept-Language': 'ko-KR,ko',
