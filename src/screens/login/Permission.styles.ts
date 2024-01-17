@@ -20,10 +20,9 @@ export const Main = styled.View`
 `;
 
 export const Bottom = styled.TouchableOpacity`
-  position: absolute;
-  bottom: 40px;
   width: 100%;
   height: 60px;
+  margin-bottom: 40px;
   align-items: center;
   justify-content: center;
   background-color: ${colors.green._300};

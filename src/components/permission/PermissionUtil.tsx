@@ -1,9 +1,5 @@
-import { Alert, Linking, Platform } from "react-native";
-import { RESULTS, PERMISSIONS, requestMultiple, Permission, check, request } from "react-native-permissions";
-
-// modal
-import LocationPermModal from "./modal/LocationPermModal";
-
+import { Alert, Platform } from "react-native";
+import { RESULTS, requestMultiple, Permission, check, request } from "react-native-permissions";
 
 /**
  * '앱의 권한'을 공통으로 관리하는 유틸입니다.
@@ -64,7 +60,7 @@ class PermissionUtil {
      * @returns 
      */
     cmmReqPermis = async (permsArr: Permission[]): Promise<void> => {
-        console.log("[+] 함수 실행완료")
+        // console.log("[+] 함수 실행완료")
 
         // [CASE1] 모든 권한에 대해 디바이스 플랫폼을 체크합니다. (해당 되지 않는 경우 종료합니다.)
         if (!this.cmmAccessDevicePlatformCheck()) return;
@@ -85,12 +81,6 @@ class PermissionUtil {
                     let permsCnt = 0;   // 허용되지 않은 권한의 종류
                     notGrantedArr.map((permsItem) => statues[permsItem] === RESULTS.GRANTED ? permsCnt += 1 : 0);
                     if (notGrantedArrLen === permsCnt) return;
-                    else {
-                        // 여기는 사실 설정이 안되면 링킹을 통해 설정으로 가는건데
-                        // 우선은 패스 나중에 확인을 통해 한번 더 체크 하면 되니깐
-                        // Linking.openSettings(); // 핸드폰 상 설정 페이지
-                        // Alert.alert("권한을 모두 허용해주세요");
-                    }
                 })
                 .catch((e) => {
                     console.log("[-] 권한 요청에서 에러가 발생하였습니다.", e)

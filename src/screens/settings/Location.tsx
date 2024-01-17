@@ -42,6 +42,7 @@ const Location = ({ navigation }: any) => {
       // 권한이 부여되었을 때
       if (permissionGranted) {
         // 위치 설정 페이지로
+        navigation.navigate('CurLocation');
       } else {
         // 권한이 거부되었을 때의 모달 띄우기
         // console.log('Location permission denied.');
@@ -56,21 +57,23 @@ const Location = ({ navigation }: any) => {
   return (
     <S.Container>
       <S.Top>
-        <Text size={18} color={colors.text._primary} weight={'SemiBold'}>앱 접근 권한 안내</Text>
+        <Text size={18} color={colors.text._primary} weight={'SemiBold'}>내 지역 설정</Text>
       </S.Top>
       <S.SearchBar>
         <S.SearchDiv>
           <Search  color={colors.text._secondary} size={24} />
           <S.TextInput 
-          placeholder='지번, 도로명, 건물명으로 검색'
+          placeholder='동명(읍, 면)으로 검색 (ex. 봉명동)'
           onChangeText={onChangeText}
           value={text}
           >
           </S.TextInput>
         </S.SearchDiv>
-        <S.Close onPress={resetText}>
+        {text=='' ? null : (
+          <S.Close onPress={resetText}>
           <Close  color={colors.text._secondary} size={24} />
         </S.Close>
+        )}
       </S.SearchBar>
       <S.CurrentLocation onPress={checkLocation}>
         <S.CLDiv>
@@ -81,7 +84,7 @@ const Location = ({ navigation }: any) => {
           weight={'Regular'}
           style={{marginLeft: 12}}
           >
-          현재 위치로 설정
+          현재 위치로 동네 설정
           </Text>
         </S.CLDiv>
         <Right  color={colors.text._secondary} size={24} />
