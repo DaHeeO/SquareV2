@@ -3,7 +3,7 @@ import React from 'react';
 // styled
 import styled from "styled-components/native";
 import {Text} from '../common/fonts';
-import {colors} from '../../components/common/globalStyles'
+import {colors} from '../common/globalStyles'
 
 interface comp {
     icon: React.ReactNode;

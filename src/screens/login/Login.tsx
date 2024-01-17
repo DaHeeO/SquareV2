@@ -7,11 +7,10 @@ import {Text} from '../../components/common/fonts';
 import {colors} from '../../components/common/globalStyles';
 
 // icon
-// import Kakao from '../../assets/images/kakaoIcon.png';
+import Kakao from '../../assets/images/kakaoIcon.png';
 
 // component
 import Wave from './Wave';
-import {Dimensions} from 'react-native';
 
 // import Kakao from '../../assets/images/kakaoIcon.png'
 
@@ -29,7 +28,7 @@ const Login = ({navigation}: any) => {
       <S.ButtonContainer>
         {/* 여기 카카오 로그인 성공하면 처음 사용자한테는 location으로 이동 아니면 main */}
         <S.KaKaoButton onPress={() => navigation.navigate('Kakao')}>
-          {/* <S.Icon source={Kakao} /> */}
+          <S.Icon source={Kakao} />
           <Text size={16} color={colors.text._primary} weight={'SemiBold'}>
             카카오로 시작하기
           </Text>
