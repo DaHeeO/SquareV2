@@ -34,7 +34,7 @@ const LocationPermModal = ({ modalVisible, closeModal }: LocationPermModalProps)
           weight={'Regular'}
           style={{textAlign: "center"}}
           >
-            현재 위치를 찾을 수 없습니다. 위치 권한을 허용해 주세요.
+            위치 사용 권한이 없습니다. 설정에서 권한을 활성화 해주세요.
           </Text>
         </S.TextAlert>
         <S.ButtonContainer>

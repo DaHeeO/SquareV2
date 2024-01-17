@@ -19,9 +19,31 @@ import { APP_PERMISSION_CODE } from '../../components/permission/PermissionCode'
 
 const Permission = ({ navigation }: any) => {
 
+  // useEffect(() => {
+  //   PermissionUtil.cmmReqPermis([...APP_PERMISSION_CODE.location, ...APP_PERMISSION_CODE.notification, ...APP_PERMISSION_CODE.camera, ...APP_PERMISSION_CODE.photo, ...APP_PERMISSION_CODE.contact]);
+  // }, []);
+
+  // delay를 안먹이니깐 권한 창이 뜨고 화면이 렌더링 되어서
+  // 그걸 방지 하기 위해 delay 먹여놓음
   useEffect(() => {
-    PermissionUtil.cmmReqPermis([...APP_PERMISSION_CODE.location, ...APP_PERMISSION_CODE.notification, ...APP_PERMISSION_CODE.camera, ...APP_PERMISSION_CODE.photo, ...APP_PERMISSION_CODE.contact]);
+    // Add a delay of 1000 milliseconds (1 second)
+    const delay = 1000;
+
+    // Perform permission checks after the delay
+    const timeoutId = setTimeout(() => {
+      PermissionUtil.cmmReqPermis([
+        ...APP_PERMISSION_CODE.location,
+        ...APP_PERMISSION_CODE.notification,
+        ...APP_PERMISSION_CODE.camera,
+        ...APP_PERMISSION_CODE.photo,
+        ...APP_PERMISSION_CODE.contact,
+      ]);
+    }, delay);
+
+    // Clean up the timeout to prevent memory leaks
+    return () => clearTimeout(timeoutId);
   }, []);
+
 
   return (
     <S.Container>

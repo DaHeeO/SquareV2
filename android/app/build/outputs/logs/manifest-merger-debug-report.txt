@@ -6,6 +6,7 @@ INJECTED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/debug/A
 INJECTED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/debug/AndroidManifest.xml:2:1-9:12
 INJECTED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.react:flipper-integration:0.73.1] /Users/odahui/.gradle/caches/transforms-3/621dc2f6a8ed4fc6e76278bf04adcb67/transformed/jetified-flipper-integration-0.73.1-debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-async-storage_async-storage] /Users/odahui/Desktop/Square/square-mobile/node_modules/@react-native-async-storage/async-storage/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-gesture-handler] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-permissions] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-permissions/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-reanimated] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-reanimated/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
@@ -204,6 +205,8 @@ INJECTED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/debug/A
 INJECTED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/debug/AndroidManifest.xml
 MERGED from [com.facebook.react:flipper-integration:0.73.1] /Users/odahui/.gradle/caches/transforms-3/621dc2f6a8ed4fc6e76278bf04adcb67/transformed/jetified-flipper-integration-0.73.1-debug/AndroidManifest.xml:5:5-44
 MERGED from [com.facebook.react:flipper-integration:0.73.1] /Users/odahui/.gradle/caches/transforms-3/621dc2f6a8ed4fc6e76278bf04adcb67/transformed/jetified-flipper-integration-0.73.1-debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-async-storage_async-storage] /Users/odahui/Desktop/Square/square-mobile/node_modules/@react-native-async-storage/async-storage/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-async-storage_async-storage] /Users/odahui/Desktop/Square/square-mobile/node_modules/@react-native-async-storage/async-storage/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-gesture-handler] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-gesture-handler] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-permissions] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-permissions/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
