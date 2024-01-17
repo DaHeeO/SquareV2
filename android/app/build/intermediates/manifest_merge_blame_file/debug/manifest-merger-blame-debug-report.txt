@@ -80,8 +80,8 @@
 45-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:21:9-41
 46            android:launchMode="singleTask"
 46-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:23:9-40
-47            android:windowSoftInputMode="adjustNothing" >
-47-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:24:9-52
+47            android:windowSoftInputMode="adjustResize" >
+47-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:24:9-51
 48            <intent-filter>
 48-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:26:9-29:25
 49                <action android:name="android.intent.action.MAIN" />
