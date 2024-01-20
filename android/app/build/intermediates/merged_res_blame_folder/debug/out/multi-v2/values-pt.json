@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.square.app-mergeDebugResources-34:/values-pt/values-pt.xml",
+            "outputFile": "com.square.app-mergeDebugResources-36:/values-pt/values-pt.xml",
             "map": [
                 {
                     "source": "/Users/odahui/.gradle/caches/transforms-3/65f520f887f0d0f390437980af8cd371/transformed/jetified-react-android-0.73.1-debug/res/values-pt/values-pt.xml",
