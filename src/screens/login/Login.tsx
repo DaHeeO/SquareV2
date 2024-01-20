@@ -7,7 +7,7 @@ import {Text} from '../../components/common/fonts';
 import {colors} from '../../components/common/globalStyles';
 
 // icon
-import Kakao from '../../assets/images/kakaoIcon.png';
+import Kakao from '../../assets/images/KakaoIcon.png';
 
 // component
 import Wave from './Wave';
