@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Geolocation from '@react-native-community/geolocation';
 
 // component
+import MapByGeolocation from '../../components/webView/MapByGeolocation';
 
 // styled
 import * as S from './CurLocation.styles';
@@ -16,33 +17,6 @@ import Target from '../../assets/images/target.png';
 
 const CurLocation = ({ navigation }: any) => {
 
-    const [latitude, setLatitude] = useState('');
-    const [longtitude, setLongtitude] = useState('');
-
-    const geoLocation = () => {
-      Geolocation.getCurrentPosition(
-        position => {
-          const latitude = JSON.stringify(position.coords.latitude);
-          const longtitude = JSON.stringify(position.coords.longitude);
-
-          setLatitude(latitude);
-          setLongtitude(longtitude);
-
-          console.log("latitude", position.coords.latitude);
-          console.log("longtitude", position.coords.longitude);
-        },
-        error => {
-          console.log(error.code, error.message);
-
-        }
-      )
-    }
-  
-  useEffect(() => {
-    geoLocation();
-  }, []);
-
-
   return (
     <S.Container>
       <S.Top>
@@ -55,7 +29,7 @@ const CurLocation = ({ navigation }: any) => {
       </S.Top>
       {/* 지도 */}
       <S.Map>
-        {/* <KakaoMap/> */}
+        <MapByGeolocation/>
       </S.Map>
       <S.Bottom>
         <Text 
