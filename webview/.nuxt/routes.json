@@ -1,0 +1,16 @@
+[
+  {
+    "name": "current",
+    "path": "/current",
+    "component": "/Users/odahui/Desktop/Square/square-mobile/webview/pages/current.vue",
+    "chunkName": "pages/current",
+    "_name": "_d9a69d1a"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/odahui/Desktop/Square/square-mobile/webview/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_2f48d8cc"
+  }
+]
