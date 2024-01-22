@@ -3,13 +3,22 @@ import WebView from "react-native-webview";
 import { Dimensions } from "react-native";
 import Geolocation from '@react-native-community/geolocation';
 
-interface LocationState {
+// interface
+import {LocationState} from '../../screens/settings/CurLocation';
+
+// 부모 컴포넌트로 보낼 정보를 담은 인터페이스
+interface MapByGeolocationProps {
+  onLocationInfo: (locationInfo: LocationState) => void;
+}
+
+// 위치 정보 사용할 인터페이스
+interface MapByGeolocationState {
   latitude: number | null;
   longitude: number | null;
 }
 
-export default class Location extends Component<{}, LocationState> {
-  constructor(props: {}) {
+class MapByGeolocation extends Component<MapByGeolocationProps, MapByGeolocationState> {
+  constructor(props: MapByGeolocationProps) {
     super(props);
     this.state = {
       latitude: null,
@@ -17,6 +26,7 @@ export default class Location extends Component<{}, LocationState> {
     };
   }
 
+  // 웹뷰로 데이터 전달 (native => webview)
   componentDidMount() {
     Geolocation.getCurrentPosition(
       (position) => {
@@ -36,9 +46,28 @@ export default class Location extends Component<{}, LocationState> {
     );
   }
 
+  handleMessage = (data: string) => {
+    try {
+      const parsedData = JSON.parse(data);
+      const { code, legalAddress } = parsedData.payload;
+
+      // 정보 업데이트해서 부모 컴포넌트로 전달
+      this.props.onLocationInfo({
+        latitude: this.state.latitude,
+        longitude: this.state.longitude,
+        code,
+        legalAddress,
+      });
+
+    } catch (error) {
+      console.error("Error parsing message from WebView:", error);
+    }
+  };
+
   render() {
     const { latitude, longitude } = this.state;
 
+    // webview로 전달할 데이터 세팅 (javascript file)
     const injectedJavaScript = `
       window.postMessage({
         type: 'SET_COORDINATES',
@@ -53,11 +82,15 @@ export default class Location extends Component<{}, LocationState> {
           height: Dimensions.get("window").height,
         }}
         source={{
-          uri: 'http://192.0.0.2:3000/current',
+          uri: 'http://192.0.0.2:3000/app/current',
         }}
         injectedJavaScript={injectedJavaScript}
         javaScriptEnabled={true}
+        onLoad={() => console.log('WebView loaded')}
+        onMessage={(event) => this.handleMessage(event.nativeEvent.data)}
       />
     );
   }
 }
+
+export default MapByGeolocation;
