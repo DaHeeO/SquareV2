@@ -6,13 +6,14 @@ export const Container = styled.View`
   flex: 1;
   justify-content: flex-start;
   align-items: flex-start;
+  background-color: white;
 `
 
 export const Top = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 24px 30px 24px;
+  padding: 20px 24px 20px 24px;
   width: 100%;
 `;
 

@@ -15,7 +15,25 @@ import Left from '../../assets/icons/Left';
 // image
 import Target from '../../assets/images/target.png';
 
+export interface LocationState {
+  latitude: number | null;
+  longitude: number | null;
+  code: string | null;
+  legalAddress: string | null;
+}
+
 const CurLocation = ({ navigation }: any) => {
+
+  const [locationInfo, setLocationInfo] = useState<LocationState>({
+    latitude: null,
+    longitude: null,
+    code: null,
+    legalAddress: null,
+  });
+
+  const handleLocationInfo = (newLocationInfo: LocationState) => {
+    setLocationInfo(newLocationInfo);
+  };
 
   return (
     <S.Container>
@@ -29,7 +47,7 @@ const CurLocation = ({ navigation }: any) => {
       </S.Top>
       {/* 지도 */}
       <S.Map>
-        <MapByGeolocation/>
+        <MapByGeolocation  onLocationInfo={handleLocationInfo}/>
       </S.Map>
       <S.Bottom>
         <Text 
@@ -37,7 +55,7 @@ const CurLocation = ({ navigation }: any) => {
         color={colors.text._primary} 
         weight={'Bold'}
         style={{marginTop: 20}}
-        >대전광역시 유성구 봉명동
+        >{locationInfo.legalAddress}
         </Text>
         <S.Description>
           <S.Img source={Target} />
