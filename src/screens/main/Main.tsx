@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { View } from 'react-native';
 
 // styled
 import * as S from './Main.styles';
@@ -13,6 +12,7 @@ import Cart from '../../assets/icons/Cart';
 
 // component
 import MenuSearchBar from '../../components/main/MenuSearchBar';
+import LocationChange from '../../components/main/LocationChange';
 
 const Main = ({navigation}: any) => {
   return (
@@ -22,17 +22,7 @@ const Main = ({navigation}: any) => {
             현재 위치는
             </Text>
             <S.TopDiv>
-                <S.LocationDiv>
-                    <Text 
-                    size={24} 
-                    color={colors.text._primary} 
-                    weight={'SemiBold'}
-                    style={{marginRight: 4}}
-                    >
-                    덕명동
-                    </Text>
-                    <Down size={24} color={colors.text._primary} />
-                </S.LocationDiv>
+                <LocationChange/>
                 <S.IconDiv>
                     <S.Icon>
                         <Bell size={24} color={colors.text._primary} />
