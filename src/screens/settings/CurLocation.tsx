@@ -35,6 +35,16 @@ const CurLocation = ({ navigation }: any) => {
     setLocationInfo(newLocationInfo);
   };
 
+  const sendLocationInfoToApi = async (
+    emdId: string | null,
+    latitude: number | null,
+    longitude: number | null,
+  ) => {
+    // 여기는 api 요청
+
+    navigation.navigate('Main');
+  };
+
   return (
     <S.Container>
       <S.Top>
@@ -71,7 +81,7 @@ const CurLocation = ({ navigation }: any) => {
             </Text>
           </S.TextBox>
         </S.Description>
-        <S.Button onPress={() => navigation.reset({routes: [{name: 'Login'}]})}>
+        <S.Button onPress={() => sendLocationInfoToApi(locationInfo.code, locationInfo.latitude, locationInfo.longitude)}>
         <Text 
         size={16} 
         color={'white'} 

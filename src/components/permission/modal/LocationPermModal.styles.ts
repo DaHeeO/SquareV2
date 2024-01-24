@@ -5,7 +5,7 @@ export const CenteredView = styled.View`
     flex: 1;
     justify-content: center;
     align-items: center;
-    background-color: rgba(217, 217, 217, 0.3);
+    background-color: rgba(17, 17, 17, 0.15);
 `
 
 export const ModalView = styled.View`
