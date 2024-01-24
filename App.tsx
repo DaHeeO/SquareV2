@@ -10,6 +10,7 @@ import Kakao from './src/screens/login/KakaoLogin';
 import Permission from './src/screens/login/Permission';
 import Location from './src/screens/settings/Location';
 import CurLocation from './src/screens/settings/CurLocation';
+import Main from './src/screens/main/Main';
 
 const Stack = createStackNavigator();
 
@@ -46,6 +47,11 @@ function App() {
           <Stack.Screen
             name="CurLocation"
             component={CurLocation}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Main"
+            component={Main}
             options={{headerShown: false}}
           />
         </Stack.Navigator>
