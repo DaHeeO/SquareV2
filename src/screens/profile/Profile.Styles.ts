@@ -8,20 +8,21 @@ export const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: flex-start;
-  background-color: #ffffff;
+  background-color: #F7F7F7;
 
 `;
 
 export const TopBarContainer = styled.View`
   width: ${windowWidth}px;
-  height: 60px; // 적당한 높이 설정
-  background-color: #f2f2f2; // TopBar의 배경색
-  justify-content: space-between; // 아이템들을 양 끝으로 정렬
-  align-items: center; // 아이템들을 세로 중앙에 위치
-  flex-direction: row; // 아이템들을 가로로 배열
-  padding: 0 10px; // 좌우 패딩
-  border : 1px solid red;
+  height: 60px;
+  background-color: #FFFFFF;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 0 10px;
+
 `;
+
 
 export const IconButton = styled.TouchableOpacity`
   padding: 10px; // 버튼이 터치하기 쉽도록 패딩 설정
@@ -35,29 +36,50 @@ export const Title = styled.Text`
 
 export const NameCard = styled.View`
   width: ${windowWidth * 0.9}px;
-  height: 100px;
-  background-color: #f2f2f2;
+  height: 150px;
+  background-color: #FFFFFF;
   border-radius: 10px;
   padding: 20px;
-  margin-top: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   align-items: center;
   justify-content: center;
+  elevation: 10; // 이 값을 조정하여 그림자의 높이를 변경할 수 있습니다.
+  border : 1px solid red; // 필요하다면 이 테두리를 제거할 수도 있습니다.
+`;
+export const MenuText = styled.Text`
+  color: black;
+  margin-top: 5px;
+  font-weight : bold;
+  font-size : 17px;
 `;
 
-export const ProfileMenu = styled.TouchableOpacity`
-  width: ${windowWidth * 0.9}px;
-  height: 50px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  margin-top: 10px;
-  align-items: center;
-  justify-content: center;
-  shadow-color: #000;
-  shadow-offset: { width: 0, height: 2 };
-  shadow-opacity: 0.25;
-  shadow-radius: 3.84px;
-  elevation: 5;
+
+export const ProfileMenuGrid = styled.View`
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5px; 
 `;
+export const ProfileMenu = styled.TouchableOpacity`
+  width: ${windowWidth * 0.40}px; 
+  height: 120px; 
+  background-color: #FFFFFF; 
+  border-radius: 2px;
+  margin: 10px; 
+  align-items: center; 
+  justify-content: center; 
+  elevation: 1; 
+  overflow: hidden;
+  padding: 20px;
+`;
+export const ProfileMenuImage = styled.ImageBackground`
+width: 100%;
+height: 100%;
+align-items: center; 
+justify-content: center; 
+`;
+
+
 
 export const NavigationTab = styled.View`
   flex-direction: row;
