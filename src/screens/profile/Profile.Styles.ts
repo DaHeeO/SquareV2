@@ -33,7 +33,6 @@ export const Title = styled.Text`
   font-weight: bold; // 글자 두께
   color: #333; // 글자 색상
 `;
-
 export const NameCard = styled.View`
   width: ${windowWidth * 0.9}px;
   height: 150px;
@@ -42,17 +41,48 @@ export const NameCard = styled.View`
   padding: 20px;
   margin-top: 50px;
   margin-bottom: 50px;
-  align-items: center;
-  justify-content: center;
-  elevation: 10; // 이 값을 조정하여 그림자의 높이를 변경할 수 있습니다.
-  border : 1px solid red; // 필요하다면 이 테두리를 제거할 수도 있습니다.
+  elevation: 10;
+  align-items: center; // 중앙 정렬
+  justify-content: center; // 중앙 정렬
 `;
-export const MenuText = styled.Text`
+
+export const ProfileImage = styled.Image`
+  width: 100px;
+  height: 100px;
+  border-radius: 25px;
+  border : 2px solid green;
+`;
+
+// 프로필 이미지와 텍스트를 담을 컨테이너
+export const ProfileInfoContainer = styled.View`
+  flex-direction: row; // 가로로 배열
+  align-items: center; // 세로 중앙 정렬
+`;
+
+export const UserInfoContainer = styled.View`
+  margin-left: 10px; // 이미지와 텍스트 사이의 간격
+`;
+
+export const Nickname = styled.Text`
+  font-weight: bold;
+`;
+
+export const Email = styled.Text`
+  color: #333;
+  margin-top: 4px; // 닉네임과 이메일 사이의 간격
+`;
+
+export const TabButton = styled.TouchableOpacity`
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+`;
+
+export const LocationText = styled.Text`
   color: black;
-  margin-top: 5px;
-  font-weight : bold;
-  font-size : 17px;
 `;
+
+
 
 
 export const ProfileMenuGrid = styled.View`
@@ -72,11 +102,18 @@ export const ProfileMenu = styled.TouchableOpacity`
   overflow: hidden;
   padding: 20px;
 `;
+
 export const ProfileMenuImage = styled.ImageBackground`
-width: 100%;
-height: 100%;
-align-items: center; 
-justify-content: center; 
+  width:100%;
+  height: 100%;
+  align-items: center; 
+  justify-content: space-around; 
+`;
+
+export const MenuText = styled.Text`
+  color: black;
+  font-weight : bold;
+  font-size : 17px;
 `;
 
 

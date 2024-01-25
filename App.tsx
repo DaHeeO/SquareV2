@@ -26,7 +26,7 @@ function App() {
   return (
     <RecoilRoot>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="AccessToken">
+        <Stack.Navigator initialRouteName="Main">
           <Stack.Screen
             name="AccessToken"
             component={AccessToken}
