@@ -37,3 +37,7 @@ export const IconDiv = styled.View`
 export const Icon = styled.Pressable`
   margin-left: 16px;
 `
+
+export const Body = styled.View`
+  flex: 1;
+`

@@ -14,7 +14,6 @@ function Left({size, color}: Props) {
     strokeLinecap="round" 
     strokeLinejoin="round"/>
     </Svg>
-    
   );
 }
 

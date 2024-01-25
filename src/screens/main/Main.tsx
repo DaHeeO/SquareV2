@@ -13,6 +13,7 @@ import Cart from '../../assets/icons/Cart';
 // component
 import MenuSearchBar from '../../components/main/MenuSearchBar';
 import LocationChange from '../../components/main/LocationChange';
+import Bottom from '../../components/common/bottomtab/Bottom';
 
 const Main = ({navigation}: any) => {
   return (
@@ -22,7 +23,7 @@ const Main = ({navigation}: any) => {
             현재 위치는
             </Text>
             <S.TopDiv>
-                <LocationChange/>
+                <LocationChange />
                 <S.IconDiv>
                     <S.Icon>
                         <Bell size={24} color={colors.text._primary} />
@@ -32,8 +33,11 @@ const Main = ({navigation}: any) => {
                     </S.Icon>
                 </S.IconDiv>
             </S.TopDiv>
-            <MenuSearchBar/>
+            <MenuSearchBar />
         </S.Top>
+        <S.Body>
+        </S.Body>
+        <Bottom />
     </S.Container>
   );
 };
