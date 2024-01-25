@@ -1,27 +1,40 @@
-// Main.tsx
-import React from 'react';
-import { StatusBar } from 'react-native';
-import BottomTab from '../../components/common/bottomTab/BottomTab'
-import * as S from './Main.styles'; // 스타일 컴포넌트 불러오기
+import React, {useState} from 'react';
 
-const Main = () => {
+// styled
+import * as S from './Main.styles';
+import { Text } from '../../components/common/fonts';
+import {colors} from '../../components/common/globalStyles';
+
+// icon
+import Down from '../../assets/icons/Down';
+import Bell from '../../assets/icons/Bell';
+import Cart from '../../assets/icons/Cart';
+
+// component
+import MenuSearchBar from '../../components/main/MenuSearchBar';
+import LocationChange from '../../components/main/LocationChange';
+
+const Main = ({navigation}: any) => {
   return (
     <S.Container>
-      <StatusBar barStyle="dark-content" />
-      <S.TopBar>
+        <S.Top>
+            <Text size={14} color={colors.green._300} weight={'SemiBold'}>
+            현재 위치는
+            </Text>
+            <S.TopDiv>
+                <LocationChange/>
+                <S.IconDiv>
+                    <S.Icon>
+                        <Bell size={24} color={colors.text._primary} />
+                    </S.Icon>
+                    <S.Icon>
+                        <Cart size={24} color={colors.text._primary} />
+                    </S.Icon>
+                </S.IconDiv>
+            </S.TopDiv>
+            <MenuSearchBar/>
+        </S.Top>
 
-      </S.TopBar>
-      <S.SearchBar>
-        {/* 검색 바 컴포넌트 */}
-
-      </S.SearchBar>
-      <S.CategoryMenu>
-        {/* 카테고리 선택 메뉴 컴포넌트 */}
- 
-      </S.CategoryMenu>
-
-      <BottomTab>
-        </BottomTab>
     </S.Container>
   );
 };

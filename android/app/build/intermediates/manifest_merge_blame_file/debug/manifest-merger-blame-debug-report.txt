@@ -1,0 +1,167 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.square"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" /> <!-- 앱 권한 설정 -->
+11-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:3:5-67
+11-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:3:22-64
+12    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+12-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:6:5-79
+12-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:6:22-76
+13    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+13-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:7:5-77
+13-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:7:22-74
+14    <uses-permission android:name="android.permission.CAMERA" />
+14-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:8:5-65
+14-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:8:22-62
+15    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+15-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:9:5-76
+15-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:9:22-73
+16    <uses-permission android:name="android.permission.READ_CONTACTS" />
+16-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:10:5-72
+16-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:10:22-69
+17    <!--
+18    This manifest file is used only by Gradle to configure debug-only capabilities
+19    for React Native Apps.
+20    -->
+21    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+21-->[com.facebook.react:react-android:0.73.1] /Users/odahui/.gradle/caches/transforms-3/65f520f887f0d0f390437980af8cd371/transformed/jetified-react-android-0.73.1-debug/AndroidManifest.xml:16:5-78
+21-->[com.facebook.react:react-android:0.73.1] /Users/odahui/.gradle/caches/transforms-3/65f520f887f0d0f390437980af8cd371/transformed/jetified-react-android-0.73.1-debug/AndroidManifest.xml:16:22-75
+22    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+22-->[com.facebook.flipper:flipper:0.201.0] /Users/odahui/.gradle/caches/transforms-3/9b2c28bd5719adb7e465469e2ca76c12/transformed/jetified-flipper-0.201.0/AndroidManifest.xml:14:5-76
+22-->[com.facebook.flipper:flipper:0.201.0] /Users/odahui/.gradle/caches/transforms-3/9b2c28bd5719adb7e465469e2ca76c12/transformed/jetified-flipper-0.201.0/AndroidManifest.xml:14:22-73
+23
+24    <permission
+24-->[androidx.core:core:1.9.0] /Users/odahui/.gradle/caches/transforms-3/13659b94c66de92d98d7f8af61234b95/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+25        android:name="com.square.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+25-->[androidx.core:core:1.9.0] /Users/odahui/.gradle/caches/transforms-3/13659b94c66de92d98d7f8af61234b95/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+26        android:protectionLevel="signature" />
+26-->[androidx.core:core:1.9.0] /Users/odahui/.gradle/caches/transforms-3/13659b94c66de92d98d7f8af61234b95/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+27
+28    <uses-permission android:name="com.square.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+28-->[androidx.core:core:1.9.0] /Users/odahui/.gradle/caches/transforms-3/13659b94c66de92d98d7f8af61234b95/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+28-->[androidx.core:core:1.9.0] /Users/odahui/.gradle/caches/transforms-3/13659b94c66de92d98d7f8af61234b95/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+29
+30    <application
+30-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:12:5-31:19
+31        android:name="com.square.MainApplication"
+31-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:13:7-38
+32        android:allowBackup="false"
+32-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:17:7-34
+33        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+33-->[androidx.core:core:1.9.0] /Users/odahui/.gradle/caches/transforms-3/13659b94c66de92d98d7f8af61234b95/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+34        android:debuggable="true"
+35        android:extractNativeLibs="true"
+36        android:icon="@mipmap/ic_launcher"
+36-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:15:7-41
+37        android:label="@string/app_name"
+37-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:14:7-39
+38        android:roundIcon="@mipmap/ic_launcher_round"
+38-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:16:7-52
+39        android:theme="@style/AppTheme"
+39-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:18:7-38
+40        android:usesCleartextTraffic="true" >
+40-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/debug/AndroidManifest.xml:6:9-44
+41        <activity
+41-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:19:7-30:18
+42            android:name="com.square.MainActivity"
+42-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:20:9-37
+43            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+43-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:22:9-118
+44            android:exported="true"
+44-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:25:9-32
+45            android:label="@string/app_name"
+45-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:21:9-41
+46            android:launchMode="singleTask"
+46-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:23:9-40
+47            android:windowSoftInputMode="adjustResize" >
+47-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:24:9-51
+48            <intent-filter>
+48-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:26:9-29:25
+49                <action android:name="android.intent.action.MAIN" />
+49-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:27:13-65
+49-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:27:21-62
+50
+51                <category android:name="android.intent.category.LAUNCHER" />
+51-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:28:13-73
+51-->/Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:28:23-70
+52            </intent-filter>
+53        </activity>
+54
+55        <provider
+55-->[:react-native-webview] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-16:20
+56            android:name="com.reactnativecommunity.webview.RNCWebViewFileProvider"
+56-->[:react-native-webview] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-83
+57            android:authorities="com.square.fileprovider"
+57-->[:react-native-webview] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-64
+58            android:exported="false"
+58-->[:react-native-webview] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-37
+59            android:grantUriPermissions="true" >
+59-->[:react-native-webview] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-47
+60            <meta-data
+60-->[:react-native-webview] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-15:63
+61                android:name="android.support.FILE_PROVIDER_PATHS"
+61-->[:react-native-webview] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:17-67
+62                android:resource="@xml/file_provider_paths" />
+62-->[:react-native-webview] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:17-60
+63        </provider>
+64
+65        <activity
+65-->[com.facebook.react:react-android:0.73.1] /Users/odahui/.gradle/caches/transforms-3/65f520f887f0d0f390437980af8cd371/transformed/jetified-react-android-0.73.1-debug/AndroidManifest.xml:19:9-21:40
+66            android:name="com.facebook.react.devsupport.DevSettingsActivity"
+66-->[com.facebook.react:react-android:0.73.1] /Users/odahui/.gradle/caches/transforms-3/65f520f887f0d0f390437980af8cd371/transformed/jetified-react-android-0.73.1-debug/AndroidManifest.xml:20:13-77
+67            android:exported="false" />
+67-->[com.facebook.react:react-android:0.73.1] /Users/odahui/.gradle/caches/transforms-3/65f520f887f0d0f390437980af8cd371/transformed/jetified-react-android-0.73.1-debug/AndroidManifest.xml:21:13-37
+68        <activity
+68-->[com.google.android.gms:play-services-base:18.1.0] /Users/odahui/.gradle/caches/transforms-3/c59a55b27e44a3e0723d16f567fd1d1e/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+69            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+69-->[com.google.android.gms:play-services-base:18.1.0] /Users/odahui/.gradle/caches/transforms-3/c59a55b27e44a3e0723d16f567fd1d1e/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+70            android:exported="false"
+70-->[com.google.android.gms:play-services-base:18.1.0] /Users/odahui/.gradle/caches/transforms-3/c59a55b27e44a3e0723d16f567fd1d1e/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+71            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+71-->[com.google.android.gms:play-services-base:18.1.0] /Users/odahui/.gradle/caches/transforms-3/c59a55b27e44a3e0723d16f567fd1d1e/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+72
+73        <meta-data
+73-->[com.google.android.gms:play-services-basement:18.1.0] /Users/odahui/.gradle/caches/transforms-3/0a7cb7034eac515addf17ce8efdbda3b/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+74            android:name="com.google.android.gms.version"
+74-->[com.google.android.gms:play-services-basement:18.1.0] /Users/odahui/.gradle/caches/transforms-3/0a7cb7034eac515addf17ce8efdbda3b/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+75            android:value="@integer/google_play_services_version" />
+75-->[com.google.android.gms:play-services-basement:18.1.0] /Users/odahui/.gradle/caches/transforms-3/0a7cb7034eac515addf17ce8efdbda3b/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+76
+77        <provider
+77-->[androidx.emoji2:emoji2:1.2.0] /Users/odahui/.gradle/caches/transforms-3/faa3592d2fc203d6c74b9a5f601058a1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+78            android:name="androidx.startup.InitializationProvider"
+78-->[androidx.emoji2:emoji2:1.2.0] /Users/odahui/.gradle/caches/transforms-3/faa3592d2fc203d6c74b9a5f601058a1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+79            android:authorities="com.square.androidx-startup"
+79-->[androidx.emoji2:emoji2:1.2.0] /Users/odahui/.gradle/caches/transforms-3/faa3592d2fc203d6c74b9a5f601058a1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+80            android:exported="false" >
+80-->[androidx.emoji2:emoji2:1.2.0] /Users/odahui/.gradle/caches/transforms-3/faa3592d2fc203d6c74b9a5f601058a1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+81            <meta-data
+81-->[androidx.emoji2:emoji2:1.2.0] /Users/odahui/.gradle/caches/transforms-3/faa3592d2fc203d6c74b9a5f601058a1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+82                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+82-->[androidx.emoji2:emoji2:1.2.0] /Users/odahui/.gradle/caches/transforms-3/faa3592d2fc203d6c74b9a5f601058a1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+83                android:value="androidx.startup" />
+83-->[androidx.emoji2:emoji2:1.2.0] /Users/odahui/.gradle/caches/transforms-3/faa3592d2fc203d6c74b9a5f601058a1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+84            <meta-data
+84-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/odahui/.gradle/caches/transforms-3/71b91ea8216105cda74b0317da307340/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+85                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+85-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/odahui/.gradle/caches/transforms-3/71b91ea8216105cda74b0317da307340/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+86                android:value="androidx.startup" />
+86-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/odahui/.gradle/caches/transforms-3/71b91ea8216105cda74b0317da307340/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+87        </provider>
+88
+89        <meta-data
+89-->[com.facebook.soloader:soloader:0.10.5] /Users/odahui/.gradle/caches/transforms-3/03d018e18e7118763cc731de8f689ba0/transformed/jetified-soloader-0.10.5/AndroidManifest.xml:12:9-14:37
+90            android:name="com.facebook.soloader.enabled"
+90-->[com.facebook.soloader:soloader:0.10.5] /Users/odahui/.gradle/caches/transforms-3/03d018e18e7118763cc731de8f689ba0/transformed/jetified-soloader-0.10.5/AndroidManifest.xml:13:13-57
+91            android:value="false" />
+91-->[com.facebook.soloader:soloader:0.10.5] /Users/odahui/.gradle/caches/transforms-3/03d018e18e7118763cc731de8f689ba0/transformed/jetified-soloader-0.10.5/AndroidManifest.xml:14:13-34
+92    </application>
+93
+94</manifest>

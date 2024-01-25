@@ -11,29 +11,27 @@ import Animated, {
 } from "react-native-reanimated";
 import styled from "styled-components/native";
 
-const SIZE = 400;
-const AnimatedPath = Animated.createAnimatedComponent(Path);
-
 interface WaveProps {
-  style?: ViewStyle; // ViewStyle을 사용하면 bottom과 zIndex를 포함하고 있을 것으로 예상됨
   bottom: number;
+  right: number;
   zIndex: number;
+  SIZE: number;
+  direction: string;
+  duration: number;
+  sx: number;
+  sy: number;
 }
 
-const StyledSvg = styled(Svg)`
-  width: ${SIZE}px;
-  height: ${SIZE}px;
-  position: absolute;
-`;
+const AnimatedPath = Animated.createAnimatedComponent(Path);
 
-const Wave: React.FC<WaveProps> = ({ style, bottom, zIndex }) => {
-  const c1y = useSharedValue(0.2);
-  const c2y = useSharedValue(0.8);
+const Wave: React.FC<WaveProps> = ({ bottom, right, zIndex, SIZE, direction, duration, sx, sy }) => {
+  const c1y = useSharedValue(sx);
+  const c2y = useSharedValue(sy);
 
   const animatedProps = useAnimatedProps(() => {
     const path = [
       "M 0 0.5",
-      `C 0.4 ${c1y.value} 0.6 ${c2y.value}, 1 0.5`,
+      `C 0.4 ${direction=='left' ? c1y.value : c2y.value} 0.6 ${direction=='left' ? c2y.value : c1y.value}, 1 0.5`,
       "V 1",
       "H 0",
     ].join(" ");
@@ -44,10 +42,10 @@ const Wave: React.FC<WaveProps> = ({ style, bottom, zIndex }) => {
   });
 
   const startAnimation = () => {
-    c1y.value = withRepeat(withTiming(0.8, { duration: 500 }), -1, true);
+    c1y.value = withRepeat(withTiming(0.4, { duration: duration }), -1, true);
     c2y.value = withDelay(
       200,
-      withRepeat(withTiming(0.2, { duration: 500 }), -1, true)
+      withRepeat(withTiming(0.2, { duration: duration }), -1, true)
     );
   };
 
@@ -55,8 +53,14 @@ const Wave: React.FC<WaveProps> = ({ style, bottom, zIndex }) => {
     startAnimation();
   }, []);
 
+  const StyledSvg = styled(Svg)`
+    width: ${SIZE}px;
+    height: ${SIZE}px;
+    position: absolute;
+  `;
+
   return (
-    <StyledSvg style={{ ...style, bottom, zIndex }} viewBox="0 0 1 1">
+    <StyledSvg style={{bottom, right, zIndex}} viewBox="0 0 1 1">
       <AnimatedPath fill={"rgba(255, 255, 255, 0.3)"} animatedProps={animatedProps} />
     </StyledSvg>
   );
