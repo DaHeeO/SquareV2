@@ -13,7 +13,7 @@ import Cart from '../../assets/icons/Cart';
 // component
 import MenuSearchBar from '../../components/main/MenuSearchBar';
 import LocationChange from '../../components/main/LocationChange';
-import Bottom from '../../components/common/bottomtab/Bottom';
+import BottomTab from '../../components/common/bottomtab/BottomTab';
 
 const Main = ({navigation}: any) => {
   return (
@@ -37,7 +37,7 @@ const Main = ({navigation}: any) => {
         </S.Top>
         <S.Body>
         </S.Body>
-        <Bottom />
+        <BottomTab />
     </S.Container>
   );
 };

@@ -12,11 +12,7 @@ import Down from '../../assets/icons/Down';
 // component
 import LocationChgModal from './modal/LocationChgModal';
 
-interface comp {
-
-}
-
-const LocationChange = (comp: any) => {
+const LocationChange = () => {
 
   const [modalVisible, setModalVisible] = useState(false);
   const rotation = useSharedValue(0);
