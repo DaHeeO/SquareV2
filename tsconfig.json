@@ -4,9 +4,9 @@
     // 기존 옵션들...
     "baseUrl": "./",
     "paths": {
-    "@component/": ["./src/component/"],
-    "@/assets/*": ["./src/assets/*"],
-    "@/screens/*": ["./src/screens/*"]
+      "@component/": ["./src/component/"],
+      "@/assets/*": ["./src/assets/*"],
+      "@/screens/*": ["./src/screens/*"]
     },
     "types": ["styled-components-react-native"]
   },
