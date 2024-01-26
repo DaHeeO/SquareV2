@@ -8,7 +8,7 @@ import {colors} from '../../components/common/globalStyles';
 // icon
 import Notification from '../../assets/icons/Notification';
 import Pin from '../../assets/icons/Pin';
-import User from '../../assets/icons/User';
+import Contact from '../../assets/icons/Contact';
 import Camera from '../../assets/icons/Camera';
 import Photo from '../../assets/icons/Photo';
 
@@ -96,7 +96,7 @@ const Permission = ({ navigation }: any) => {
         subText={'사진리뷰 및 프로필 설정 시 이미지 첨부'}
         />
         <PermissionDiv 
-        icon={<User  color={'#111111'} size={24} />}
+        icon={<Contact  color={'#111111'} size={24} />}
         permission={'연락처'}
         isNeccessary={false}
         subText={'공유 시 연락처 목록 불러오기'}

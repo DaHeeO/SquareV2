@@ -6,7 +6,6 @@ import { Text } from '../../components/common/fonts';
 import {colors} from '../../components/common/globalStyles';
 
 // icon
-import Down from '../../assets/icons/Down';
 import Bell from '../../assets/icons/Bell';
 import Cart from '../../assets/icons/Cart';
 
@@ -23,7 +22,7 @@ const Main = ({navigation}: any) => {
             현재 위치는
             </Text>
             <S.TopDiv>
-                <LocationChange/>
+                <LocationChange />
                 <S.IconDiv>
                     <S.Icon>
                         <Bell size={24} color={colors.text._primary} />
@@ -33,9 +32,11 @@ const Main = ({navigation}: any) => {
                     </S.Icon>
                 </S.IconDiv>
             </S.TopDiv>
-            <MenuSearchBar/>
+            <MenuSearchBar />
         </S.Top>
-    <BottomTab></BottomTab>
+        <S.Body>
+        </S.Body>
+        <BottomTab />
     </S.Container>
   );
 };

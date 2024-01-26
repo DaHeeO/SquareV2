@@ -10,11 +10,8 @@ import {colors} from '../common/globalStyles';
 import Search from '../../assets/icons/Search';
 import Close from '../../assets/icons/Close';
 
-interface comp {
 
-}
-
-const MenuSearchBar = (comp: any) => {
+const MenuSearchBar = () => {
 
   const [text, onChangeText] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
