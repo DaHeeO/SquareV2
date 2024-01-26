@@ -1,36 +1,72 @@
-
-// BottomTab.js
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { RootStackParamList } from '../RootStackParamList';
-import { StackNavigationProp } from '@react-navigation/stack';
-import * as S from './BottomTab.styles';
 
-type NavigationProp = StackNavigationProp<RootStackParamList>;
+// icon
+import BottomTabIcon from './Temp';
 
-const BottomTab = () => {
-  const navigation = useNavigation<NavigationProp>();
+// stackNavigator
+import ExploreStackNavigators from '../../../navigations/ExploreStackNavigation';
+import PickUpStackNavigators from '../../../navigations/PickUpStackNavigation';
+import MainStackNavigators from '../../../navigations/MainStackNavigation';
+import RegularStackNavigators from '../../../navigations/RegularStackNavigation';
+import ProfileStackNavigators from '../../../navigations/ProfileStackNavigation';
 
+const Tab = createBottomTabNavigator();
+
+function BottomTab() {
   return (
-    
-    <S.TabContainer>
-      <S.TabButton onPress={() => navigation.navigate('ExploreStack')}>
-        <S.TabText>탐색</S.TabText>
-      </S.TabButton>
-      <S.TabButton onPress={() => navigation.navigate('PickUpStack')}>
-        <S.TabText>픽업</S.TabText>
-      </S.TabButton>
-      <S.TabButton onPress={() => navigation.navigate('MainStack')}>
-        <S.TabText>메인</S.TabText>
-      </S.TabButton>
-      <S.TabButton onPress={() => navigation.navigate('RegularStack')}>
-        <S.TabText>단골</S.TabText>
-      </S.TabButton>
-      <S.TabButton onPress={() => navigation.navigate('ProfileStack')}>
-        <S.TabText>마이</S.TabText>
-      </S.TabButton>
-    </S.TabContainer>
+    <Tab.Navigator
+      // tabBar={props => <AnimatedTabBar {...props} />}
+      screenOptions={{headerShown: false}}
+      initialRouteName="MainStack">
+      <Tab.Screen
+        name="ExploreStack"
+        component={ExploreStackNavigators}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <BottomTabIcon focused={focused} type="explore" />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="PickUpStack"
+        component={PickUpStackNavigators}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <BottomTabIcon focused={focused} type="pickup" />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="MainStack"
+        component={MainStackNavigators}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <BottomTabIcon focused={focused} type="main" />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="RegularStack"
+        component={RegularStackNavigators}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <BottomTabIcon focused={focused} type="regular" />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="ProfileStack"
+        component={ProfileStackNavigators}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <BottomTabIcon focused={focused} type="profile" />
+          ),
+          unmountOnBlur: true,
+        }}
+      />
+    </Tab.Navigator>
   );
-};
+}
 
 export default BottomTab;
