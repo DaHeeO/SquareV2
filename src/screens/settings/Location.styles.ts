@@ -1,5 +1,4 @@
 import styled from "styled-components/native";
-import { Image } from "react-native";
 import {colors} from '../../components/common/globalStyles';
 
 export const Container = styled.View`

@@ -1,7 +1,5 @@
 
 import React from 'react';
-import { StatusBar } from 'react-native';
-import BottomTab from '../../components/common/bottomtab/BottomTab';
 import * as S from './Explore.styles'; // 스타일 컴포넌트 불러오기
 
 const Explore = () => {
@@ -10,7 +8,6 @@ const Explore = () => {
   return (
     <S.Container>
       <S.TabText>여기는 탐색</S.TabText>
-      <BottomTab />
     </S.Container>
   );
 };

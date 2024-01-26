@@ -9,14 +9,8 @@ import AccessToken from './src/screens/login/AccessToken';
 import Login from './src/screens/login/Login';
 import Kakao from './src/screens/login/KakaoLogin';
 import Permission from './src/screens/login/Permission';
-
-// stack navigatior
-import MainStack from './src/navigations/MainStackNavigation';
-import ExploreStack from './src/navigations/ExploreStackNavigation';
-import PickupStack from './src/navigations/PickUpStackNavigation';
-import RegularStack from './src/navigations/RegularStackNavigation';
-import ProfileStack from './src/navigations/ProfileStackNavigation';
 import InitialStack from './src/navigations/InitialStackNavigation';
+import BottomTab from './src/components/common/bottomtab/BottomTab';
 
 const Stack = createStackNavigator();
 
@@ -51,29 +45,9 @@ function App() {
             options={{headerShown: false}}
           />
           <Stack.Screen
-            name="MainStack"
-            component={MainStack}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="ExploreStack"
-            component={ExploreStack}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="PickUpStack"
-            component={PickupStack}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="RegularStack"
-            component={RegularStack}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="ProfileStack"
-            component={ProfileStack}
-            options={{ headerShown: false }}
+            name="BottomTab"
+            component={BottomTab}
+            options={{ headerShown: false }} // BottomTab의 헤더 숨기기
           />
         </Stack.Navigator>
       </NavigationContainer>
