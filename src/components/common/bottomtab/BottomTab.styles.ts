@@ -1,4 +1,3 @@
-// BottomTab.styles.js
 import styled from 'styled-components/native';
 
 export const TabContainer = styled.View`
