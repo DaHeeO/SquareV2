@@ -4,21 +4,19 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {RecoilRoot} from 'recoil';
 import {NavigationContainer} from '@react-navigation/native';
 
+// screen
 import AccessToken from './src/screens/login/AccessToken';
 import Login from './src/screens/login/Login';
 import Kakao from './src/screens/login/KakaoLogin';
+import Permission from './src/screens/login/Permission';
 
+// stack navigatior
 import MainStack from './src/navigations/MainStackNavigation';
 import ExploreStack from './src/navigations/ExploreStackNavigation';
 import PickupStack from './src/navigations/PickUpStackNavigation';
 import RegularStack from './src/navigations/RegularStackNavigation';
 import ProfileStack from './src/navigations/ProfileStackNavigation';
-import Permission from './src/screens/login/Permission';
-
-import Location from './src/screens/settings/Location';
-import CurLocation from './src/screens/settings/CurLocation';
-import Main from './src/screens/main/Main';
-
+import InitialStack from './src/navigations/InitialStackNavigation';
 
 const Stack = createStackNavigator();
 
@@ -26,7 +24,7 @@ function App() {
   return (
     <RecoilRoot>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Main">
+        <Stack.Navigator initialRouteName="Login">
           <Stack.Screen
             name="AccessToken"
             component={AccessToken}
@@ -40,6 +38,16 @@ function App() {
           <Stack.Screen
             name="Kakao"
             component={Kakao}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Permission"
+            component={Permission}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="InitialStack" // 초기 위치 설정 관련 페이지들
+            component={InitialStack}
             options={{headerShown: false}}
           />
           <Stack.Screen
@@ -67,28 +75,7 @@ function App() {
             component={ProfileStack}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
-            name="Permission"
-            component={Permission}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="Location"
-            component={Location}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="CurLocation"
-            component={CurLocation}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="Main"
-            component={Main}
-            options={{headerShown: false}}
-          />
         </Stack.Navigator>
-
       </NavigationContainer>
     </RecoilRoot>
   );

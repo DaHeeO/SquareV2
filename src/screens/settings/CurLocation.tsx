@@ -42,7 +42,7 @@ const CurLocation = ({ navigation }: any) => {
   ) => {
     // 여기는 api 요청
 
-    navigation.navigate('Main');
+    navigation.reset({routes: [{name: 'MainStack'}]});
   };
 
   return (
