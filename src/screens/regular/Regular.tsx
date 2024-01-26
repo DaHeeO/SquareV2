@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { StatusBar } from 'react-native';
-import BottomTab from '../../components/common/bottomTab/BottomTab'
+import BottomTab from '../../components/common/bottomtab/BottomTab';
 import * as S from './Regular.Styles'; // 스타일 컴포넌트 불러오기
 
 const Regular = () => {
@@ -10,8 +10,7 @@ const Regular = () => {
   return (
     <S.Container>
       <S.TabText>여기는 단골</S.TabText>
-      <BottomTab>
-        </BottomTab>
+      <BottomTab />
     </S.Container>
   );
 };
