@@ -19,7 +19,7 @@ const getNavIconColor = (focused: boolean) => {
   return iconColor;
 };
 
-const NavIcon = ({focused, type}: NavIconProps) => {
+const BottomTabIcon = ({focused, type}: NavIconProps) => {
   let IconComponent;
 
   const [color, setColor] = useState('#F78CA2');
@@ -55,4 +55,4 @@ const NavIcon = ({focused, type}: NavIconProps) => {
   );
 };
 
-export default NavIcon;
+export default BottomTabIcon;

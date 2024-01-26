@@ -2,7 +2,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 
 // icon
-import BottomTabIcon from './Temp';
+import BottomTabIcon from './BottomTabIcon';
 
 // stackNavigator
 import ExploreStackNavigators from '../../../navigations/ExploreStackNavigation';
