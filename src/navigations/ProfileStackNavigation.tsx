@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import { Text, View } from 'react-native';
-import Main from '@/screens/main/Main';
 import Profile from '@/screens/profile/Profile';
 import Edit from '@/screens/profile/profileSubScreens/Edit';
 import MyCoupon from '@/screens/profile/profileSubScreens/MyCoupon';

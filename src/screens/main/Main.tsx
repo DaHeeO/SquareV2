@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 // styled
 import * as S from './Main.styles';
@@ -12,9 +12,13 @@ import Cart from '../../assets/icons/Cart';
 // component
 import MenuSearchBar from '../../components/main/MenuSearchBar';
 import LocationChange from '../../components/main/LocationChange';
-import BottomTab from '../../components/common/bottomtab/BottomTab';
 
-const Main = ({navigation}: any) => {
+
+interface MainProps {
+    navigation: any;
+}
+
+const Main = ({navigation}: MainProps) => {
   return (
     <S.Container>
         <S.Top>
@@ -36,7 +40,6 @@ const Main = ({navigation}: any) => {
         </S.Top>
         <S.Body>
         </S.Body>
-        <BottomTab />
     </S.Container>
   );
 };

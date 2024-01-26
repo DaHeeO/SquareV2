@@ -1,18 +1,15 @@
 import {useState, useEffect} from 'react';
 
 // icons
-import MainIcon from '../../../assets/icons/MainIcon.png';
-import PickUpIcon from '../../../assets/icons/PickUpIcon.png';
-import ExploreIcon from '../../../assets/icons/ExploreIcon.png';
-import RegularIcon from '../../../assets/icons/RegularIcon.png';
-import ProfileIcon from '../../../assets/icons/ProfileIcon.png';
-
-// styles
-import * as varStyles from '../globalStyles';
+import Explore from '../../../assets/icons/Explore';
+import PickUp from '../../../assets/icons/PickUp';
+import Home from '../../../assets/icons/Home';
+import Heart from '../../../assets/icons/Heart';
+import User from '../../../assets/icons/User';
 
 interface NavIconProps {
   focused: boolean;
-  type: 'main' | 'pickup' | 'regular' | 'explore' | 'profile';
+  type: 'explore' | 'pickup' | 'main' | 'regular' | 'profile';
 }
 
 const getNavIconColor = (focused: boolean) => {
@@ -32,20 +29,20 @@ const NavIcon = ({focused, type}: NavIconProps) => {
   }, [focused]);
 
   switch (type) {
-    case 'main':
-      IconComponent = MainIcon;
-      break;
     case 'explore':
-      IconComponent = ExploreIcon;
+      IconComponent = Explore;
       break;
     case 'pickup':
-      IconComponent = PickUpIcon;
+      IconComponent = PickUp;
+      break;
+    case 'main':
+      IconComponent = Home;
       break;
     case 'regular':
-      IconComponent = RegularIcon;
+      IconComponent = Heart;
       break;
     case 'profile':
-      IconComponent = ProfileIcon;
+      IconComponent = User;
       break;
     default:
       throw new Error(`Unknown icon type: ${type}`);
@@ -53,7 +50,7 @@ const NavIcon = ({focused, type}: NavIconProps) => {
 
   return (
     <>
-      <IconComponent color={color} width={25} height={25} />
+      <IconComponent color={color} size={25} />
     </>
   );
 };

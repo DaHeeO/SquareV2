@@ -1,6 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
-import BottomTab from '../../components/common/bottomtab/BottomTab';
 import * as S from './Profile.Styles'; // 스타일 컴포넌트 불러오기
 
 interface ProfileProps {
@@ -58,7 +56,6 @@ const Profile = ({navigation}: ProfileProps) => {
     </S.ProfileMenuImage>
     </S.ProfileMenu>
     </S.ProfileMenuGrid>
-    <BottomTab />
     </S.Container>
     );
     };

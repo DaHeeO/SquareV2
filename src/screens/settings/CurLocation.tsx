@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import Geolocation from '@react-native-community/geolocation';
+import React, { useState } from 'react';
 
 // component
 import MapByGeolocation from '../../components/webView/MapByGeolocation';
@@ -42,7 +41,9 @@ const CurLocation = ({ navigation }: any) => {
   ) => {
     // 여기는 api 요청
 
-    navigation.reset({routes: [{name: 'MainStack'}]});
+    navigation.reset({
+      routes: [{ name: 'BottomTab' }],
+    });
   };
 
   return (

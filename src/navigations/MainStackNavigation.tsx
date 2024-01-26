@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import { Text, View } from 'react-native';
 import Main from '@/screens/main/Main';
 
 const MainStack = createStackNavigator();
-
 
 function MainStackNavigators() {
   return (
@@ -14,7 +12,6 @@ function MainStackNavigators() {
         component={Main}
         options={{headerShown: false}}
       />
-
     </MainStack.Navigator>
   );
 }
