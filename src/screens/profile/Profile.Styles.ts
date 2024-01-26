@@ -9,7 +9,6 @@ export const Container = styled.View`
   align-items: center;
   justify-content: flex-start;
   background-color: #F7F7F7;
-
 `;
 
 export const TopBarContainer = styled.View`
@@ -20,7 +19,6 @@ export const TopBarContainer = styled.View`
   align-items: center;
   flex-direction: row;
   padding: 0 10px;
-
 `;
 
 
@@ -50,7 +48,7 @@ export const ProfileImage = styled.Image`
   width: 100px;
   height: 100px;
   border-radius: 25px;
-  border : 2px solid green;
+  border: 2px solid green;
 `;
 
 // 프로필 이미지와 텍스트를 담을 컨테이너
