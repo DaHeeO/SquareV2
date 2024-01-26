@@ -3,7 +3,10 @@ import {createStackNavigator} from '@react-navigation/stack';
 import { Text, View } from 'react-native';
 import Main from '@/screens/main/Main';
 import Profile from '@/screens/profile/Profile';
-
+import Edit from '@/screens/profile/profileSubScreens/Edit';
+import MyCoupon from '@/screens/profile/profileSubScreens/MyCoupon';
+import MyOrderList from '@/screens/profile/profileSubScreens/MyOrderList';
+import MyReview from '@/screens/profile/profileSubScreens/MyReview';
 const ProfileStack = createStackNavigator();
 
 // 여기에 들어갈 화면
@@ -23,22 +26,22 @@ function ProfileStackNavigators() {
       />
         <ProfileStack.Screen
         name="Edit"
-        component={Main}
+        component={Edit}
         options={{headerShown: false}}
       />
       <ProfileStack.Screen
-        name="Coupon"
-        component={Main}
+        name="MyCoupon"
+        component={MyCoupon}
         options={{headerShown: false}}
       />
       <ProfileStack.Screen
-        name="OrderList"
-        component={Main}
+        name="MyOrderList"
+        component={MyOrderList}
         options={{headerShown: false}}
       />
             <ProfileStack.Screen
-        name="Review"
-        component={Main}
+        name="MyReview"
+        component={MyReview}
         options={{headerShown: false}}
       />
 
