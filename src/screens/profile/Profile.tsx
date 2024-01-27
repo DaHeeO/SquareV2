@@ -6,7 +6,6 @@ interface ProfileProps {
 }
 
 const Profile = ({navigation}: ProfileProps) => {
-  console.log("프로필 렌더링");
 
     // 더미 데이터
     const dummyData = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 
 // screen
 import Location from '@/screens/settings/Location';
@@ -15,7 +15,10 @@ const InitialStack = createStackNavigator();
 
 function InitialStackNavigators() {
   return (
-    <InitialStack.Navigator initialRouteName="Location">
+    <InitialStack.Navigator 
+    initialRouteName="Location"
+    
+    >
       <InitialStack.Screen
         name="Location"
         component={Location}
@@ -24,7 +27,10 @@ function InitialStackNavigators() {
       <InitialStack.Screen
         name="CurLocation"
         component={CurLocation}
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.ModalPresentationIOS,
+        }}
       />
     </InitialStack.Navigator>
   );
