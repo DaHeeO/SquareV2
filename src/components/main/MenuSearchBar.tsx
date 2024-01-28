@@ -12,7 +12,6 @@ import Close from '../../assets/icons/Close';
 const MenuSearchBar = () => {
 
   const [text, onChangeText] = useState('');
-  const [modalVisible, setModalVisible] = useState(false);
 
   const resetText = () => {
     onChangeText('');

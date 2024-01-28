@@ -36,6 +36,24 @@ export const Icon = styled.Pressable`
   margin-left: 16px;
 `
 
+export const SearchBar = styled.Pressable`
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  padding: 0px 20px;
+  background-color: white;
+  border-radius: 8px;
+`;
+
+export const SearchDiv = styled.View`
+  flex: 1;
+  align-items: center;
+  flex-direction: row;
+  padding: 12px 0px;
+`;
+
+
 export const Body = styled.View`
   flex: 1;
   width: 100%;
