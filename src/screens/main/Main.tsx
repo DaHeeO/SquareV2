@@ -12,6 +12,7 @@ import Cart from '../../assets/icons/Cart';
 // component
 import MenuSearchBar from '../../components/main/MenuSearchBar';
 import LocationChange from '../../components/main/LocationChange';
+import Category from '../../components/main/Category';
 
 
 interface MainProps {
@@ -19,6 +20,10 @@ interface MainProps {
 }
 
 const Main = ({navigation}: MainProps) => {
+   const handleCategoryPress = (route: string) => {
+    navigation.navigate('MainStack', { screen: {route} });
+  };
+
   return (
     <S.Container>
         <S.Top>
@@ -39,6 +44,7 @@ const Main = ({navigation}: MainProps) => {
             <MenuSearchBar />
         </S.Top>
         <S.Body>
+            <Category navigation={navigation} onCategoryPress={handleCategoryPress} />
         </S.Body>
     </S.Container>
   );

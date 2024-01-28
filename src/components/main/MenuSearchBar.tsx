@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
 
 // styled
 import * as S from './MenuSearchBar.styles';
-import {Text} from '../common/fonts';
 import {colors} from '../common/globalStyles';
 
 // icon
