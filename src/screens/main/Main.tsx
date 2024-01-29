@@ -13,7 +13,7 @@ import Search from '../../assets/icons/Search';
 // component
 import LocationChange from '../../components/main/LocationChange';
 import Category from '../../components/main/Category';
-import EventCarrousel from '../../components/main/EventCarrousel';
+import EventCarousel from '../../components/main/EventCarousel';
 
 
 interface MainProps {
@@ -57,7 +57,7 @@ const Main = ({navigation}: MainProps) => {
         </S.Top>
         <S.Body>
             <Category onCategoryPress={handleCategoryPress} />
-            <EventCarrousel/>
+            <EventCarousel/>
         </S.Body>
     </S.Container>
   );
