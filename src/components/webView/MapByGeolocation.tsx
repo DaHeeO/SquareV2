@@ -82,7 +82,7 @@ class MapByGeolocation extends Component<MapByGeolocationProps, MapByGeolocation
           height: Dimensions.get("window").height,
         }}
         source={{
-          uri: 'http://172.30.1.54:3000/app/current',
+          uri: 'http://172.30.1.90:3000/app/current',
         }}
         injectedJavaScript={injectedJavaScript}
         javaScriptEnabled={true}

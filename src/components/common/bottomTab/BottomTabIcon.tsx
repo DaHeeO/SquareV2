@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react';
 import { View } from 'react-native';
 import {colors} from '../globalStyles'
-import {Text} from '../fonts';
 
 // icons
 import Explore from '../../../assets/icons/Explore';

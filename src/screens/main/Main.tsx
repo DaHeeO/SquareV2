@@ -8,10 +8,12 @@ import {colors} from '../../components/common/globalStyles';
 // icon
 import Bell from '../../assets/icons/Bell';
 import Cart from '../../assets/icons/Cart';
+import Search from '../../assets/icons/Search';
 
 // component
-import MenuSearchBar from '../../components/main/MenuSearchBar';
 import LocationChange from '../../components/main/LocationChange';
+import Category from '../../components/main/Category';
+import EventCarousel from '../../components/main/EventCarousel';
 
 
 interface MainProps {
@@ -19,6 +21,14 @@ interface MainProps {
 }
 
 const Main = ({navigation}: MainProps) => {
+  const handleCategoryPress = (route: string) => {
+    navigation.navigate('PickUpStack', { screen: {route} });
+  };
+
+  const NavigateToExplore = () => {
+    navigation.navigate('ExploreStack', { screen: 'Explore' });
+  };
+
   return (
     <S.Container>
         <S.Top>
@@ -36,9 +46,18 @@ const Main = ({navigation}: MainProps) => {
                     </S.Icon>
                 </S.IconDiv>
             </S.TopDiv>
-            <MenuSearchBar />
+            <S.SearchBar onPress={NavigateToExplore}>
+                <S.SearchDiv>
+                    <Search  color={colors.text._secondary} size={24} />
+                    <Text size={16} color={colors.text._secondary} weight={'Regular'} style={{paddingLeft: 12}}>
+                    검색어를 입력해주세요
+                    </Text>
+                </S.SearchDiv>
+            </S.SearchBar>
         </S.Top>
         <S.Body>
+            <Category onCategoryPress={handleCategoryPress} />
+            <EventCarousel/>
         </S.Body>
     </S.Container>
   );
