@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 
-import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {RecoilRoot} from 'recoil';
 import {NavigationContainer} from '@react-navigation/native';
 
@@ -11,6 +11,7 @@ import Kakao from './src/screens/login/KakaoLogin';
 import Permission from './src/screens/login/Permission';
 import InitialStack from './src/navigations/InitialStackNavigation';
 import BottomTab from './src/components/common/bottomtab/BottomTab';
+import FullScreenStack from './src/navigations/FullScreenStackNavigation';
 
 const Stack = createStackNavigator();
 
@@ -45,9 +46,19 @@ function App() {
             options={{headerShown: false}}
           />
           <Stack.Screen
+            name="FullScreenStack"
+            component={FullScreenStack}
+            options={{ 
+              headerShown: false,
+              ...TransitionPresets.SlideFromRightIOS
+            }} 
+          />
+          <Stack.Screen
             name="BottomTab"
             component={BottomTab}
-            options={{ headerShown: false }} // BottomTab의 헤더 숨기기
+            options={{ 
+              headerShown: false,
+             }} 
           />
         </Stack.Navigator>
       </NavigationContainer>

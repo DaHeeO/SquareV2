@@ -22,7 +22,11 @@ interface MainProps {
 
 const Main = ({navigation}: MainProps) => {
   const handleCategoryPress = (route: string) => {
-    navigation.navigate('PickUpStack', { screen: {route} });
+    navigation.navigate('FullScreenStack', { screen: 'Store' });
+  };
+
+  const handleEventPress = (route: string) => {
+    navigation.navigate('ProfileStack', { screen: {route} });
   };
 
   const NavigateToExplore = () => {
@@ -57,7 +61,7 @@ const Main = ({navigation}: MainProps) => {
         </S.Top>
         <S.Body>
             <Category onCategoryPress={handleCategoryPress} />
-            <EventCarousel/>
+            <EventCarousel onEventPress={handleEventPress}/>
         </S.Body>
     </S.Container>
   );

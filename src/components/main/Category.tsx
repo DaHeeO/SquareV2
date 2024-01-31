@@ -13,10 +13,10 @@ import Category3 from '../../assets/images/Category3.png';
 import Category4 from '../../assets/images/Category4.png';
 
 const categories = [
-  { id: 1, name: '한식', icon: Category1, navigate: 'PickUp' },
-  { id: 2, name: '중식/일식', icon: Category2, navigate: 'PickUp' },
-  { id: 3, name: '패스트푸드', icon: Category3, navigate: 'PickUp' },
-  { id: 4, name: '카페/베이커리', icon: Category4, navigate: 'PickUp' },
+  { id: 1, name: '한식', icon: Category1, navigate: 'Store' },
+  { id: 2, name: '중식/일식', icon: Category2, navigate: 'Store' },
+  { id: 3, name: '패스트푸드', icon: Category3, navigate: 'Store' },
+  { id: 4, name: '카페/베이커리', icon: Category4, navigate: 'Store' },
 ];
   
 interface CategoryProps {
@@ -24,7 +24,6 @@ interface CategoryProps {
 }
 
 const Category = ({onCategoryPress}: CategoryProps) => {
-
 
   return (
     <Container>
