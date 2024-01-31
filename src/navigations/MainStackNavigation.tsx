@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+// screen
 import Main from '@/screens/main/Main';
+import Store from '@/screens/main/Store';
 
 const MainStack = createStackNavigator();
 

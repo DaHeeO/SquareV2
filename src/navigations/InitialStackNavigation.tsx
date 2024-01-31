@@ -17,7 +17,6 @@ function InitialStackNavigators() {
   return (
     <InitialStack.Navigator 
     initialRouteName="Location"
-    
     >
       <InitialStack.Screen
         name="Location"

@@ -1,11 +1,15 @@
 // ScrollViewCarousel.tsx
 import styled from 'styled-components/native';
 import React, { useEffect, useRef, useState } from 'react';
-import { FlatList, View, Dimensions, Image } from 'react-native';
+import { FlatList, View, Dimensions, Image, Pressable, TouchableOpacity } from 'react-native';
 import { Text } from '../common/fonts';
 import { colors } from '../common/globalStyles';
 
-const EventCarousel = () => {
+interface EventProps {
+  onEventPress: (route: string) => void;
+}
+
+const EventCarousel = ({onEventPress}: EventProps) => {
   const flatListRef = useRef<FlatList>(null);
   const screenWidth = Dimensions.get('window').width;
   const [activeIndex, setActiveIndex] = useState(0);
@@ -17,6 +21,10 @@ const EventCarousel = () => {
   ];
 
   // const eventData: string[] = [];
+
+  const navigateToEvent = () => {
+
+  }
 
   useEffect(() => {
     if (eventData.length > 1) {
@@ -47,9 +55,11 @@ const EventCarousel = () => {
 
   const renderItem = (item: any, index: number) => {
     return (
-      <View>
+      <TouchableOpacity onPress={() => {
+        onEventPress('Edit')
+      }}>
         <Image source={item.image} style={{ height: 110, width: screenWidth }} />
-      </View>
+      </TouchableOpacity>
     );
   };
 
@@ -79,7 +89,9 @@ const EventCarousel = () => {
         showsHorizontalScrollIndicator={false}
         onScroll={handleScroll}
       />
-      <IndicatorBox>
+      <IndicatorBox onPress={() => {
+        onEventPress('Profile');
+      }}>
         <Text size={12} color="white" weight="Regular">
           {activeIndex + 1}/{eventData.length} 전체보기
         </Text>
