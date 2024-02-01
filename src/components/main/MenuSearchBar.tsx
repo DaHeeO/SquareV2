@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
 
 // styled
 import * as S from './MenuSearchBar.styles';
-import {Text} from '../common/fonts';
 import {colors} from '../common/globalStyles';
 
 // icon
@@ -14,7 +12,6 @@ import Close from '../../assets/icons/Close';
 const MenuSearchBar = () => {
 
   const [text, onChangeText] = useState('');
-  const [modalVisible, setModalVisible] = useState(false);
 
   const resetText = () => {
     onChangeText('');

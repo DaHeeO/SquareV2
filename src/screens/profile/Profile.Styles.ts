@@ -48,7 +48,8 @@ export const ProfileImage = styled.Image`
   width: 100px;
   height: 100px;
   border-radius: 25px;
-  border: 2px solid green;
+  border-width: 2px;
+  border-color: green;
 `;
 
 // 프로필 이미지와 텍스트를 담을 컨테이너

@@ -1,4 +1,6 @@
 import {useState, useEffect} from 'react';
+import { View } from 'react-native';
+import {colors} from '../globalStyles'
 
 // icons
 import Explore from '../../../assets/icons/Explore';
@@ -15,7 +17,7 @@ interface NavIconProps {
 const getNavIconColor = (focused: boolean) => {
   let iconColor;
 
-  iconColor = focused ? '#515151' : '#EBECF0';
+  iconColor = focused ? colors.text._primary : colors.text._secondary;
   return iconColor;
 };
 
@@ -49,9 +51,9 @@ const BottomTabIcon = ({focused, type}: NavIconProps) => {
   }
 
   return (
-    <>
+    <View style={{alignItems: 'center'}}>
       <IconComponent color={color} size={25} />
-    </>
+    </View>
   );
 };
 
