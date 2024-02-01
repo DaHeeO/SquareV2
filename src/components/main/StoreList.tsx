@@ -1,87 +1,68 @@
-import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  useAnimatedGestureHandler,
-  withSpring,
-} from 'react-native-reanimated';
+import React, { useEffect, useRef, useState } from 'react';
+import { Image, TouchableOpacity } from 'react-native';
 
-const StoreList = () => {
-  const translateX = useSharedValue(0);
+// styled
+import styled from 'styled-components/native';
+import {colors} from '../common/globalStyles';
+import {Text} from '../common/fonts';
 
-  const gestureHandler = useAnimatedGestureHandler({
-    onActive: (event) => {
-      translateX.value = event.translationX;
-    },
-    onEnd: (event) => {
-      // 스와이프가 화면의 40% 이상이면 다음 페이지로 이동
-      if (Math.abs(event.translationX) > 0.4 * screenWidth) {
-        translateX.value = withSpring(
-          event.translationX > 0 ? screenWidth : -screenWidth
-        );
-      } else {
-        // 스와이프가 화면의 40% 미만이면 초기 위치로 되돌림
-        translateX.value = withSpring(0);
-      }
-    },
-  });
+// component
+import { FlatList } from 'react-native-gesture-handler';
 
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ translateX: translateX.value }],
-    };
-  });
+// 부모 컴포넌트 프롭스
+interface ListProps {
+  listing: any[];
+  category: number;
+}
+
+// item props
+interface ListInterface {
+  id: number;
+  name: string;
+  product: string;
+  rating: number;
+  review_cnt: number;
+  is_ts: boolean;
+  is_pn: boolean;
+  image: any;
+}
+
+const StoreList = ({listing, category}: ListProps) => {
+
+  const listRef = useRef<FlatList>(null); 
+
+  useEffect(() => {
+    console.log(listing.length);
+  }, [category]);
+
+  const renderItem = (item: ListInterface, index: number) => {
+    return (
+      <StoreConatiner>
+        <Text size={12} color='black' weight={'Regular'}>{item.name}</Text>
+        <Text size={12} color='black' weight={'Regular'}>{item.id}</Text>
+      </StoreConatiner>
+    );
+  };
 
   return (
-    <ScrollView
-      horizontal
-      pagingEnabled
-      showsHorizontalScrollIndicator={false}
-      style={styles.scrollView}
-    >
-      <Animated.View style={[styles.page, { backgroundColor: 'lightblue'}, animatedStyle]}>
-        <Text style={styles.text}>페이지 1</Text>
-        {/* 추가 내용 */}
-      </Animated.View>
-
-      <Animated.View
-        style={[styles.page, { backgroundColor: 'lightcoral' }, animatedStyle]}
-      >
-        <Text style={styles.text}>페이지 2</Text>
-        {/* 추가 내용 */}
-      </Animated.View>
-
-      <Animated.View
-        style={[styles.page, { backgroundColor: 'lightgreen' }, animatedStyle]}
-      >
-        <Text style={styles.text}>페이지 3</Text>
-        {/* 추가 내용 */}
-      </Animated.View>
-
-      {/* 추가 페이지들 */}
-    </ScrollView>
+    <Container>
+      <FlatList 
+        renderItem={(data) => renderItem(data.item, data.index)}
+        ref={listRef}
+        data={listing}
+      />
+    </Container>
   );
 };
 
-const screenWidth = Dimensions.get('window').width;
+const Container = styled.View`
+  flex: 1;
+  padding: 0px 24px;
+`
 
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-  },
-  page: {
-    width: screenWidth,
-    height: 'auto',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-});
+const StoreConatiner = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`
 
 export default StoreList;

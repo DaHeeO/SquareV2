@@ -1,11 +1,6 @@
-import { StyleSheet, ScrollView, TouchableOpacity, Pressable, LayoutChangeEvent, TouchableWithoutFeedback } from 'react-native';
-import { useRef, useState, useEffect } from 'react';
-import Animated, {
-  useSharedValue,
-  useAnimatedScrollHandler,
-  useDerivedValue,
-  withSpring,
-} from 'react-native-reanimated';
+import { ScrollView, TouchableOpacity, LayoutChangeEvent } from 'react-native';
+import { useRef, useState } from 'react';
+import Animated from 'react-native-reanimated';
 
 import styled from 'styled-components/native';
 import { Text } from '../common/fonts';
