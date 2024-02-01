@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 // styled
 import * as S from './Store.styles';
@@ -8,9 +8,10 @@ import {colors} from '../../components/common/globalStyles';
 // icon
 
 // component
-import Top from '../../components/common/Top';
+import MainHeader from '../../components/common/MainHeader';
+import CategoryHeader from '../../components/main/CategoryHeader';
 
-const Store = ({navigation}: any) => {
+const Store = ({route, navigation }: any) => {
 
   // top component navigate
   const popBack = () => {
@@ -25,14 +26,21 @@ const Store = ({navigation}: any) => {
     navigation.navigate('FullScreenStack', {screen:'Store'})
   }
 
+  const [category, setCategory] = useState<number>(route.params?.category || '1');
+
+  const onDataChanged = (category: number) => {
+    setCategory(category);
+  };
+
   return (
     <S.Container>
-      <Top
+      <MainHeader
         onPopBack={popBack}
         onNavigateToHome={navigateToHome}
         onNavigateToCart={navigateToCart}
         title={'스퀘어 픽업'}
       />
+      <CategoryHeader onCategoryChanged={onDataChanged} initialCategory={category}/>
     </S.Container>
   );
 };

@@ -21,8 +21,8 @@ interface MainProps {
 }
 
 const Main = ({navigation}: MainProps) => {
-  const handleCategoryPress = (route: string) => {
-    navigation.navigate('FullScreenStack', { screen: 'Store' });
+  const handleCategoryPress = (category: number) => {
+    navigation.navigate('FullScreenStack', { screen: 'Store', params: { category } });
   };
 
   const handleEventPress = (route: string) => {
