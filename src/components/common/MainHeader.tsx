@@ -40,7 +40,7 @@ const Top = ({onPopBack, onNavigateToCart, onNavigateToHome, title}: TopProps) =
   );
 };
 
-export const TopDiv = styled.View`
+const TopDiv = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -48,13 +48,13 @@ export const TopDiv = styled.View`
   width: 100%;
 `;
 
-export const IconDiv = styled.View`
+const IconDiv = styled.View`
   align-items: center;
   justify-content: center;
   flex-direction: row;
 `
 
-export const Icon = styled.Pressable`
+const Icon = styled.Pressable`
   margin-left: 16px;
 `
 

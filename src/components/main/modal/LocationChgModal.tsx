@@ -24,7 +24,8 @@ const LocationPermModal = ({ modalVisible, closeModal }: LocationPermModalProps)
     closeModal();
   }
 
-  const handleOverlayPress = () => {
+  const handleOverlayPress = (e: any) => {
+    e.stopPropagation();
     // 모달 외의 영역을 터치했을 때 모달을 닫는 동작 추가
     closeModal();
   };
@@ -43,7 +44,7 @@ const LocationPermModal = ({ modalVisible, closeModal }: LocationPermModalProps)
         onPress={handleOverlayPress}
       >
         <S.CenteredView>
-          <S.ModalView>
+          <S.ModalView onPress={(e: any) => e.stopPropagation()}>
             {/* 지역 리스트 표시 */}
             <FlatList
               data={locations}
