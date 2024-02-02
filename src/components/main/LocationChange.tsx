@@ -61,6 +61,7 @@ const LocationChange = () => {
       {/* 위치 설정 모달 */}
       <LocationChgModal
         onLocationChanged={onLocationChange}
+        initialLocation={location}
         modalVisible={modalVisible}
         closeModal={closeModal}
       />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
 import { Modal, Pressable, Linking, TouchableOpacity } from 'react-native';
 
@@ -9,6 +9,7 @@ import { colors } from '../../common/globalStyles';
 
 interface LocationPermModalProps {
   onLocationChanged: (location: string) => void;
+  initialLocation: string;
   modalVisible: boolean;
   closeModal: () => void;
 }
@@ -19,8 +20,15 @@ const locations = [
   { name: '덕명동'},
 ];
 
-const LocationPermModal = ({ onLocationChanged, modalVisible, closeModal }: LocationPermModalProps) => {
+const LocationPermModal = ({ onLocationChanged, initialLocation, modalVisible, closeModal }: LocationPermModalProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const index = locations.findIndex((location) => location.name === initialLocation);
+
+    // Set the activeIndex with the found index or default to 0 if not found
+    setActiveIndex(index !== -1 ? index : 0);
+  }, [initialLocation]);
 
   const closeWithAnimation = () => {
     closeModal();
