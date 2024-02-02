@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
 import { Modal, Pressable, Linking, TouchableOpacity } from 'react-native';
 
@@ -8,25 +8,41 @@ import { Text } from '../../common/fonts';
 import { colors } from '../../common/globalStyles';
 
 interface LocationPermModalProps {
+  onLocationChanged: (location: string) => void;
+  initialLocation: string;
   modalVisible: boolean;
   closeModal: () => void;
 }
 
-const LocationPermModal = ({ modalVisible, closeModal }: LocationPermModalProps) => {
-  
-  const locations = [
-    { name: '여의도동', active: false },
-    { name: '소담동', active: false },
-    { name: '덕명동', active: true },
-  ];
+const locations = [
+  { name: '여의도동'},
+  { name: '소담동'},
+  { name: '덕명동'},
+];
+
+const LocationPermModal = ({ onLocationChanged, initialLocation, modalVisible, closeModal }: LocationPermModalProps) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const index = locations.findIndex((location) => location.name === initialLocation);
+
+    // Set the activeIndex with the found index or default to 0 if not found
+    setActiveIndex(index !== -1 ? index : 0);
+  }, [initialLocation]);
 
   const closeWithAnimation = () => {
     closeModal();
   }
 
-  const handleOverlayPress = () => {
+  const handleOverlayPress = (e: any) => {
+    e.stopPropagation();
     // 모달 외의 영역을 터치했을 때 모달을 닫는 동작 추가
     closeModal();
+  };
+
+  const selectLocation = (index: number) => {
+    setActiveIndex(index);
+    onLocationChanged(locations[index].name);
   };
 
   return (
@@ -43,16 +59,16 @@ const LocationPermModal = ({ modalVisible, closeModal }: LocationPermModalProps)
         onPress={handleOverlayPress}
       >
         <S.CenteredView>
-          <S.ModalView>
+          <S.ModalView onPress={(e: any) => e.stopPropagation()}>
             {/* 지역 리스트 표시 */}
             <FlatList
               data={locations}
-              renderItem={({ item }) => (
-                <S.LocationBtn>
+              renderItem={({ item, index }) => (
+                <S.LocationBtn onPress={() => selectLocation(index)}>
                     <Text
                     size={16}
                     color={colors.text._primary}
-                    weight={item.active ? 'SemiBold' : 'Regular'}
+                    weight={activeIndex === index ? 'SemiBold' : 'Regular'}
                     >
                     {item.name}
                     </Text>

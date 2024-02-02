@@ -9,7 +9,7 @@ export const CenteredView = styled.View`
     background-color: rgba(17, 17, 17, 0.15);
 `
 
-export const ModalView = styled.View`
+export const ModalView = styled.Pressable`
     margin: 80px 24px;
     width: 170px;
     border-radius: 8px;

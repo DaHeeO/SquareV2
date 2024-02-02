@@ -72,7 +72,7 @@ const CategoryHeader = ({ onCategoryChanged, initialCategory }: Props) => {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{
           alignItems: 'center',
-          gap: 30,
+          gap: 40,
           paddingHorizontal: 24,
         }}
         onLayout={onScrollViewLayout} // Added onLayout callback
@@ -112,8 +112,8 @@ const CategoryItem = styled.TouchableOpacity`
 `;
 
 const CategoryItemContainer = styled(Animated.View)<{ selected: boolean }>`
-  padding-bottom: ${(props) => (props.selected ? '6px' : '8px')};
-  border-bottom-width: ${(props) => (props.selected ? '2px' : '0')};
+  padding-bottom: ${(props) => (props.selected ? '6px' : '9px')};
+  border-bottom-width: ${(props) => (props.selected ? '3px' : '0')};
   border-bottom-color: ${colors.green._500};
 `;
 
