@@ -23,7 +23,6 @@ const filters = [
 const FilterChgModal = ({ modalVisible, closeModal, onFilterChanged }: LocationPermModalProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
  
-
   const closeWithAnimation = () => {
     closeModal();
   }

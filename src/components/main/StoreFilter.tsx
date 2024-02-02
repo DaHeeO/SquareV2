@@ -35,6 +35,7 @@ const StoreFilter = () => {
       <Pressable onPress={openModal}>
         <Buttons.MainFilter title={filter}/>
       </Pressable>
+      {/* scrollView로 감싼 필터들 */}
       <FilterChgModal
         onFilterChanged={onFilterChange}
         modalVisible={modalVisible}

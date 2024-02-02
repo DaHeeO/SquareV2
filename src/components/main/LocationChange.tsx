@@ -16,7 +16,11 @@ const LocationChange = () => {
 
   const [modalVisible, setModalVisible] = useState(false);
   const rotation = useSharedValue(0);
+  const [location, setLocation] = useState('덕명동');
 
+  const onLocationChange = (location: string) => {
+    setLocation(location)
+  };
 
   const openModal = () => {
     setModalVisible(true);
@@ -49,13 +53,14 @@ const LocationChange = () => {
       weight={'SemiBold'}
       style={{marginRight: 4}}
       >
-      덕명동
+      {location}
       </Text>
       <Animated.View style={animatedStyle}>
         <Down size={24} color={colors.text._primary} />
       </Animated.View>
       {/* 위치 설정 모달 */}
       <LocationChgModal
+        onLocationChanged={onLocationChange}
         modalVisible={modalVisible}
         closeModal={closeModal}
       />

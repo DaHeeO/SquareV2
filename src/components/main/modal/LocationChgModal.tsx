@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FlatList } from 'react-native';
 import { Modal, Pressable, Linking, TouchableOpacity } from 'react-native';
 
@@ -8,17 +8,19 @@ import { Text } from '../../common/fonts';
 import { colors } from '../../common/globalStyles';
 
 interface LocationPermModalProps {
+  onLocationChanged: (location: string) => void;
   modalVisible: boolean;
   closeModal: () => void;
 }
 
-const LocationPermModal = ({ modalVisible, closeModal }: LocationPermModalProps) => {
-  
-  const locations = [
-    { name: '여의도동', active: false },
-    { name: '소담동', active: false },
-    { name: '덕명동', active: true },
-  ];
+const locations = [
+  { name: '여의도동'},
+  { name: '소담동'},
+  { name: '덕명동'},
+];
+
+const LocationPermModal = ({ onLocationChanged, modalVisible, closeModal }: LocationPermModalProps) => {
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const closeWithAnimation = () => {
     closeModal();
@@ -28,6 +30,11 @@ const LocationPermModal = ({ modalVisible, closeModal }: LocationPermModalProps)
     e.stopPropagation();
     // 모달 외의 영역을 터치했을 때 모달을 닫는 동작 추가
     closeModal();
+  };
+
+  const selectLocation = (index: number) => {
+    setActiveIndex(index);
+    onLocationChanged(locations[index].name);
   };
 
   return (
@@ -48,12 +55,12 @@ const LocationPermModal = ({ modalVisible, closeModal }: LocationPermModalProps)
             {/* 지역 리스트 표시 */}
             <FlatList
               data={locations}
-              renderItem={({ item }) => (
-                <S.LocationBtn>
+              renderItem={({ item, index }) => (
+                <S.LocationBtn onPress={() => selectLocation(index)}>
                     <Text
                     size={16}
                     color={colors.text._primary}
-                    weight={item.active ? 'SemiBold' : 'Regular'}
+                    weight={activeIndex === index ? 'SemiBold' : 'Regular'}
                     >
                     {item.name}
                     </Text>
