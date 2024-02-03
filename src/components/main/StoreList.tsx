@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Image, TouchableOpacity, View } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { Image, View } from 'react-native';
 
 // styled
 import styled from 'styled-components/native';
@@ -12,8 +12,11 @@ import StoreSquare from '../../assets/images/StoreSquare.png';
 import StarFilled from '@/assets/icons/StarFilled';
 import Buttons from '../common/Buttons';
 
+import Cafe from '@/assets/images/cafe.png';
+
 // 부모 컴포넌트 프롭스
 interface ListProps {
+  onNavigateToDetail: () => void;
   listing: any[];
   category: number;
 }
@@ -30,7 +33,7 @@ interface ListInterface {
   image: any;
 }
 
-const StoreList = ({listing, category}: ListProps) => {
+const StoreList = ({listing, category, onNavigateToDetail}: ListProps) => {
 
   const listRef = useRef<FlatList>(null); 
 
@@ -42,7 +45,7 @@ const StoreList = ({listing, category}: ListProps) => {
 
     const truncatedProduct = `${item.product.substring(0, 17)}...`;
     return (
-      <StoreConatiner>
+      <StoreConatiner onPress={onNavigateToDetail}>
         <StoreImage source={item.image === null ? StoreSquare : item.image} />
         {/* 오른쪽 */}
         <View>
@@ -61,8 +64,8 @@ const StoreList = ({listing, category}: ListProps) => {
             >{truncatedProduct}</Text>
           </StoreInfo>
           <StoreInfo style={{marginTop: 6}}>
-            {item.is_ts ? <Buttons.SaleTag title='타임세일'/> : null}
-            {item.is_pn ? <Buttons.SaleTag title='연계세일'/> : null}
+            {item.is_ts ? <Buttons.SaleTag title='타임세일' textColor={colors.orange._500} bgColor={colors.orange._50}/> : null}
+            {item.is_pn ? <Buttons.SaleTag title='연계세일' textColor={colors.red._300} bgColor={colors.red._50}/> : null}
           </StoreInfo>
         </View>
       </StoreConatiner>

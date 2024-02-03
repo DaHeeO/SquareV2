@@ -1,9 +1,9 @@
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import { Dimensions, StyleSheet } from 'react-native';
 import Animated, { useSharedValue, withTiming, useAnimatedStyle } from 'react-native-reanimated';
 
 // style
-import * as S from './Store.styles';
+import styled from 'styled-components/native';
 
 // component
 import { ListingData } from '../../components/main/ListingData';
@@ -25,6 +25,10 @@ const Store = ({ route, navigation }: any) => {
     navigation.navigate('FullScreenStack', { screen: 'Store' });
   };
 
+  const navigateToDetail = () => {
+    navigation.navigate('StoreDetail');
+  }
+
   const [category, setCategory] = useState<number>(route.params?.category || '1');
   const items = useMemo(() => ListingData.data as any, []);
   const screenWidth = Dimensions.get('window').width/2;
@@ -43,7 +47,7 @@ const Store = ({ route, navigation }: any) => {
       // Compare with the previous category
       if (prevCategoryRef.current < newCategory) {
         offset.value = screenWidth;
-      } else {
+      } else if(prevCategoryRef.current > newCategory) {
         offset.value = -screenWidth;
       }
     }
@@ -59,7 +63,7 @@ const Store = ({ route, navigation }: any) => {
   };
 
   return (
-    <S.Container>
+    <Container>
       <MainHeader
         onPopBack={popBack}
         onNavigateToHome={navigateToHome}
@@ -69,9 +73,9 @@ const Store = ({ route, navigation }: any) => {
       <CategoryHeader onCategoryChanged={onDataChanged} initialCategory={category} />
       <StoreFilter />
       <Animated.View style={[animationStyles.swipeContainer, swipe]}>
-        <StoreList listing={items} category={category} />
+        <StoreList listing={items} category={category} onNavigateToDetail={navigateToDetail} />
       </Animated.View>
-    </S.Container>
+    </Container>
   );
 };
 
@@ -81,4 +85,12 @@ const animationStyles = StyleSheet.create({
     flex: 1,
   }
 });
+
+const Container = styled.View`
+  flex: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: white;
+`
+
 export default Store;

@@ -4,16 +4,22 @@ import styled from 'styled-components/native';
 import { colors } from './globalStyles';
 import { Text } from './fonts';
 
+// icon
 import Sort from '@/assets/icons/Sort';
+import Bell from '@/assets/icons/Bell';
+import Partnership from '@/assets/icons/Partnership';
+import Star from '@/assets/icons/Star';
 
 interface TopProps {
   title: string;
+  textColor: string;
+  bgColor : string;
 }
 
-export const SaleTag = ({ title }: TopProps) => {
+export const SaleTag = ({ title, textColor, bgColor }: TopProps) => {
   return (
-    <TopDiv>
-        <Text size={10} color={colors.text._primary} weight={'Medium'}>{title}</Text>
+    <TopDiv style={{backgroundColor:(bgColor)}}>
+        <Text size={10} color={textColor} weight={'SemiBold'}>{title}</Text>
     </TopDiv>
   );
 };
@@ -21,8 +27,7 @@ export const SaleTag = ({ title }: TopProps) => {
 export const TopDiv = styled.View`
   align-items: center;
   justify-content: center;
-  padding: 2px 4px;
-  background-color: ${colors.green._50};
+  padding: 3px 8px;
   border-radius: 4px;
   margin-right: 6px;
 `;
@@ -51,4 +56,46 @@ export const MainButton = styled.View`
   ${Platform.OS === 'android' ? 'elevation: 8;' :'box-shadow: 0px 0px 4px rgba(2, 72, 38, 0.15);'};
 `;
 
-export default { SaleTag, MainFilter };
+
+interface SubButtonProps {
+  title: string;
+  acitve: boolean;
+}
+
+export const SubFilter = ({ title, acitve }: SubButtonProps) => {
+  let IconComponent;
+
+  switch (title) {
+    case '타임세일':
+      IconComponent = Bell;
+      break;
+    case '연계세일':
+      IconComponent = Partnership;
+      break;
+    case '단골가게':
+      IconComponent = Star;
+      break;
+    default:
+      throw new Error(`Unknown icon type: ${title}`);
+  }
+  return (
+    <SubButton isActive={acitve}>
+      <IconComponent size={14} color={colors.text._primary} />
+      <Text size={14} color={colors.text._primary} weight={acitve ? 'Medium' : 'Regular'} style={{marginLeft: 4}}>{title}</Text>
+    </SubButton>
+  );
+};
+
+export const SubButton = styled.View<{ isActive: boolean }>`
+  flex-direction: row;
+  align-items:center;
+  padding: 8px 12px;
+  background-color: ${(props) => (props.isActive ? 'rgba(230, 240, 235, 0.7)' : colors.white._100)};
+  border-radius: 20px;
+  border-width: 1px;
+  border-color: ${(props) => (props.isActive ? colors.green._50 : colors.white._300)};
+`
+
+
+
+export default { SaleTag, MainFilter,SubFilter};
