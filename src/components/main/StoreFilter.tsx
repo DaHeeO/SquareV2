@@ -1,5 +1,5 @@
 import { ScrollView, TouchableOpacity, LayoutChangeEvent, View, Pressable } from 'react-native';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Animated from 'react-native-reanimated';
 
 import styled from 'styled-components/native';
@@ -10,26 +10,27 @@ import { colors } from '../common/globalStyles';
 import Buttons from '../common/Buttons';
 import FilterChgModal from './modal/FilterChgModal'
 
-const subFilters = [
+interface Props {
+  onFilterChanged: (MainFilter: string, subFilters: any) => void;
+}
+
+const subFilter = [
   {
     name: '타임세일',
-    active: false,
   },
   {
     name: '연계세일',
-    active: false,
   },
   {
     name: '단골가게',
-    active: false,
   }
-]
+];
 
-
-const StoreFilter = () => {
+const StoreFilter = ({onFilterChanged}: Props) => {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [filter, setFilter] = useState('기본순');
+  const [sub, setSub] = useState([false, false, false]);
 
   const openModal = () => {
     setModalVisible(true);
@@ -43,7 +44,21 @@ const StoreFilter = () => {
     setFilter(filter)
   };
 
+  const selectFilter = (index: number) => {
+    setSub(prevSub => {
+      const updatedSub = [...prevSub];
+      updatedSub[index] = !updatedSub[index];
+      return updatedSub;
+    });
+  }
 
+  useEffect(() => {
+    const handleChange = async () => {
+      onFilterChanged(filter, sub);
+    };
+
+    handleChange();
+  }, [filter, sub, onFilterChanged]);
 
   return (
     <Container>
@@ -59,12 +74,13 @@ const StoreFilter = () => {
         paddingHorizontal: 8,
       }}
       >
-        {subFilters.map((item, index) => (
-          <Buttons.SubFilter 
-          title={item.name} 
-          acitve={item.active}
-          key={index}
-          />
+        {subFilter.map((item, index) => (
+          <Pressable key={index} onPress={() => selectFilter(index)}>
+            <Buttons.SubFilter 
+            title={item.name} 
+            acitve={sub[index]}
+            />
+          </Pressable>
         ))}
       </ScrollView>
       <FilterChgModal

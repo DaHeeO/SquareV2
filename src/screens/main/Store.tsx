@@ -30,6 +30,8 @@ const Store = ({ route, navigation }: any) => {
   }
 
   const [category, setCategory] = useState<number>(route.params?.category || '1');
+  const [mainFilter, setMainFilter] = useState('기본순');
+  const [subFilters, setSubFilters] = useState([false, false, false]);
   const items = useMemo(() => ListingData.data as any, []);
   const screenWidth = Dimensions.get('window').width/2;
 
@@ -62,6 +64,12 @@ const Store = ({ route, navigation }: any) => {
     offset.value = withTiming(0, { duration: 300 });
   };
 
+  const onFiltersChanged = (MainFilter: string, SubFilters: any) => {
+    setMainFilter(MainFilter);
+    setSubFilters(SubFilters);
+    console.log(MainFilter, SubFilters);
+  }
+
   return (
     <Container>
       <MainHeader
@@ -71,7 +79,7 @@ const Store = ({ route, navigation }: any) => {
         title={'스퀘어 픽업'}
       />
       <CategoryHeader onCategoryChanged={onDataChanged} initialCategory={category} />
-      <StoreFilter />
+      <StoreFilter onFilterChanged={onFiltersChanged}/>
       <Animated.View style={[animationStyles.swipeContainer, swipe]}>
         <StoreList listing={items} category={category} onNavigateToDetail={navigateToDetail} />
       </Animated.View>

@@ -38,7 +38,6 @@ const StoreList = ({listing, category, onNavigateToDetail}: ListProps) => {
   const listRef = useRef<FlatList>(null); 
 
   useEffect(() => {
-    console.log(listing.length);
   }, [category]);
 
   const renderItem = (item: ListInterface) => {
