@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Dimensions, StyleSheet } from 'react-native';
 import Animated, { useSharedValue, withTiming, useAnimatedStyle } from 'react-native-reanimated';
 
@@ -54,21 +54,23 @@ const Store = ({ route, navigation }: any) => {
       }
     }
 
-    // Update the previous category
     prevCategoryRef.current = newCategory;
 
-    // Set the new category immediately
     setCategory(newCategory);
 
-    // Use withTiming for a smooth linear animation
     offset.value = withTiming(0, { duration: 300 });
   };
 
   const onFiltersChanged = (MainFilter: string, SubFilters: any) => {
     setMainFilter(MainFilter);
     setSubFilters(SubFilters);
-    console.log(MainFilter, SubFilters);
-  }
+  };
+
+  useEffect(() => {
+    console.log('item 갱신');
+
+  }, [category, mainFilter, subFilters]);
+
 
   return (
     <Container>

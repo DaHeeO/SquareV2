@@ -1,10 +1,7 @@
-import { ScrollView, TouchableOpacity, LayoutChangeEvent, View, Pressable } from 'react-native';
+import { ScrollView, Pressable } from 'react-native';
 import { useEffect, useRef, useState } from 'react';
-import Animated from 'react-native-reanimated';
 
 import styled from 'styled-components/native';
-import { Text } from '../common/fonts';
-import { colors } from '../common/globalStyles';
 
 // component
 import Buttons from '../common/Buttons';
@@ -23,15 +20,15 @@ const subFilter = [
   },
   {
     name: '단골가게',
-  }
+  },
 ];
 
-const StoreFilter = ({onFilterChanged}: Props) => {
-
+const StoreFilter = ({ onFilterChanged }: Props) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [filter, setFilter] = useState('기본순');
   const [sub, setSub] = useState([false, false, false]);
-
+  const scrollRef = useRef<ScrollView | null>(null);
+  
   const openModal = () => {
     setModalVisible(true);
   };
@@ -41,16 +38,20 @@ const StoreFilter = ({onFilterChanged}: Props) => {
   };
 
   const onFilterChange = (filter: string) => {
-    setFilter(filter)
+    setFilter(filter);
   };
 
   const selectFilter = (index: number) => {
-    setSub(prevSub => {
+    setSub((prevSub) => {
       const updatedSub = [...prevSub];
       updatedSub[index] = !updatedSub[index];
       return updatedSub;
     });
-  }
+  };
+
+  const resetFilter = () => {
+    setSub(Array(sub.length).fill(false));
+  };
 
   useEffect(() => {
     const handleChange = async () => {
@@ -62,24 +63,29 @@ const StoreFilter = ({onFilterChanged}: Props) => {
 
   return (
     <Container>
-      <Pressable onPress={openModal} >
-        <Buttons.MainFilter title={filter}/>
+      <Pressable onPress={openModal}>
+        <Buttons.MainFilter title={filter} />
       </Pressable>
-      <ScrollView 
-      horizontal 
-      showsHorizontalScrollIndicator={false}
-      contentContainerStyle={{
-        alignItems: 'center',
-        gap: 8,
-        paddingHorizontal: 8,
-      }}
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        ref={scrollRef}
+        contentContainerStyle={{
+          alignItems: 'center',
+          paddingHorizontal: 8,
+        }}
       >
+        {sub.some((value) => value) && (
+          <Pressable onPress={resetFilter}>
+            <Buttons.SubFilter title="초기화" />
+          </Pressable>
+        )}
         {subFilter.map((item, index) => (
-          <Pressable key={index} onPress={() => selectFilter(index)}>
-            <Buttons.SubFilter 
-            title={item.name} 
-            acitve={sub[index]}
-            />
+          <Pressable 
+            key={index} 
+            onPress={() => selectFilter(index)}
+          >
+            <Buttons.SubFilter title={item.name} acitve={sub[index]} />
           </Pressable>
         ))}
       </ScrollView>
@@ -96,7 +102,6 @@ const Container = styled.View`
   width: 100%;
   flex-direction: row;
   padding: 10px 0px 10px 12px;
-`
-
+`;
 
 export default StoreFilter;

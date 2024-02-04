@@ -59,7 +59,7 @@ export const MainButton = styled.View`
 
 interface SubButtonProps {
   title: string;
-  acitve: boolean;
+  acitve?: boolean;
 }
 
 export const SubFilter = ({ title, acitve }: SubButtonProps) => {
@@ -75,6 +75,9 @@ export const SubFilter = ({ title, acitve }: SubButtonProps) => {
     case '단골가게':
       IconComponent = Star;
       break;
+    case '초기화':
+      IconComponent = Star;
+      break;
     default:
       throw new Error(`Unknown icon type: ${title}`);
   }
@@ -86,10 +89,11 @@ export const SubFilter = ({ title, acitve }: SubButtonProps) => {
   );
 };
 
-export const SubButton = styled.View<{ isActive: boolean }>`
+export const SubButton = styled.View<{ isActive?: boolean }>`
   flex-direction: row;
   align-items:center;
   padding: 8px 12px;
+  margin-right: 8px;
   background-color: ${(props) => (props.isActive ? 'rgba(230, 240, 235, 0.7)' : colors.white._100)};
   border-radius: 20px;
   border-width: 1px;
