@@ -6,7 +6,7 @@ import Animated, { useSharedValue, withTiming, useAnimatedStyle } from 'react-na
 import styled from 'styled-components/native';
 
 // component
-import { ListingData } from '../../components/main/ListingData';
+import { ListInterface, ListingData } from '../../components/main/ListingData';
 import MainHeader from '../../components/common/MainHeader';
 import CategoryHeader from '../../components/main/CategoryHeader';
 import StoreList from '../../components/main/StoreList';
@@ -25,8 +25,8 @@ const Store = ({ route, navigation }: any) => {
     navigation.navigate('FullScreenStack', { screen: 'Store' });
   };
 
-  const navigateToDetail = () => {
-    navigation.navigate('StoreDetail');
+  const navigateToDetail = (id: number, info: ListInterface) => {
+    navigation.navigate('StoreDetail', {id, info});
   }
 
   const [category, setCategory] = useState<number>(route.params?.category || '1');

@@ -9,6 +9,7 @@ import Sort from '@/assets/icons/Sort';
 import Bell from '@/assets/icons/Bell';
 import Partnership from '@/assets/icons/Partnership';
 import Star from '@/assets/icons/Star';
+import Reset from '@/assets/icons/Reset';
 
 interface TopProps {
   title: string;
@@ -76,7 +77,7 @@ export const SubFilter = ({ title, acitve }: SubButtonProps) => {
       IconComponent = Star;
       break;
     case '초기화':
-      IconComponent = Star;
+      IconComponent = Reset;
       break;
     default:
       throw new Error(`Unknown icon type: ${title}`);

@@ -42,11 +42,13 @@ const MainHeaderAnimated = ({onPopBack, onNavigateToCart, onNavigateToHome, titl
 
 const TopDiv = styled.View`
   position: absolute;
+  backgroud-color: transparent;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px 15px 20px;
   width: 100%;
+  z-index: 2;
 `;
 
 const IconDiv = styled.View`

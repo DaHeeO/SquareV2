@@ -7,30 +7,17 @@ import {colors} from '../common/globalStyles';
 import {Text} from '../common/fonts';
 
 // component
+import { ListInterface } from './ListingData';
 import { FlatList } from 'react-native-gesture-handler';
 import StoreSquare from '../../assets/images/StoreSquare.png';
 import StarFilled from '@/assets/icons/StarFilled';
 import Buttons from '../common/Buttons';
 
-import Cafe from '@/assets/images/cafe.png';
-
 // 부모 컴포넌트 프롭스
 interface ListProps {
-  onNavigateToDetail: () => void;
+  onNavigateToDetail: (id: number, info: ListInterface) => void;
   listing: any[];
   category: number;
-}
-
-// item props
-interface ListInterface {
-  id: number;
-  name: string;
-  product: string;
-  rating: number;
-  review_cnt: number;
-  is_ts: boolean;
-  is_pn: boolean;
-  image: any;
 }
 
 const StoreList = ({listing, category, onNavigateToDetail}: ListProps) => {
@@ -44,7 +31,9 @@ const StoreList = ({listing, category, onNavigateToDetail}: ListProps) => {
 
     const truncatedProduct = `${item.product.substring(0, 17)}...`;
     return (
-      <StoreConatiner onPress={onNavigateToDetail}>
+      <StoreConatiner  onPress={() => {
+        onNavigateToDetail(item.id, item);
+      }}>
         <StoreImage source={item.image === null ? StoreSquare : item.image} />
         {/* 오른쪽 */}
         <View>
