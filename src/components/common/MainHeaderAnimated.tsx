@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pressable } from 'react-native';
 
 // styled
@@ -16,33 +16,45 @@ interface TopProps {
     onNavigateToHome: () => void;
     onNavigateToCart: () => void;
     title: string;
+    isTransparent: number
 }
 
-const MainHeaderAnimated = ({onPopBack, onNavigateToCart, onNavigateToHome, title}: TopProps) => {
+const MainHeaderAnimated = ({onPopBack, onNavigateToCart, onNavigateToHome, title, isTransparent}: TopProps) => {
+
+  const [transparent, setTransparent] = useState(true);
+
+  useEffect(() => {
+    if (isTransparent >= 0.9) {
+      setTransparent(false);
+    } else {
+      setTransparent(true); 
+    }
+  }, [isTransparent]);
 
   return (
-    <TopDiv>
-        <IconDiv>
-          <Pressable onPress={onPopBack} style={{marginRight: 4}}>
-            <Left size={24} color={colors.text._primary} />
-          </Pressable>
-          <Text size={18} color={colors.text._primary} weight={'SemiBold'}>{title}</Text>
-        </IconDiv>
-        <IconDiv>
-          <Icon onPress={onNavigateToHome}>
-            <Home size={24} color={colors.text._primary} />
-          </Icon>
-          <Icon onPress={onNavigateToCart}>
-            <Cart size={24} color={colors.text._primary} />
-          </Icon>
-        </IconDiv>
-      </TopDiv> 
+    <TopDiv style={{ backgroundColor: transparent ? 'transparent' : 'white' }}>
+      <IconDiv>
+        <Pressable onPress={onPopBack} style={{marginRight: 4}}>
+          <Left size={24} color={transparent ? 'white' : colors.text._primary} />
+        </Pressable>
+        <Text size={18} color={transparent ? 'white' : colors.text._primary}  weight={'SemiBold'}>
+          {transparent ? '' : title }
+        </Text>
+      </IconDiv>
+      <IconDiv>
+        <Icon onPress={onNavigateToHome}>
+          <Home size={24} color={transparent ? 'white' : colors.text._primary}  />
+        </Icon>
+        <Icon onPress={onNavigateToCart}>
+          <Cart size={24} color={transparent ? 'white' : colors.text._primary}  />
+        </Icon>
+      </IconDiv>
+    </TopDiv> 
   );
 };
 
 const TopDiv = styled.View`
   position: absolute;
-  backgroud-color: transparent;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
