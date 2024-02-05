@@ -1,3 +1,14 @@
+export interface ListInterface {
+  id: number;
+  name: string;
+  product: string;
+  rating: number;
+  review_cnt: number;
+  is_ts: boolean;
+  is_pn: boolean;
+  image: any;
+}
+
 export const ListingData = {
   "status_code": 200,
   "message": "success",
@@ -103,4 +114,39 @@ export const ListingData = {
       "image": null,
 	  },
   ]
+}
+
+export interface StoreInterface {
+  uid: number;
+  name: string;
+  phone: string;
+  address: string;
+  dibs_cnt: number;
+  review_count: number;
+  rating: number;
+  distance: number;
+  duration: number;
+  pickup_time: number;
+  is_ts: boolean;
+  is_pn: boolean;
+}
+
+
+export const StoreData = {
+  "status_code": 200,
+  "message": "success",
+  "data" : {
+    "uid": 1,
+    "name": "펭소커피",
+    "phone": "04212345678",
+    "address": "대전광역시 유성구 덕명동 OOO",
+    "dibs_count": 20,
+    "review_count": 50,
+    "rating": 3.5,
+    "distance": 150,
+    "duration": 15,
+    "pickup_time": 15,
+    "is_ts": true,
+    "is_pn": true
+  }
 }

@@ -1,12 +1,12 @@
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Dimensions, StyleSheet } from 'react-native';
 import Animated, { useSharedValue, withTiming, useAnimatedStyle } from 'react-native-reanimated';
 
 // style
-import * as S from './Store.styles';
+import styled from 'styled-components/native';
 
 // component
-import { ListingData } from '../../components/main/ListingData';
+import { ListInterface, ListingData } from '../../components/main/ListingData';
 import MainHeader from '../../components/common/MainHeader';
 import CategoryHeader from '../../components/main/CategoryHeader';
 import StoreList from '../../components/main/StoreList';
@@ -25,7 +25,13 @@ const Store = ({ route, navigation }: any) => {
     navigation.navigate('FullScreenStack', { screen: 'Store' });
   };
 
+  const navigateToDetail = (id: number, info: ListInterface) => {
+    navigation.navigate('StoreDetail', {id, info});
+  }
+
   const [category, setCategory] = useState<number>(route.params?.category || '1');
+  const [mainFilter, setMainFilter] = useState('기본순');
+  const [subFilters, setSubFilters] = useState([false, false, false]);
   const items = useMemo(() => ListingData.data as any, []);
   const screenWidth = Dimensions.get('window').width/2;
 
@@ -43,23 +49,31 @@ const Store = ({ route, navigation }: any) => {
       // Compare with the previous category
       if (prevCategoryRef.current < newCategory) {
         offset.value = screenWidth;
-      } else {
+      } else if(prevCategoryRef.current > newCategory) {
         offset.value = -screenWidth;
       }
     }
 
-    // Update the previous category
     prevCategoryRef.current = newCategory;
 
-    // Set the new category immediately
     setCategory(newCategory);
 
-    // Use withTiming for a smooth linear animation
     offset.value = withTiming(0, { duration: 300 });
   };
 
+  const onFiltersChanged = (MainFilter: string, SubFilters: any) => {
+    setMainFilter(MainFilter);
+    setSubFilters(SubFilters);
+  };
+
+  useEffect(() => {
+    console.log('item 갱신');
+
+  }, [category, mainFilter, subFilters]);
+
+
   return (
-    <S.Container>
+    <Container>
       <MainHeader
         onPopBack={popBack}
         onNavigateToHome={navigateToHome}
@@ -67,11 +81,11 @@ const Store = ({ route, navigation }: any) => {
         title={'스퀘어 픽업'}
       />
       <CategoryHeader onCategoryChanged={onDataChanged} initialCategory={category} />
-      <StoreFilter />
+      <StoreFilter onFilterChanged={onFiltersChanged}/>
       <Animated.View style={[animationStyles.swipeContainer, swipe]}>
-        <StoreList listing={items} category={category} />
+        <StoreList listing={items} category={category} onNavigateToDetail={navigateToDetail} />
       </Animated.View>
-    </S.Container>
+    </Container>
   );
 };
 
@@ -81,4 +95,12 @@ const animationStyles = StyleSheet.create({
     flex: 1,
   }
 });
+
+const Container = styled.View`
+  flex: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: white;
+`
+
 export default Store;

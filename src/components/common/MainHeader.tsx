@@ -1,4 +1,5 @@
 import React from 'react';
+import { Pressable } from 'react-native';
 
 // styled
 import styled from 'styled-components/native';
@@ -9,7 +10,6 @@ import {Text} from './fonts';
 import Left from '@/assets/icons/Left';
 import Home from '@/assets/icons/Home';
 import Cart from '@/assets/icons/Cart';
-import { Pressable } from 'react-native';
 
 interface TopProps {
     onPopBack: () => void;
@@ -18,25 +18,25 @@ interface TopProps {
     title: string;
 }
 
-const Top = ({onPopBack, onNavigateToCart, onNavigateToHome, title}: TopProps) => {
+const MainHeader = ({onPopBack, onNavigateToCart, onNavigateToHome, title}: TopProps) => {
 
   return (
     <TopDiv>
-        <IconDiv>
-          <Pressable onPress={onPopBack} style={{marginRight: 4}}>
-            <Left size={24} color={colors.text._primary} />
-          </Pressable>
-          <Text size={18} color={colors.text._primary} weight={'SemiBold'}>{title}</Text>
-        </IconDiv>
-        <IconDiv>
-          <Icon onPress={onNavigateToHome}>
-            <Home size={24} color={colors.text._primary} />
-          </Icon>
-          <Icon onPress={onNavigateToCart}>
-            <Cart size={24} color={colors.text._primary} />
-          </Icon>
-        </IconDiv>
-      </TopDiv> 
+      <IconDiv>
+        <Pressable onPress={onPopBack} style={{marginRight: 4}}>
+          <Left size={24} color={colors.text._primary} />
+        </Pressable>
+        <Text size={18} color={colors.text._primary} weight={'SemiBold'}>{title}</Text>
+      </IconDiv>
+      <IconDiv>
+        <Icon onPress={onNavigateToHome}>
+          <Home size={24} color={colors.text._primary} />
+        </Icon>
+        <Icon onPress={onNavigateToCart}>
+          <Cart size={24} color={colors.text._primary} />
+        </Icon>
+      </IconDiv>
+    </TopDiv> 
   );
 };
 
@@ -58,4 +58,4 @@ const Icon = styled.Pressable`
   margin-left: 16px;
 `
 
-export default Top;
+export default MainHeader;
