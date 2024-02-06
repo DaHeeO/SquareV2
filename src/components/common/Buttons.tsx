@@ -101,6 +101,26 @@ export const SubButton = styled.View<{ isActive?: boolean }>`
   border-color: ${(props) => (props.isActive ? colors.green._50 : colors.white._300)};
 `
 
+export const CopyButton = () => {
+  return (
+    <Copy>
+      <Sort size={12} color={colors.text._primary} />
+      <Text size={12} color={colors.text._primary} weight={'SemiBold'} style={{marginLeft: 4}}>주소 복사</Text>
+    </Copy>
+  );
+};
+
+export const Copy = styled.View`
+  width: auto;
+  flex-direction: row;
+  align-items:center;
+  padding: 2px 6px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.7);
+  elevation: 3;
+`;
 
 
-export default { SaleTag, MainFilter,SubFilter};
+
+export default { SaleTag, MainFilter,SubFilter, CopyButton};

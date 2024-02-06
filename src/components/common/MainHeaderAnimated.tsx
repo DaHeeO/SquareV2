@@ -24,7 +24,7 @@ const MainHeaderAnimated = ({onPopBack, onNavigateToCart, onNavigateToHome, titl
   const [transparent, setTransparent] = useState(true);
 
   useEffect(() => {
-    if (isTransparent >= 0.9) {
+    if (isTransparent >= 0.67) {
       setTransparent(false);
     } else {
       setTransparent(true); 

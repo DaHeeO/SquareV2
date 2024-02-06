@@ -1,14 +1,15 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { SafeAreaView, ScrollView } from 'react-native';
+import Animated, { Extrapolation, interpolate, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 
 // style
-import * as S from './StoreDetail.styles';
 
 // component
+import { ListInterface, StoreInterface, StoreData } from '../../components/main/ListingData';
 import MainHeaderAnimated from '../../components/common/MainHeaderAnimated';
 import BannerCarousel from '../../components/main/BannerCarousel';
-import { ListInterface, StoreInterface, StoreData } from '../../components/main/ListingData';
-import { SafeAreaView, ScrollView, View } from 'react-native';
-import Animated, { Extrapolation, interpolate, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
+import StoreInfo from '../../components/main/StoreInfo';
+
 
 const StoreDetail = ({ route, navigation }: any) => {
 
@@ -39,20 +40,24 @@ const StoreDetail = ({ route, navigation }: any) => {
     navigation.navigate('FullScreenStack', { screen: 'Store' });
   };
 
+  const navigateToLocation = () => {
+    navigation.navigate('StoreLocation');
+  };
+
   // scroll event
   const scrollY = useSharedValue(0);
   const bannerRef = useRef(null);
 
   const onScroll = ((event: any) => {
     scrollY.value = event.nativeEvent.contentOffset.y;
-    const index = scrollY.value / 190;
+    const index = scrollY.value / 230;
     setActiveIndex(index);
   });
 
   const bannerStyle = useAnimatedStyle(() => {
     return {
       height: interpolate(
-        scrollY.value,
+        scrollY.value * 2,
         [0, 780],
         [260, 0], // Adjust the minimum height as needed
         Extrapolation.CLAMP
@@ -78,8 +83,7 @@ const StoreDetail = ({ route, navigation }: any) => {
         <Animated.View style={[ bannerStyle ]} ref={bannerRef}>
           <BannerCarousel />
         </Animated.View>
-        {/* 나머지 정보 및 메뉴 등 추가 */}
-        <View style={{ height: 1000 }} />
+        <StoreInfo info={items} onNavigateToLocation={navigateToLocation}/>
       </ScrollView>
     </SafeAreaView>
   );
