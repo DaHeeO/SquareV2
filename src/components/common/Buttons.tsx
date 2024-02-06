@@ -10,6 +10,7 @@ import Bell from '@/assets/icons/Bell';
 import Partnership from '@/assets/icons/Partnership';
 import Star from '@/assets/icons/Star';
 import Reset from '@/assets/icons/Reset';
+import CurrentLocation from '@/assets/icons/CurrentLocation';
 
 interface TopProps {
   title: string;
@@ -101,11 +102,11 @@ export const SubButton = styled.View<{ isActive?: boolean }>`
   border-color: ${(props) => (props.isActive ? colors.green._50 : colors.white._300)};
 `
 
-export const CopyButton = () => {
+export const LocationButton = () => {
   return (
     <Copy>
-      <Sort size={12} color={colors.text._primary} />
-      <Text size={12} color={colors.text._primary} weight={'SemiBold'} style={{marginLeft: 4}}>주소 복사</Text>
+      <CurrentLocation size={20} color={colors.text._primary} />
+      <Text size={14} color={colors.text._primary} weight={'Regular'} style={{marginLeft: 6}}>현재 위치로</Text>
     </Copy>
   );
 };
@@ -114,13 +115,13 @@ export const Copy = styled.View`
   width: auto;
   flex-direction: row;
   align-items:center;
-  padding: 2px 6px;
+  padding: 10px;
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.7);
-  elevation: 3;
+  border-radius: 20px;
+  border-width: 1px;
+  border-color: ${colors.white._600};
 `;
 
 
 
-export default { SaleTag, MainFilter,SubFilter, CopyButton};
+export default { SaleTag, MainFilter,SubFilter, LocationButton};

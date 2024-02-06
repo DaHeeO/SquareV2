@@ -23,7 +23,6 @@ const StoreDetail = ({ route, navigation }: any) => {
     console.log('detail item id: ', storeId);
     console.log([info]);
     // 여기서 아이템 로딩 api
-    
   }, [info, storeId]);
 
 
@@ -41,7 +40,7 @@ const StoreDetail = ({ route, navigation }: any) => {
   };
 
   const navigateToLocation = () => {
-    navigation.navigate('StoreLocation');
+    navigation.navigate('StoreLocation', {latitude: items.lat, longitude: items.long});
   };
 
   // scroll event

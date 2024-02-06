@@ -19,7 +19,7 @@ interface Props {
 
 const InfoLocation = ({storeInfo, onNavigateToLocation}: Props) => {
 
-  const { address, name } = storeInfo;
+  const { address } = storeInfo;
 
   const copyToClipboard = () => {
     try {
