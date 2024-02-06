@@ -129,6 +129,9 @@ export interface StoreInterface {
   pickup_time: number;
   is_ts: boolean;
   is_pn: boolean;
+  long: number;
+  lat: number;
+  image: string;
 }
 
 
@@ -147,6 +150,9 @@ export const StoreData = {
     "duration": 15,
     "pickup_time": 15,
     "is_ts": true,
-    "is_pn": true
+    "is_pn": true,
+    "lat": 36.34899084010318,
+    "long": 127.29732119148132,
+    "image": null,
   }
 }
