@@ -102,26 +102,4 @@ export const SubButton = styled.View<{ isActive?: boolean }>`
   border-color: ${(props) => (props.isActive ? colors.green._50 : colors.white._300)};
 `
 
-export const LocationButton = () => {
-  return (
-    <Copy>
-      <CurrentLocation size={20} color={colors.text._primary} />
-      <Text size={14} color={colors.text._primary} weight={'Regular'} style={{marginLeft: 6}}>현재 위치로</Text>
-    </Copy>
-  );
-};
-
-export const Copy = styled.View`
-  width: auto;
-  flex-direction: row;
-  align-items:center;
-  padding: 10px;
-  background-color: white;
-  border-radius: 20px;
-  border-width: 1px;
-  border-color: ${colors.white._600};
-`;
-
-
-
-export default { SaleTag, MainFilter,SubFilter, LocationButton};
+export default { SaleTag, MainFilter,SubFilter};
