@@ -11,6 +11,7 @@ import Partnership from '@/assets/icons/Partnership';
 import Star from '@/assets/icons/Star';
 import Reset from '@/assets/icons/Reset';
 import CurrentLocation from '@/assets/icons/CurrentLocation';
+import { Defs, LinearGradient, Rect, Stop, Svg } from 'react-native-svg';
 
 interface TopProps {
   title: string;
@@ -102,4 +103,24 @@ export const SubButton = styled.View<{ isActive?: boolean }>`
   border-color: ${(props) => (props.isActive ? colors.green._50 : colors.white._300)};
 `
 
-export default { SaleTag, MainFilter,SubFilter};
+const GradientBackground = styled(Svg)`
+  flex: 1;
+`;
+
+export const GradientButton = () => {
+  return (
+    <GradientBackground>
+      <Defs>
+        <LinearGradient id="grad" x1="0" y1="0" x2="100%" y2="0">
+          <Stop offset="0%" stopColor="#ff8a00" />
+          <Stop offset="100%" stopColor="#da1b60" />
+        </LinearGradient>
+      </Defs>
+      <Rect width="100%" height="100%" fill="url(#grad)" />
+      {/* 추가적인 내용을 이곳에 배치할 수 있습니다. */}
+      <Text size={14} color={colors.text._primary} weight={'Regular'} >Hello, react-native-svg with gradient background!</Text>
+    </GradientBackground>
+  );
+};
+
+export default { SaleTag, MainFilter,SubFilter, GradientButton};

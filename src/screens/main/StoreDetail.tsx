@@ -20,8 +20,6 @@ const StoreDetail = ({ route, navigation }: any) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    console.log('detail item id: ', storeId);
-    console.log([info]);
     // 여기서 아이템 로딩 api
   }, [info, storeId]);
 

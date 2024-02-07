@@ -121,7 +121,7 @@ export interface StoreInterface {
   name: string;
   phone: string;
   address: string;
-  dibs_cnt: number;
+  dibs_count: number;
   review_count: number;
   rating: number;
   distance: number;

@@ -39,7 +39,7 @@ export const ReviewBox = styled.View`
 `
 
 export const DetailInfo = styled.View`
-  margin: 10px 0px;
+  margin: 15px 0px;
   border-radius: 8px;
   border-width: 1px;
   border-color: ${colors.white._600};
@@ -54,3 +54,25 @@ export const TextBox = styled.View`
   flex: 1;
   margin-left: 12px;
 `
+
+export const FunctionContainer = styled.View`
+  width: 100%;
+  padding: 0px 50px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const FunctionBox = styled.Pressable`
+  flex-direction: row;
+  align-items:center;
+`
+
+export const SaleBox = styled.Pressable`
+  flex: 1;
+  border-radius: 8px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+`
+
