@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native';  // View 추가
+import React, { useEffect, useState } from 'react';
+import { SafeAreaView } from 'react-native';
 
 // style
 import styled from 'styled-components/native';
@@ -15,12 +15,12 @@ import WebView from '../../components/main/webView/StoreLocation';
 import LocationPermModal from '../../components/permission/modal/LocationPermModal';
 import PermissionUtil from '../../components/permission/PermissionUtil';
 import { APP_PERMISSION_CODE } from '../../components/permission/PermissionCode';
-
-
+import Geolocation from '@react-native-community/geolocation';
 
 const StoreLocation = ({ navigation, route }: any) => {
-
   const [modalVisible, setModalVisible] = useState(false);
+  const [currentLat, setCurrentLat] = useState<number>(0);
+  const [currentLong, setCurrentLong] = useState<number>(0);
 
   const popBack = () => {
     navigation.pop();
@@ -38,9 +38,9 @@ const StoreLocation = ({ navigation, route }: any) => {
   const checkLocation = async () => {
     try {
       const permissionGranted = await PermissionUtil.cmmReqPermission([...APP_PERMISSION_CODE.location]);
-  
       // 권한이 부여되었을 때
       if (permissionGranted) {
+        getCurrentLocation();
       } else {
         // 권한이 거부되었을 때의 모달 띄우기
         openModal();
@@ -49,28 +49,52 @@ const StoreLocation = ({ navigation, route }: any) => {
       console.error(error);
     }
   };
-  
+
+  // 현재 위치 불러오기
+  const getCurrentLocation = () => {
+    Geolocation.getCurrentPosition(
+      position => {
+        const currentLat = position.coords.latitude;
+        const currentLong = position.coords.longitude;
+        setCurrentLat(currentLat);
+        setCurrentLong(currentLong);
+      },
+      error => {
+        console.error(error);
+      },
+    );
+  };
+
+  useEffect(() => {
+    console.log('item 갱신');
+  }, [currentLat, currentLong]);
+
   const storeLat = route.params.latitude || 0;
   const storeLong = route.params.longitude || 0;
   const storeName = route.params.name || '';
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <WebView storeLat={storeLat} storeLong={storeLong} storeName={storeName}/>
+      <WebView
+        storeLat={storeLat}
+        storeLong={storeLong}
+        storeName={storeName}
+        currentLat={currentLat}
+        currentLong={currentLong}
+      />
       <TopDiv>
         <BackComponent onPress={popBack}>
           <Back size={25} color={'black'} />
         </BackComponent>
         <LocationButton onPress={checkLocation}>
           <CurrentLocation size={20} color={colors.text._primary} />
-          <Text size={14} color={colors.text._primary} weight={'Regular'} style={{marginLeft: 6}}>현재 위치로</Text>
+          <Text size={14} color={colors.text._primary} weight={'Regular'} style={{ marginLeft: 6 }}>
+            현재 위치로
+          </Text>
         </LocationButton>
       </TopDiv>
       {/* 위치 설정 모달 */}
-      <LocationPermModal
-        modalVisible={modalVisible}
-        closeModal={closeModal}
-      />
+      <LocationPermModal modalVisible={modalVisible} closeModal={closeModal} />
     </SafeAreaView>
   );
 };
@@ -99,7 +123,7 @@ const BackComponent = styled.Pressable`
 const LocationButton = styled.Pressable`
   width: auto;
   flex-direction: row;
-  align-items:center;
+  align-items: center;
   padding: 10px;
   background-color: white;
   border-radius: 20px;
