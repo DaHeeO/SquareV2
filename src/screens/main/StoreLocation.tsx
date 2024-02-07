@@ -50,12 +50,13 @@ const StoreLocation = ({ navigation, route }: any) => {
     }
   };
   
-  const latitude = route.params.latitude || 0;
-  const longitude = route.params.longitude || 0;
+  const storeLat = route.params.latitude || 0;
+  const storeLong = route.params.longitude || 0;
+  const storeName = route.params.name || '';
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <WebView latitude={latitude} longitude={longitude} />
+      <WebView storeLat={storeLat} storeLong={storeLong} storeName={storeName}/>
       <TopDiv>
         <BackComponent onPress={popBack}>
           <Back size={25} color={'black'} />
@@ -95,7 +96,7 @@ const BackComponent = styled.Pressable`
   background-color: white;
 `;
 
-export const LocationButton = styled.Pressable`
+const LocationButton = styled.Pressable`
   width: auto;
   flex-direction: row;
   align-items:center;

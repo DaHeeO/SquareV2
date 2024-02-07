@@ -3,24 +3,26 @@ import WebView from "react-native-webview";
 import { Dimensions } from "react-native";
 
 interface LocationPreviewProps {
-  latitude: number;
-  longitude: number;
+  storeLat: number;
+  storeLong: number;
+  storeName: string;
 }
 
 class StoreLocation extends Component<LocationPreviewProps> {
   state = {
-    latitude: this.props.latitude,
-    longitude: this.props.longitude,
+    storeLat: this.props.storeLat,
+    storeLong: this.props.storeLong,
+    storeName: this.props.storeName,
   };
 
   render() {
-    const { latitude, longitude } = this.state;
+    const { storeLat, storeLong, storeName } = this.state;
 
     // webview로 전달할 데이터 세팅 (javascript file)
     const injectedJavaScript = `
       window.postMessage({
-        type: 'SET_COORDINATES',
-        payload: { latitude: ${latitude}, longitude: ${longitude} }
+        type: 'STORE_INFO',
+        payload: { storeLat: ${storeLat}, storeLong: ${storeLong}, storeName: '${storeName}' }
       });
     `;
 
@@ -31,11 +33,10 @@ class StoreLocation extends Component<LocationPreviewProps> {
           height: Dimensions.get("window").height,
         }}
         source={{
-          uri: 'http://192.168.10.150:3000/app/store/preview',
+          uri: 'http://192.168.10.28:3000/app/store/preview',
         }}
         injectedJavaScript={injectedJavaScript}
         javaScriptEnabled={true}
-        onLoad={() => console.log('WebView loaded')}
       />
     );
   }

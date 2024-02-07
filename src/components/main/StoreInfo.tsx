@@ -16,7 +16,6 @@ import Right from '@/assets/icons/Right';
 import { StoreInterface } from './ListingData';
 import LineVertical from '@/assets/icons/LineVertical';
 import InfoLocation from './InfoLocation';
-import { CopyButton } from '../common/Buttons';
 
 
 interface Props {

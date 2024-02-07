@@ -35,7 +35,7 @@ const InfoLocation = ({storeInfo, onNavigateToLocation}: Props) => {
 
   return (
     <Container>
-      <MapView>
+      <MapView onPress={navigateToMap}>
         <Preview source={MapViewPreview}/>
       </MapView>
       <ButtonContainer>
@@ -65,7 +65,7 @@ const Container = styled.View`
   border-color: ${colors.white._600};
 `
 
-const MapView = styled.View`
+const MapView = styled.Pressable`
   flex: 1;
 `
 

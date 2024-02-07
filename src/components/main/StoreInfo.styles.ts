@@ -43,7 +43,7 @@ export const DetailInfo = styled.View`
   border-radius: 8px;
   border-width: 1px;
   border-color: ${colors.white._600};
-  padding: 10px;
+  padding: 10px 15px 10px 10px;
 `
 
 export const DetailDiv = styled.View`
