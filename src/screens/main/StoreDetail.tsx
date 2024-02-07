@@ -40,7 +40,7 @@ const StoreDetail = ({ route, navigation }: any) => {
   };
 
   const navigateToLocation = () => {
-    navigation.navigate('StoreLocation', {latitude: items.lat, longitude: items.long});
+    navigation.navigate('StoreLocation', {latitude: items.lat, longitude: items.long, name: items.name});
   };
 
   // scroll event
