@@ -4,7 +4,7 @@ import { Dimensions } from "react-native";
 import Geolocation from '@react-native-community/geolocation';
 
 // interface
-import {LocationState} from '../../screens/settings/CurLocation';
+import {LocationState} from '../../../screens/settings/CurLocation';
 
 // 부모 컴포넌트로 보낼 정보를 담은 인터페이스
 interface MapByGeolocationProps {
@@ -82,7 +82,7 @@ class MapByGeolocation extends Component<MapByGeolocationProps, MapByGeolocation
           height: Dimensions.get("window").height,
         }}
         source={{
-          uri: 'http://192.168.123.106:3000/app/current',
+          uri: 'http://192.168.10.150:3000/app/current',
         }}
         injectedJavaScript={injectedJavaScript}
         javaScriptEnabled={true}

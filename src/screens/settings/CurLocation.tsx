@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // component
-import MapByGeolocation from '../../components/webView/MapByGeolocation';
+import MapByGeolocation from '../../components/permission/webView/MapByGeolocation';
 
 // styled
 import * as S from './CurLocation.styles';

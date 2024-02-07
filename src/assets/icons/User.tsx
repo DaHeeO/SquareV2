@@ -14,7 +14,6 @@ function User({size, color}: Props) {
     strokeLinecap="round" 
     strokeLinejoin="round"/>
     </Svg>
-
   );
 }
 

@@ -42,7 +42,7 @@ const Regular = () => {
         onClose={toggleSortModal}
         onSortOptionSelect={handleSortOptionSelect}
       /> */}
-        <StoreList stores={stores} />
+        {/* <StoreList stores={stores} /> */}
     </S.Container>
   );
 };

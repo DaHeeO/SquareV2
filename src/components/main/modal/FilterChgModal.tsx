@@ -1,35 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FlatList } from 'react-native';
 import { Modal, Pressable, Linking, TouchableOpacity } from 'react-native';
 
 // styled
-import * as S from './LocationChgModal.styles';
+import * as S from './FilterChgModal.styles';
 import { Text } from '../../common/fonts';
 import { colors } from '../../common/globalStyles';
+import Check from '@/assets/icons/Check';
 
 interface LocationPermModalProps {
-  onLocationChanged: (location: string) => void;
-  initialLocation: string;
+  onFilterChanged: (filter: string) => void;
   modalVisible: boolean;
   closeModal: () => void;
 }
 
-const locations = [
-  { name: '여의도동'},
-  { name: '소담동'},
-  { name: '덕명동'},
+const filters = [
+  { name: '기본순'},
+  { name: '거리순'},
+  { name: '인기순'},
 ];
 
-const LocationPermModal = ({ onLocationChanged, initialLocation, modalVisible, closeModal }: LocationPermModalProps) => {
+const FilterChgModal = ({ modalVisible, closeModal, onFilterChanged }: LocationPermModalProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const index = locations.findIndex((location) => location.name === initialLocation);
-
-    // Set the activeIndex with the found index or default to 0 if not found
-    setActiveIndex(index !== -1 ? index : 0);
-  }, [initialLocation]);
-
+ 
   const closeWithAnimation = () => {
     closeModal();
   }
@@ -40,9 +33,9 @@ const LocationPermModal = ({ onLocationChanged, initialLocation, modalVisible, c
     closeModal();
   };
 
-  const selectLocation = (index: number) => {
+  const selectFilter = (index: number) => {
     setActiveIndex(index);
-    onLocationChanged(locations[index].name);
+    onFilterChanged(filters[index].name);
   };
 
   return (
@@ -58,33 +51,31 @@ const LocationPermModal = ({ onLocationChanged, initialLocation, modalVisible, c
         style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
         onPress={handleOverlayPress}
       >
-        <S.CenteredView>
+        <S.CenteredView >
           <S.ModalView onPress={(e: any) => e.stopPropagation()}>
+            <Text
+              size={16}
+              color={colors.text._primary}
+              weight={"SemiBold"}
+              >
+              정렬
+            </Text>
             {/* 지역 리스트 표시 */}
             <FlatList
-              data={locations}
+              data={filters}
               renderItem={({ item, index }) => (
-                <S.LocationBtn onPress={() => selectLocation(index)}>
+                <S.LocationBtn onPress={() => selectFilter(index)}>
                     <Text
-                    size={16}
-                    color={colors.text._primary}
-                    weight={activeIndex === index ? 'SemiBold' : 'Regular'}
+                    size={18}
+                    color={activeIndex === index ? colors.green._200 : colors.text._primary}
+                    weight={'SemiBold'}
                     >
                     {item.name}
                     </Text>
+                    {activeIndex === index ? <Check size={20} color={colors.green._200} /> : null}
                 </S.LocationBtn>
               )}
-              keyExtractor={(item, index) => index.toString()}
             />
-            <TouchableOpacity>
-              <Text
-                size={16}
-                color={colors.text._primary}
-                weight={'Regular'}
-              >
-                내 지역 설정
-              </Text>
-            </TouchableOpacity>
           </S.ModalView>
         </S.CenteredView>
       </TouchableOpacity>
@@ -92,4 +83,4 @@ const LocationPermModal = ({ onLocationChanged, initialLocation, modalVisible, c
   );
 };
 
-export default LocationPermModal;
+export default FilterChgModal;
