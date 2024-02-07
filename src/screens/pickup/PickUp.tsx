@@ -5,7 +5,8 @@ const PickUp = () => {
 
   return (
     <S.Container>
-      <S.TabText>여기는 픽업</S.TabText>
+      <S.TopBarContainer>
+        <S.Text>픽업</S.Text></S.TopBarContainer>
     </S.Container>
   );
 };

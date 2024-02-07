@@ -10,7 +10,7 @@ import Login from './src/screens/login/Login';
 import Kakao from './src/screens/login/KakaoLogin';
 import Permission from './src/screens/login/Permission';
 import InitialStack from './src/navigations/InitialStackNavigation';
-import BottomTab from './src/components/common/bottomtab/BottomTab';
+import BottomTab from './src/components/common/bottomTab/BottomTab';
 import FullScreenStack from './src/navigations/FullScreenStackNavigation';
 
 const Stack = createStackNavigator();
@@ -19,7 +19,7 @@ function App() {
   return (
     <RecoilRoot>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Login">
+        <Stack.Navigator initialRouteName="BottomTab">
           <Stack.Screen
             name="AccessToken"
             component={AccessToken}

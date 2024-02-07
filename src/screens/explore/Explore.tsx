@@ -6,7 +6,8 @@ const Explore = () => {
 
   return (
     <S.Container>
-      <S.TabText>여기는 탐색</S.TabText>
+           <S.TopBarContainer>
+        <S.Text>탐색</S.Text></S.TopBarContainer>
     </S.Container>
   );
 };

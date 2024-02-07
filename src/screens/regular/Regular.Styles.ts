@@ -1,16 +1,40 @@
 import styled from 'styled-components/native';
+import { Dimensions } from 'react-native';
 
+
+const windowWidth = Dimensions.get('window').width;
 export const Container = styled.View`
   flex: 1;
-  border: 2px solid blue; // 컨테이너 영역을 표시하기 위해 파란색 테두리 추가
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #F7F7F7;
 `;
 
-export const TopBar = styled.View`
-  flex-direction: row;
+export const TopBarContainer = styled.View`
+  width: ${windowWidth}px;
+  height: 60px;
+  background-color: #FFFFFF;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row;
+  padding: 0 10px;
+`;
+export const Text = styled.Text`
+  color: black;
+  flex: 1; 
+  text-align: center; 
+`;
+
+export const SortButton = styled.TouchableOpacity`
   padding: 10px;
-  border: 2px solid red; // 상단 바 영역을 표시하기 위해 빨간색 테두리 추가
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  align-self: flex-end; 
+`;
+
+export const SortButtonText = styled.Text`
+  font-size: 16px;
+  color: #333;
 `;
 
 export const SearchBar = styled.View`

@@ -23,13 +23,19 @@ export const TopBarContainer = styled.View`
 
 
 export const IconButton = styled.TouchableOpacity`
-  padding: 10px; // 버튼이 터치하기 쉽도록 패딩 설정
+  padding: 10px; 
 `;
 
 export const Title = styled.Text`
-  font-size: 20px; // 제목 글자 크기
-  font-weight: bold; // 글자 두께
-  color: #333; // 글자 색상
+  font-size: 20px; 
+  font-weight: bold; 
+  color: #333; 
+`;
+
+export const Text = styled.Text`
+  color: black;
+  flex: 1; 
+  text-align: center; 
 `;
 export const NameCard = styled.View`
   width: ${windowWidth * 0.9}px;
@@ -40,35 +46,38 @@ export const NameCard = styled.View`
   margin-top: 50px;
   margin-bottom: 50px;
   elevation: 10;
-  align-items: center; // 중앙 정렬
-  justify-content: center; // 중앙 정렬
+  align-items: center;
+  justify-content: center; 
 `;
 
 export const ProfileImage = styled.Image`
-  width: 100px;
-  height: 100px;
-  border-radius: 25px;
-  border-width: 2px;
-  border-color: green;
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
+  border-width: 10px;
+  margin-right: 15%;
+  background-color: #036635;
 `;
 
-// 프로필 이미지와 텍스트를 담을 컨테이너
 export const ProfileInfoContainer = styled.View`
-  flex-direction: row; // 가로로 배열
-  align-items: center; // 세로 중앙 정렬
+  flex-direction: row; 
+  align-items: center; 
+
 `;
 
 export const UserInfoContainer = styled.View`
-  margin-left: 10px; // 이미지와 텍스트 사이의 간격
+  
+  margin-bottom : 30px;
 `;
 
 export const Nickname = styled.Text`
   font-weight: bold;
+  font-size : 17px;
+  
 `;
-
 export const Email = styled.Text`
   color: #333;
-  margin-top: 4px; // 닉네임과 이메일 사이의 간격
+  margin-top: 10px; 
 `;
 
 export const TabButton = styled.TouchableOpacity`
@@ -76,8 +85,13 @@ export const TabButton = styled.TouchableOpacity`
   right: 20px;
   bottom: 20px;
 `;
-
+export const LocationContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
 export const LocationText = styled.Text`
+  font-size : 15px;
   color: black;
 `;
 
