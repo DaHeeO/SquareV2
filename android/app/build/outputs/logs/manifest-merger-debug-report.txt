@@ -10,7 +10,6 @@ MERGED from [:react-native-async-storage_async-storage] /Users/odahui/Desktop/Sq
 MERGED from [:react-native-clipboard_clipboard] /Users/odahui/Desktop/Square/square-mobile/node_modules/@react-native-clipboard/clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-community_geolocation] /Users/odahui/Desktop/Square/square-mobile/node_modules/@react-native-community/geolocation/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-gesture-handler] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:react-native-linear-gradient] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-linear-gradient/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-permissions] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-permissions/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-reanimated] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-reanimated/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-safe-area-context] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
@@ -228,8 +227,6 @@ MERGED from [:react-native-community_geolocation] /Users/odahui/Desktop/Square/s
 MERGED from [:react-native-community_geolocation] /Users/odahui/Desktop/Square/square-mobile/node_modules/@react-native-community/geolocation/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-gesture-handler] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-gesture-handler] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-linear-gradient] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-linear-gradient/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-linear-gradient] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-linear-gradient/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-permissions] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-permissions/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-permissions] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-permissions/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-reanimated] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-reanimated/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
