@@ -19,6 +19,8 @@ import com.reactnativecommunity.clipboard.ClipboardPackage;
 import com.reactnativecommunity.geolocation.GeolocationPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.RNGestureHandlerPackage;
+// react-native-linear-gradient
+import com.BV.LinearGradient.LinearGradientPackage;
 // react-native-permissions
 import com.zoontek.rnpermissions.RNPermissionsPackage;
 // react-native-reanimated
@@ -80,6 +82,7 @@ public class PackageList {
       new ClipboardPackage(),
       new GeolocationPackage(),
       new RNGestureHandlerPackage(),
+      new LinearGradientPackage(),
       new RNPermissionsPackage(),
       new ReanimatedPackage(),
       new SafeAreaContextPackage(),

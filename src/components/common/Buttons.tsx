@@ -3,6 +3,7 @@ import { Platform } from 'react-native';
 import styled from 'styled-components/native';
 import { colors } from './globalStyles';
 import { Text } from './fonts';
+import { Defs, LinearGradient, Path, Rect, Stop, Svg } from 'react-native-svg';
 
 // icon
 import Sort from '@/assets/icons/Sort';
@@ -10,7 +11,8 @@ import Bell from '@/assets/icons/Bell';
 import Partnership from '@/assets/icons/Partnership';
 import Star from '@/assets/icons/Star';
 import Reset from '@/assets/icons/Reset';
-import CurrentLocation from '@/assets/icons/CurrentLocation';
+import Coupon from '@/assets/icons/Coupon';
+import Puzzle from '@/assets/icons/Puzzle';
 
 interface TopProps {
   title: string;
@@ -102,4 +104,56 @@ export const SubButton = styled.View<{ isActive?: boolean }>`
   border-color: ${(props) => (props.isActive ? colors.green._50 : colors.white._300)};
 `
 
-export default { SaleTag, MainFilter,SubFilter};
+interface GradientProps {
+  title: string;
+  c1: string;
+  c2: string;
+  textColor: string;
+}
+
+export const GradientButton = ({ title, c1, c2, textColor }: GradientProps) => {
+
+  let IconComponent;
+
+  switch (title) {
+    case '모든 쿠폰 보기':
+      IconComponent = Coupon;
+      break;
+    case '제휴 가게 보기':
+      IconComponent = Puzzle;
+      break;
+    default:
+      throw new Error(`Unknown icon type: ${title}`);
+  }
+  
+  return (
+    <Svg width="162" height="44" viewBox="0 0 162 44" fill="none" >
+      <Rect width="162" height="44" rx="8" fill="url(#paint0_linear_222_2339)"/>
+      <Rect x="1" y="1" width="160" height="42" rx="7" stroke="url(#paint1_linear_222_2339)" strokeOpacity="0.5" strokeWidth="2"/>
+      <Defs>
+      <LinearGradient id="paint0_linear_222_2339" x1="162" y1="22" x2="2.74476e-07" y2="22" gradientUnits="userSpaceOnUse">
+        <Stop stopColor={c1} stopOpacity="0.1"/>
+        <Stop offset="1" stopColor={c2} stopOpacity="0.1"/>
+      </LinearGradient>
+      <LinearGradient id="paint1_linear_222_2339" x1="167" y1="17" x2="-8.5" y2="22" gradientUnits="userSpaceOnUse">
+        <Stop stopColor={c1}/>
+        <Stop offset="1" stopColor={c2} stopOpacity="0.57"/>
+      </LinearGradient>
+      </Defs>
+      <GradientBox >
+          <IconComponent size={20} color={textColor} />
+          <Text size={16} weight={"Bold"} color={textColor} style={{marginLeft: 10}}>{title}</Text>
+      </GradientBox>
+    </Svg>
+  );
+};
+
+const GradientBox = styled.View`
+  position: absolute;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  background-color: transparent;
+`
+
+export default { SaleTag, MainFilter,SubFilter, GradientButton};
