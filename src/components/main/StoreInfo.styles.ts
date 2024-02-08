@@ -5,7 +5,6 @@ import { Image } from 'react-native';
 export const Container =  styled.View`
   flex: 1;
   width: 100%;
-  height: 10000px;
   padding: 30px 24px 10px 24px;
 `
 
@@ -69,10 +68,6 @@ export const FunctionBox = styled.Pressable`
 `
 
 export const SaleBox = styled.Pressable`
-  flex: 1;
   border-radius: 8px;
-  padding: 10px;
-  align-items: center;
-  justify-content: center;
 `
 

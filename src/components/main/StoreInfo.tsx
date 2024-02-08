@@ -43,15 +43,14 @@ const StoreInfo = ({info, onNavigateToLocation}: Props) => {
       checkLocation();
       setLocationPermissionChecked(true);
     }
-  }, );
+  },[locationPermissionChecked]);
 
   // 위치 권한 허용 체크
   const checkLocation = async () => {
     try {
       const permissionGranted = await PermissionUtil.cmmReqPermission([...APP_PERMISSION_CODE.location]);
-      // 권한이 부여되었을 때
+  
       if (permissionGranted) {
-        // 현재 위치
         Geolocation.getCurrentPosition(
           position => {
             const currentLat = position.coords.latitude;
@@ -61,18 +60,21 @@ const StoreInfo = ({info, onNavigateToLocation}: Props) => {
             setDistance(Math.round(calculateDistance(currentLat, currentLong, info.lat, info.long)));
           },
           error => {
-            console.error(error);
+            console.error('Geolocation error:', error);
           },
+          { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
         );
       } else {
+        console.log('Location permission not granted.');
       }
     } catch (error) {
-      console.error(error);
+      console.error('Error checking location permission:', error);
     }
   };
-
+  
   // 위도 경도 차이로 거리 계산
   function calculateDistance(lat1: number, lon1:number, lat2:number, lon2: number) {
+    console.log(lat1, lon1, lat2, lon2);
     const R = 6371; // 지구의 반지름 (단위: km)
     const dLat = (lat2 - lat1) * (Math.PI / 180);
     const dLon = (lon2 - lon1) * (Math.PI / 180);
@@ -186,28 +188,13 @@ const StoreInfo = ({info, onNavigateToLocation}: Props) => {
           </Text>
         </S.FunctionBox>
       </S.FunctionContainer>
-      <S.FunctionBox style={{gap: 15, marginVertical: 10}}>
-        <S.FunctionBox>
-        <Text 
-          size={16} 
-          color={colors.text._primary} 
-          weight={'Medium'}
-          style={{marginLeft: 4}}
-          >
-          공유
-          </Text>
-        </S.FunctionBox>
+      <S.FunctionBox style={{justifyContent: 'space-between' ,marginVertical: 15}}>
         <S.SaleBox>
-        <Text 
-          size={16} 
-          color={colors.text._primary} 
-          weight={'Medium'}
-          style={{marginLeft: 4}}
-          >
-          공유
-          </Text>
+        <GradientButton title='모든 쿠폰 보기' c1='#0EC1E8' c2='#BC0EE8' textColor='#4A1FC5' />
         </S.SaleBox>
-        <GradientButton></GradientButton>
+        <S.SaleBox>
+        <GradientButton title='제휴 가게 보기' c1='#0EC1E8' c2='#BC0EE8' textColor='#4A1FC5' />
+        </S.SaleBox>
       </S.FunctionBox>
     </S.Container>
   );
