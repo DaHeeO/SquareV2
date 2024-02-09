@@ -6,6 +6,8 @@ export const Container =  styled.View`
   flex: 1;
   width: 100%;
   padding: 30px 24px 10px 24px;
+  border-bottom-width: 10px;
+  border-bottom-color: ${colors.white._200};
 `
 
 export const ImageDiv = styled.View`

@@ -60,7 +60,7 @@ class StoreLocation extends Component<LocationPreviewProps> {
           height: Dimensions.get("window").height,
         }}
         source={{
-          uri: 'http://192.168.10.28:3000/app/store/preview',
+          uri: 'http://192.168.10.179:3000/app/store/preview',
         }}
         injectedJavaScript={injectedJavaScript}
         javaScriptEnabled={true}

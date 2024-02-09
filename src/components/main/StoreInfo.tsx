@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Linking, View } from 'react-native';
+import { Linking, Share } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 
 // styled
@@ -13,7 +13,7 @@ import Logo from '@/assets/images/Logo.jpeg';
 import Star from '@/assets/icons/Star';
 import Right from '@/assets/icons/Right';
 import Heart from '@/assets/icons/Heart';
-import Share from '@/assets/icons/Share';
+import ShareIcon from '@/assets/icons/Share';
 import Phone from '@/assets/icons/Phone';
 import LineVertical from '@/assets/icons/LineVertical';
 
@@ -23,15 +23,17 @@ import InfoLocation from './InfoLocation';
 import PermissionUtil from '../permission/PermissionUtil';
 import { APP_PERMISSION_CODE } from '../permission/PermissionCode';
 import {GradientButton} from '../common/Buttons';
+import Clipboard from '@react-native-clipboard/clipboard';
 
 
 interface Props {
   info: StoreInterface;
   onNavigateToLocation: () => void;
+  modalhandler: () => void;
 }
 
 
-const StoreInfo = ({info, onNavigateToLocation}: Props) => {
+const StoreInfo = ({info, onNavigateToLocation, modalhandler}: Props) => {
 
   const [locationPermissionChecked, setLocationPermissionChecked] = useState(false);
   const [lat, setLat] = useState<number>(0);
@@ -90,6 +92,29 @@ const StoreInfo = ({info, onNavigateToLocation}: Props) => {
   function convertDistanceUnit(distance: number): string {
     return distance >= 1000 ? `${(distance / 1000).toFixed(1)}km` : `${distance.toFixed(0)}m`;
   }
+
+  // 공유
+  const onShare = async () => {
+    try {
+      const deepLink = `square://full/store-detail/${info.uid}`;
+  
+      const result = await Share.share({
+        message: `${info.name} 어때요? square에서 확인해보세요\n${deepLink}`
+      });
+
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          console.log('activityType!');
+        } else {
+          console.log('Share!');
+        }
+      } else if (result.action === Share.dismissedAction) {
+        console.log('dismissed');
+      }
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <S.Container>
@@ -176,8 +201,8 @@ const StoreInfo = ({info, onNavigateToLocation}: Props) => {
         </S.FunctionBox>
         <LineVertical size={15} color={colors.white._600} />
         {/* DeepLinking설정을 통해 https:// 에서 앱으로 이동 가능하다 */}
-        <S.FunctionBox>
-          <Share size={20} color={colors.text._primary}/>
+        <S.FunctionBox onPress={() => {onShare()}}>
+          <ShareIcon size={20} color={colors.text._primary}/>
           <Text 
           size={16} 
           color={colors.text._primary} 
@@ -188,8 +213,8 @@ const StoreInfo = ({info, onNavigateToLocation}: Props) => {
           </Text>
         </S.FunctionBox>
       </S.FunctionContainer>
-      <S.FunctionBox style={{justifyContent: 'space-between' ,marginVertical: 15}}>
-        <S.SaleBox>
+      <S.FunctionBox style={{justifyContent: 'space-between' ,marginTop: 15, marginBottom: 10}}>
+        <S.SaleBox onPress={modalhandler}>
         <GradientButton title='모든 쿠폰 보기' c1='#0EC1E8' c2='#BC0EE8' textColor='#4A1FC5' />
         </S.SaleBox>
         <S.SaleBox>
