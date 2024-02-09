@@ -156,3 +156,49 @@ export const StoreData = {
     "image": null,
   }
 }
+
+export interface CouponInterface {
+  id: number;
+  name: string;
+  started_at: string;
+  finished_at: string;
+  standard_price: number;
+  discount_price: number;
+  store: StoreLinked;
+}
+
+export interface StoreLinked {
+  id: number;
+  name: string;
+}
+
+export const CouponData ={
+  "status_code": 200,
+  "message": "success",
+  "data" : [
+    {
+      "id": 1,
+      "name": "오다커피 아이스아메리카노 할인",
+      "started_at": "2023-11-11 11:11:11",
+      "finished_at": "2023-11-15 11:11:11",
+      "standard_price": 100000,
+      "discount_price": 1000,
+      "store": {
+        "id": 1,
+        "name": "오다커피"
+      }
+    },
+    {
+      "id": 2,
+      "name": "세훈빵집 아이스아메리카노 할인",
+      "started_at": "2023-11-11 11:11:11",
+      "finished_at": "2023-11-15 11:11:11",
+      "standard_price": 100000,
+      "discount_price": 1000,
+      "store": {
+        "id": 1,
+        "name": "세훈빵집"
+      }
+    }
+  ]
+}
