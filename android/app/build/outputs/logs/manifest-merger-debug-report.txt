@@ -1,7 +1,7 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:1:1-32:12
-MERGED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:1:1-32:12
+ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:1:1-38:12
+MERGED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:1:1-38:12
 INJECTED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/debug/AndroidManifest.xml:2:1-9:12
 INJECTED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/debug/AndroidManifest.xml:2:1-9:12
 INJECTED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/debug/AndroidManifest.xml:2:1-9:12
@@ -127,9 +127,9 @@ ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/Andro
 	android:name
 		ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:10:22-69
 application
-ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:12:5-31:19
-MERGED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:12:5-31:19
-MERGED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:12:5-31:19
+ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:12:5-37:19
+MERGED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:12:5-37:19
+MERGED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:12:5-37:19
 INJECTED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/debug/AndroidManifest.xml:5:5-8:50
 MERGED from [:react-native-webview] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-17:19
 MERGED from [:react-native-webview] /Users/odahui/Desktop/Square/square-mobile/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-17:19
@@ -190,7 +190,7 @@ MERGED from [com.facebook.soloader:soloader:0.10.5] /Users/odahui/.gradle/caches
 		ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:13:7-38
 		ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:13:7-38
 activity#com.square.MainActivity
-ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:19:7-30:18
+ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:19:7-36:18
 	android:label
 		ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:21:9-41
 	android:launchMode
@@ -213,6 +213,24 @@ category#android.intent.category.LAUNCHER
 ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:28:13-73
 	android:name
 		ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:28:23-70
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:square
+ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:30:9-35:25
+action#android.intent.action.VIEW
+ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:31:11-63
+	android:name
+		ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:31:19-60
+category#android.intent.category.DEFAULT
+ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:32:11-70
+	android:name
+		ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:32:21-67
+category#android.intent.category.BROWSABLE
+ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:33:11-72
+	android:name
+		ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:33:21-69
+data
+ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:34:11-43
+	android:scheme
+		ADDED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/main/AndroidManifest.xml:34:17-40
 uses-sdk
 INJECTED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/debug/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/odahui/Desktop/Square/square-mobile/android/app/src/debug/AndroidManifest.xml

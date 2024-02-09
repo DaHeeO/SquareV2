@@ -17,14 +17,13 @@ const StoreDetail = ({ route, navigation }: any) => {
 
   // parmas로 아이디 받아와서 item 렌더링
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-  const storeId = route.params.id || 0;
-  const info: ListInterface = route.params?.info;
+  const {id} = route.params;
   const items = useMemo(() => StoreData.data as any, []);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     // 여기서 아이템 로딩 api
-  }, [info, storeId]);
+  }, [id]);
 
 
   // callbacks
