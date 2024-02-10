@@ -96,10 +96,12 @@ const StoreInfo = ({info, onNavigateToLocation, modalhandler}: Props) => {
   // 공유
   const onShare = async () => {
     try {
-      const deepLink = `square://full/store-detail/${info.uid}`;
+      // const deepLink = `square://full/store-detail/${info.uid}`;
+      const link = 'http://54.180.43.41/square'
   
       const result = await Share.share({
-        message: `${info.name} 어때요? square에서 확인해보세요\n${deepLink}`
+        // message: `${info.name} 어때요? square에서 확인해보세요\n${deepLink}`
+        message: link,
       });
 
       if (result.action === Share.sharedAction) {
