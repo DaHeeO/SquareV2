@@ -25,7 +25,7 @@ const AccessToken = ({navigation}: Props) => {
         const token = await AsyncStorage.getItem('accessToken');
         // 토큰 있을 때
         if(token) {
-          navigation.navigate('Login');
+          navigation.navigate('Main');
           console.log('토큰 있을껄 근데 바꿔야 됨...')
         }
         // 토큰 없을 때

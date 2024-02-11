@@ -32,12 +32,12 @@ const Login = ({navigation}: any) => {
       <S.ButtonContainer>
         {/* 여기 카카오 로그인 성공하면 처음 사용자한테는 location으로 이동 아니면 main */}
         <S.KaKaoButton 
-        // onPress={() => navigation.navigate('InitialStack')}
-        onPress={() => {
-          navigation.reset({
-            routes: [{ name: 'BottomTab' }],
-          });
-        }}
+        onPress={() => navigation.navigate('InitialStack')}
+        // onPress={() => {
+        //   navigation.reset({
+        //     routes: [{ name: 'BottomTab' }],
+        //   });
+        // }}
         >
           <S.Icon source={Kakao} />
           <Text size={16} color={colors.text._primary} weight={'SemiBold'}>

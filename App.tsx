@@ -41,16 +41,13 @@ function App({navigation}: any) {
    
   //받아준 딥링크 url을 subscribe에 넣어줘야 한다
   subscribe(listener) {
-    console.log('linking subscribe to ', listener);
     const onReceiveURL = (event) => {
       const { url } = event;
-      console.log('link has url', url, event);
       return listener(url);
     };
 
     Linking.addEventListener('url', onReceiveURL);
     return () => {
-      console.log('linking unsubscribe to ', listener);
       Linking.removeAllListeners;
     };
   },

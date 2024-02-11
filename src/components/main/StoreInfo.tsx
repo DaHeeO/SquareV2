@@ -96,12 +96,15 @@ const StoreInfo = ({info, onNavigateToLocation, modalhandler}: Props) => {
   // 공유
   const onShare = async () => {
     try {
-      // const deepLink = `square://full/store-detail/${info.uid}`;
-      const link = 'http://54.180.43.41/square'
+      // 이게 앱 주소임
+      const deepLink = `square://full/store-detail/${info.uid}`;
+      // 이건 웹 주소 웹에서 넘어가게 하려고 로직 짜놓음 -> 
+      // 앱이 설치되어있을때 앱으로 이동
+      // 앱이 없으면 구글 플레이 스토어 아님 애플 스토어로 
+      const link = `http://54.180.43.41/share/${info.uid}`;
   
       const result = await Share.share({
-        // message: `${info.name} 어때요? square에서 확인해보세요\n${deepLink}`
-        message: link,
+        message: `${info.name} 어때요? square에서 확인해보세요\n${link}`
       });
 
       if (result.action === Share.sharedAction) {
