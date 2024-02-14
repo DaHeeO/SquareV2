@@ -6,7 +6,7 @@ import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet
 // style
 
 // component
-import { ListInterface, StoreInterface, StoreData } from '../../components/main/ListingData';
+import { StoreData } from '../../components/main/ListingData';
 import MainHeaderAnimated from '../../components/common/MainHeaderAnimated';
 import BannerCarousel from '../../components/main/BannerCarousel';
 import StoreInfo from '../../components/main/StoreInfo';
@@ -24,7 +24,6 @@ const StoreDetail = ({ route, navigation }: any) => {
   useEffect(() => {
     // 여기서 아이템 로딩 api
   }, [id]);
-
 
   // callbacks
   const handlePresentModalPress = useCallback(() => {
@@ -90,9 +89,8 @@ const StoreDetail = ({ route, navigation }: any) => {
             <BannerCarousel />
           </Animated.View>
           <StoreInfo info={items} onNavigateToLocation={navigateToLocation} modalhandler={handlePresentModalPress}/>
-          <View style={{height: 10000}}></View>
         </ScrollView>
-        <CouponModal bottomSheetModalRef={bottomSheetModalRef}/>
+        <CouponModal id={id} bottomSheetModalRef={bottomSheetModalRef}/>
       </SafeAreaView>
     </BottomSheetModalProvider>
   );

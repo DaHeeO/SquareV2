@@ -18,22 +18,23 @@ interface TopProps {
   title: string;
   textColor: string;
   bgColor : string;
+  marginRight?: number;
 }
 
-export const SaleTag = ({ title, textColor, bgColor }: TopProps) => {
+export const SaleTag = ({ title, textColor, bgColor, marginRight }: TopProps) => {
   return (
-    <TopDiv style={{backgroundColor:(bgColor)}}>
+    <TopDiv style={{backgroundColor:(bgColor)}} marginRight={marginRight}>
         <Text size={10} color={textColor} weight={'SemiBold'}>{title}</Text>
     </TopDiv>
   );
 };
 
-export const TopDiv = styled.View`
+export const TopDiv = styled.View<{marginRight?: number}>`
   align-items: center;
   justify-content: center;
   padding: 3px 8px;
   border-radius: 4px;
-  margin-right: 6px;
+  margin-right: ${(props) => (props.marginRight ? props.marginRight : 6)}px;
 `;
 
 interface ButtonProps {

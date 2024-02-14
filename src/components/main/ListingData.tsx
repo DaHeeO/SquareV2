@@ -159,17 +159,24 @@ export const StoreData = {
 
 export interface CouponInterface {
   id: number;
-  name: string;
-  started_at: string;
-  finished_at: string;
   standard_price: number;
   discount_price: number;
-  store: StoreLinked;
+  started_at: string;
+  finished_at: string;
+  store: StoreProps;
+  product: ProductProps;
 }
 
-export interface StoreLinked {
+interface StoreProps {
   id: number;
   name: string;
+  image: string;
+}
+
+interface ProductProps {
+  id: number;
+  name: string;
+  image: string;
 }
 
 export const CouponData ={
@@ -178,27 +185,71 @@ export const CouponData ={
   "data" : [
     {
       "id": 1,
-      "name": "오다커피 아이스아메리카노 할인",
       "started_at": "2023-11-11 11:11:11",
       "finished_at": "2023-11-15 11:11:11",
       "standard_price": 100000,
       "discount_price": 1000,
       "store": {
         "id": 1,
-        "name": "오다커피"
+        "name": "오다커피",
+        "image": null,
+      },
+      "product": {
+        "id": 1,
+        "name": "최고의 맛, 펭귄빵",
+        "image": null,
       }
     },
     {
       "id": 2,
-      "name": "세훈빵집 아이스아메리카노 할인",
+      "started_at": "2023-11-11 11:11:11",
+      "finished_at": "2023-11-15 11:11:11",
+      "standard_price": 100000,
+      "discount_price": 1000,
+      "store": {
+        "id": 2,
+        "name": "세훈빵집",
+        "image": null,
+      },
+      "product": {
+        "id": 3,
+        "name": "세후니 우측 4번 갈비찜",
+        "image": null,
+      }
+    },
+    {
+      "id": 3,
       "started_at": "2023-11-11 11:11:11",
       "finished_at": "2023-11-15 11:11:11",
       "standard_price": 100000,
       "discount_price": 1000,
       "store": {
         "id": 1,
-        "name": "세훈빵집"
+        "name": "오다커피",
+        "image": null,
+      },
+      "product": {
+        "id": 1,
+        "name": "최고의 맛, 펭귄빵",
+        "image": null,
       }
-    }
+    },
+    {
+      "id": 4,
+      "started_at": "2023-11-11 11:11:11",
+      "finished_at": "2023-11-15 11:11:11",
+      "standard_price": 100000,
+      "discount_price": 1000,
+      "store": {
+        "id": 1,
+        "name": "오다커피",
+        "image": null,
+      },
+      "product": {
+        "id": 1,
+        "name": "최고의 맛, 펭귄빵",
+        "image": null,
+      }
+    },
   ]
 }

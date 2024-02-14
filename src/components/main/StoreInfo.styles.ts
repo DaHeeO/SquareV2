@@ -40,7 +40,7 @@ export const ReviewBox = styled.View`
 `
 
 export const DetailInfo = styled.View`
-  margin: 15px 0px;
+  margin: 15px 0px 30px 0px;
   border-radius: 8px;
   border-width: 1px;
   border-color: ${colors.white._600};
