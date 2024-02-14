@@ -1,6 +1,6 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import { FlatList, Image, View } from 'react-native';
-import { BottomSheetBackdrop, BottomSheetModal } from '@gorhom/bottom-sheet';
+import { BottomSheetBackdrop, BottomSheetFlatList, BottomSheetModal } from '@gorhom/bottom-sheet';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 
 // styled
@@ -10,22 +10,23 @@ import { colors } from '../../common/globalStyles';
 
 // component
 import Target from '@/assets/images/target.png';
-import { CouponData, CouponInterface, StoreLinked } from '../ListingData';
+import { CouponData, CouponInterface } from '../ListingData';
 import Down from '@/assets/icons/Down';
+import { AffiliateCoupon, PromotionCoupon } from '../Coupon';
 
 interface ModalProps {
-    bottomSheetModalRef: any;
+  id: number;
+  bottomSheetModalRef: any;
 }
 
-const CouponModal = ({bottomSheetModalRef}: ModalProps) => {
+const CouponModal = ({bottomSheetModalRef, id}: ModalProps) => {
 
   // variables
-  const text = '가게에서 발급 가능한 쿠폰이에요. 저희 쿠폰은 해당 메뉴를 구매하시면 제휴 가게에서 사용하실 수 있어요. 해당 쿠폰을 클릭하시면 해당 메뉴로 이동된답니다. 메뉴를 구매하시고 쿠폰을 받아보세요😎😎😎 \n 현재 보유하고 계신 쿠폰은 결제 시 사용가능 해요!!!';
+  const text = '가게에서 발급 가능한 쿠폰이에요. 모든 쿠폰은 결제 시 자동 발급된답니다. 해당 상품을 구매하시고 쿠폰을 받아보아요😎😎😎 \n\n쿠폰을 누르시면 상품으로 자동 이동 됩니다. 즐거운 쇼핑되세요❤️🧡💛💚💙💜';
   const snapPoints = useMemo(() => ['90%'], []);
   const [showFullText, setShowFullText] = useState(false);
   const rotation = useSharedValue(0);
   const items = useMemo(() => CouponData.data as any, []);
-
 
   // 모달 높이 조절
   const handleSheetChanges = useCallback((index: number) => {
@@ -69,15 +70,18 @@ const CouponModal = ({bottomSheetModalRef}: ModalProps) => {
     };
   });
 
-
-  const renderItem = (item: CouponInterface) => {
-
-    return (
-      <CouponContainer>
-        <Text size={18} color={colors.text._primary} weight={"SemiBold"}>{item.name}</Text>
-      </CouponContainer>
-    );
-  };
+  const renderItem = useCallback(
+    ({item}: any) => (
+      <>
+      {item.store.id === id ? 
+          <PromotionCoupon item={item} /> 
+          : 
+          <AffiliateCoupon item={item} />
+        }
+      </>
+    ),
+    []
+  );
 
   return (
     <BottomSheetModal
@@ -104,9 +108,10 @@ const CouponModal = ({bottomSheetModalRef}: ModalProps) => {
             <Down size={12} color={colors.text._primary} />
           </Animated.View>
         </Description>
-        <FlatList
-        renderItem={(data) => renderItem(data.item)}
+        <BottomSheetFlatList
         data={items}
+        keyExtractor={items.id}
+        renderItem={renderItem}
         showsVerticalScrollIndicator={false}
       />
       </Container>
@@ -116,7 +121,7 @@ const CouponModal = ({bottomSheetModalRef}: ModalProps) => {
 
 const Container = styled.View`
   flex: 1;
-  padding: 20px 24px 40px 24px;
+  padding: 20px 24px 0px 24px;
 `
 
 const Description = styled.Pressable`
@@ -139,15 +144,6 @@ const Img = styled(Image)`
 const TextBox = styled.View`
   flex: 1;
   margin: 0px 10px;
-`
-
-const CouponContainer = styled.View`
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border-width: 1px;
-  border-color: ${colors.white._500};
 `
 
 export default CouponModal;

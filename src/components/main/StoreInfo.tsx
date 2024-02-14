@@ -218,7 +218,7 @@ const StoreInfo = ({info, onNavigateToLocation, modalhandler}: Props) => {
           </Text>
         </S.FunctionBox>
       </S.FunctionContainer>
-      <S.FunctionBox style={{justifyContent: 'space-between' ,marginTop: 15, marginBottom: 10}}>
+      <S.FunctionBox style={{justifyContent: 'space-between' ,marginTop: 30, marginBottom: 10}}>
         <S.SaleBox onPress={modalhandler}>
         <GradientButton title='모든 쿠폰 보기' c1='#0EC1E8' c2='#BC0EE8' textColor='#4A1FC5' />
         </S.SaleBox>
