@@ -65,7 +65,7 @@ const Profile = ({navigation}: ProfileProps) => {
             {dummyData.tabTitle}
           </S.LocationText>
           <Animated.View style={animatedStyle}>
-              <Down size={24} color={colors.text._primary} />
+              <Down size={24} color={colors.white._200} />
             </Animated.View>
           </S.LocationContainer>
           <LocationChgModal

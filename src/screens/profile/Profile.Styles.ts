@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { Dimensions } from 'react-native';
+import { colors, text } from '../../components/common/globalStyles';
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -40,7 +41,7 @@ export const Text = styled.Text`
 export const NameCard = styled.View`
   width: ${windowWidth * 0.9}px;
   height: 150px;
-  background-color: #FFFFFF;
+  background-color: ${colors.green._500};
   border-radius: 10px;
   padding: 20px;
   margin-top: 50px;
@@ -56,7 +57,6 @@ export const ProfileImage = styled.Image`
   border-radius: 100px;
   border-width: 10px;
   margin-right: 15%;
-  background-color: #036635;
 `;
 
 export const ProfileInfoContainer = styled.View`
@@ -71,12 +71,12 @@ export const UserInfoContainer = styled.View`
 `;
 
 export const Nickname = styled.Text`
-  font-weight: bold;
+  font-weight: 900;
   font-size : 17px;
-  
+  color : ${colors.white._200};
 `;
 export const Email = styled.Text`
-  color: #333;
+color : ${colors.white._200};
   margin-top: 10px; 
 `;
 
@@ -84,15 +84,18 @@ export const TabButton = styled.TouchableOpacity`
   position: absolute;
   right: 20px;
   bottom: 20px;
+  color : ${colors.white._200};
 `;
 export const LocationContainer = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  color : ${colors.white._200};
 `;
 export const LocationText = styled.Text`
   font-size : 15px;
   color: black;
+  color : ${colors.white._200};
 `;
 
 
