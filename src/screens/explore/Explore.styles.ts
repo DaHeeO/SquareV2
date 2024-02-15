@@ -7,7 +7,7 @@ export const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: flex-start;
-  background-color: #F7F7F7;
+  background-color: #FFFFFF;
 `;
 
 export const TopBarContainer = styled.View`
@@ -25,11 +25,45 @@ export const Text = styled.Text`
   text-align: center; 
 `;
 
+export const IconDiv = styled.View`
+  align-items: center;
+  flex-direction: row;
+`
+export const Icon = styled.Pressable`
+  margin-left: 16px;
+`
 
-export const SearchBar = styled.View`
-  // 여기에 검색 바 스타일을 정의합니다.
-  border: 2px solid green; // 검색 바 영역을 표시하기 위해 초록색 테두리 추가
+export const SearchBar = styled.Pressable`
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 85%;
+  margin-top:10px;
+  padding: 0px 20px;
+  background-color: #F7F7F7;
+  border-radius: 8px;
 `;
+export const SearchDiv = styled.View`
+  flex: 1;
+  align-items: center;
+  flex-direction: row;
+  padding: 12px 0px;
+
+`;
+
+export const BackButtonFlexBoxLeft = styled.TouchableOpacity`
+  width: 10%;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  z-index: 10; 
+`;
+export const BackButtonIcon = styled.Image`
+  width: 100%;
+  height: 20%;
+`;
+
+
 
 export const CategoryMenu = styled.ScrollView.attrs({
   horizontal: true,

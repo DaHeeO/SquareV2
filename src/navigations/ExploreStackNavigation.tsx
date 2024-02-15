@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import Explore from '@/screens/explore/Explore';
-
+import FullScreenStackNavigators from '../navigations/FullScreenStackNavigation';
 
 const ExploreStack = createStackNavigator();
 
@@ -18,6 +18,11 @@ function ExploreStackNavigators() {
       <ExploreStack.Screen
         name="Explore"
         component={Explore}
+        options={{headerShown: false}}
+      />
+      <ExploreStack.Screen
+        name="Store"
+        component={FullScreenStackNavigators}
         options={{headerShown: false}}
       />
     </ExploreStack.Navigator>
