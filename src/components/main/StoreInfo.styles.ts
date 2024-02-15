@@ -5,8 +5,9 @@ import { Image } from 'react-native';
 export const Container =  styled.View`
   flex: 1;
   width: 100%;
-  height: 10000px;
   padding: 30px 24px 10px 24px;
+  border-bottom-width: 10px;
+  border-bottom-color: ${colors.white._200};
 `
 
 export const ImageDiv = styled.View`
@@ -39,11 +40,11 @@ export const ReviewBox = styled.View`
 `
 
 export const DetailInfo = styled.View`
-  margin: 10px 0px;
+  margin: 15px 0px 30px 0px;
   border-radius: 8px;
   border-width: 1px;
   border-color: ${colors.white._600};
-  padding: 10px;
+  padding: 10px 15px 10px 10px;
 `
 
 export const DetailDiv = styled.View`
@@ -54,3 +55,21 @@ export const TextBox = styled.View`
   flex: 1;
   margin-left: 12px;
 `
+
+export const FunctionContainer = styled.View`
+  width: 100%;
+  padding: 0px 50px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const FunctionBox = styled.Pressable`
+  flex-direction: row;
+  align-items:center;
+`
+
+export const SaleBox = styled.Pressable`
+  border-radius: 8px;
+`
+

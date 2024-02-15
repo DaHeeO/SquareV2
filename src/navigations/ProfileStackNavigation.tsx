@@ -42,8 +42,6 @@ function ProfileStackNavigators() {
         component={MyReview}
         options={{headerShown: false}}
       />
-
-      
     </ProfileStack.Navigator>
   );
 }

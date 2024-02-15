@@ -10,7 +10,7 @@ import {Text} from '../common/fonts';
 import { ListInterface } from './ListingData';
 import { FlatList } from 'react-native-gesture-handler';
 import StoreSquare from '../../assets/images/StoreSquare.png';
-import StarFilled from '@/assets/icons/StarFilled';
+import Star from '@/assets/icons/Star';
 import Buttons from '../common/Buttons';
 
 // 부모 컴포넌트 프롭스
@@ -39,7 +39,7 @@ const StoreList = ({listing, category, onNavigateToDetail}: ListProps) => {
         <View>
           <Text size={16} color={colors.text._primary} weight={'SemiBold'}>{item.name}</Text>
           <StoreInfo style={{marginTop: 2}}>
-            <StarFilled size={16} color={colors.yellow._400} />
+            <Star size={16} color={colors.yellow._400} fill={colors.yellow._400}/> 
             <Text size={14} color={colors.text._primary} weight={'Medium'} style={{marginLeft: 2}}>{item.rating}</Text>
             <Text size={14} color={colors.text._primary} weight={'Regular'} style={{marginLeft: 4}}>{'('}{item.review_cnt}{')'}</Text>
             <Text 

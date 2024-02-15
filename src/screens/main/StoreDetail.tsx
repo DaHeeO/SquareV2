@@ -1,29 +1,34 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { SafeAreaView, ScrollView, View } from 'react-native';
 import Animated, { Extrapolation, interpolate, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
+import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
 // style
 
 // component
-import { ListInterface, StoreInterface, StoreData } from '../../components/main/ListingData';
+import { StoreData } from '../../components/main/ListingData';
 import MainHeaderAnimated from '../../components/common/MainHeaderAnimated';
 import BannerCarousel from '../../components/main/BannerCarousel';
 import StoreInfo from '../../components/main/StoreInfo';
+import CouponModal from '../../components/main/modal/CouponModal';
 
 
 const StoreDetail = ({ route, navigation }: any) => {
 
   // parmas로 아이디 받아와서 item 렌더링
-  const storeId = route.params.id || 0;
-  const info: ListInterface = route.params?.info;
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+  const {id} = route.params;
   const items = useMemo(() => StoreData.data as any, []);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    console.log('detail item id: ', storeId);
-    console.log([info]);
     // 여기서 아이템 로딩 api
-  }, [info, storeId]);
+  }, [id]);
+
+  // callbacks
+  const handlePresentModalPress = useCallback(() => {
+    bottomSheetModalRef.current?.present();
+  }, []);
 
 
   // navigation
@@ -40,7 +45,7 @@ const StoreDetail = ({ route, navigation }: any) => {
   };
 
   const navigateToLocation = () => {
-    navigation.navigate('StoreLocation', {latitude: items.lat, longitude: items.long});
+    navigation.navigate('StoreLocation', {latitude: items.lat, longitude: items.long, name: items.name});
   };
 
   // scroll event
@@ -65,26 +70,29 @@ const StoreDetail = ({ route, navigation }: any) => {
   });
 
   return (
-    <SafeAreaView style={{ flex: 1 , backgroundColor: 'white'}}>
-      <MainHeaderAnimated
-        onPopBack={popBack}
-        onNavigateToHome={navigateToHome}
-        onNavigateToCart={navigateToCart}
-        title={items.name}
-        isTransparent={activeIndex}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        showsVerticalScrollIndicator={true}
-        onScroll={onScroll}
-        scrollEventThrottle={16}
-      >
-        <Animated.View style={[ bannerStyle ]} ref={bannerRef}>
-          <BannerCarousel />
-        </Animated.View>
-        <StoreInfo info={items} onNavigateToLocation={navigateToLocation}/>
-      </ScrollView>
-    </SafeAreaView>
+    <BottomSheetModalProvider>
+      <SafeAreaView style={{ flex: 1 , backgroundColor: 'white'}}>
+        <MainHeaderAnimated
+          onPopBack={popBack}
+          onNavigateToHome={navigateToHome}
+          onNavigateToCart={navigateToCart}
+          title={items.name}
+          isTransparent={activeIndex}
+        />
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          showsVerticalScrollIndicator={true}
+          onScroll={onScroll}
+          scrollEventThrottle={16}
+        >
+          <Animated.View style={[ bannerStyle ]} ref={bannerRef}>
+            <BannerCarousel />
+          </Animated.View>
+          <StoreInfo info={items} onNavigateToLocation={navigateToLocation} modalhandler={handlePresentModalPress}/>
+        </ScrollView>
+        <CouponModal id={id} bottomSheetModalRef={bottomSheetModalRef}/>
+      </SafeAreaView>
+    </BottomSheetModalProvider>
   );
 };
 

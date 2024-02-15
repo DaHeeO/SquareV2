@@ -25,8 +25,8 @@ const Store = ({ route, navigation }: any) => {
     navigation.navigate('FullScreenStack', { screen: 'Store' });
   };
 
-  const navigateToDetail = (id: number, info: ListInterface) => {
-    navigation.navigate('StoreDetail', {id, info});
+  const navigateToDetail = (id: number) => {
+    navigation.navigate('StoreDetail', {id});
   }
 
   const [category, setCategory] = useState<number>(route.params?.category || '1');
