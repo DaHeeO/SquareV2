@@ -5,7 +5,7 @@ import {RecoilRoot} from 'recoil';
 import {NavigationContainer} from '@react-navigation/native';
 
 import Login from './src/screens/login/Login';
-import Kakao from './src/screens/login/KakaoLogin';
+import SocialLogin from './src/screens/login/SocialLogin';
 import Permission from './src/screens/login/Permission';
 import Location from './src/screens/settings/Location';
 
@@ -22,8 +22,8 @@ function App() {
             options={{headerShown: false}}
           />
           <Stack.Screen
-            name="Kakao"
-            component={Kakao}
+            name="SocialLogin"
+            component={SocialLogin}
             options={{headerShown: false}}
           />
           <Stack.Screen
@@ -31,7 +31,7 @@ function App() {
             component={Permission}
             options={{headerShown: false}}
           />
-           <Stack.Screen
+          <Stack.Screen
             name="Location"
             component={Location}
             options={{headerShown: false}}

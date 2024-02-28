@@ -20,15 +20,16 @@ export const ButtonContainer = styled.View`
   padding: 0px 24px;
 `;
 
-export const KaKaoButton = styled.TouchableOpacity`
+export const SocialLoginButton = styled.TouchableOpacity<{color: string}>`
   width: 100%;
   height: 60px;
   flex-direction: row;
   align-items: center;
   border-radius: 10px;
-  background-color: #fee500;
+  background-color: ${props => props.color};
   padding-left: 28px;
   z-index: 5;
+  margin-top: 10px;
 `;
 
 export const Icon = styled(Image)`

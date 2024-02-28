@@ -28,12 +28,30 @@ const Login = ({navigation}: any) => {
       </S.TextBox>
       <S.ButtonContainer>
         {/* 여기 카카오 로그인 성공하면 처음 사용자한테는 location으로 이동 아니면 main */}
-        <S.KaKaoButton onPress={() => navigation.navigate('Kakao')}>
-          {/* <S.Icon source={Kakao} /> */}
-          <Text size={16} color={colors.text._primary} weight={'SemiBold'}>
-            카카오로 시작하기
-          </Text>
-        </S.KaKaoButton>
+        <SocialLoginBtn
+          clientName="카카오"
+          navigation={navigation}
+          navigateTo="SocialLogin"
+          textColor={colors.text._primary}
+          color="#fee500"
+          uriPath="kakao"
+        />
+        <SocialLoginBtn
+          clientName="구글"
+          navigation={navigation}
+          navigateTo="SocialLogin"
+          textColor={colors.text._primary}
+          color="white"
+          uriPath="google"
+        />
+        <SocialLoginBtn
+          clientName="네이버"
+          navigation={navigation}
+          navigateTo="SocialLogin"
+          textColor="white"
+          color="#2DB400"
+          uriPath="naver"
+        />
       </S.ButtonContainer>
       <Wave
         direction={'left'}
@@ -70,3 +88,27 @@ const Login = ({navigation}: any) => {
 };
 
 export default Login;
+
+const SocialLoginBtn = ({
+  color,
+  navigation,
+  navigateTo,
+  clientName,
+  uriPath,
+  textColor,
+}: any) => {
+  return (
+    <S.SocialLoginButton
+      color={color}
+      onPress={() => {
+        navigation.navigate(navigateTo, {
+          uri: `http://211.106.142.49:8080/oauth2/authorization/${uriPath}`,
+        });
+      }}>
+      {/* <S.Icon source={Kakao} /> */}
+      <Text size={16} color={textColor} weight={'SemiBold'}>
+        {clientName}로 시작하기
+      </Text>
+    </S.SocialLoginButton>
+  );
+};
