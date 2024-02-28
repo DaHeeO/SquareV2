@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {RecoilRoot} from 'recoil';
 import {LinkingOptions, NavigationContainer} from '@react-navigation/native';
-import { Linking } from 'react-native';
+import {Linking} from 'react-native';
 
 // screen
 import AccessToken from './src/screens/login/AccessToken';
@@ -20,49 +20,39 @@ import {config} from './src/navigations/DeepLinkConfig';
 const Stack = createStackNavigator();
 
 function App({navigation}: any) {
-  
   const linking = {
     //디폴트 프로토콜 설정 필요
-       prefixes: [
-         'https://...',
-         'http://localhost:3000',
-         'square://',
-       ],
-   
-       async getInitialURL() {
-         const url = await Linking.getInitialURL();
-   
-         if (url != null) {
-           return url;
-         }
-   
-         return null;
-       },
-   
-  //받아준 딥링크 url을 subscribe에 넣어줘야 한다
-  subscribe(listener) {
-    const onReceiveURL = (event) => {
-      const { url } = event;
-      return listener(url);
-    };
+    prefixes: ['https://...', 'http://localhost:3000', 'square://'],
 
-    Linking.addEventListener('url', onReceiveURL);
-    return () => {
-      Linking.removeAllListeners;
-    };
-  },
-  config, 
-};
+    async getInitialURL() {
+      const url = await Linking.getInitialURL();
+
+      if (url != null) {
+        return url;
+      }
+
+      return null;
+    },
+
+    //받아준 딥링크 url을 subscribe에 넣어줘야 한다
+    subscribe(listener) {
+      const onReceiveURL = event => {
+        const {url} = event;
+        return listener(url);
+      };
+
+      Linking.addEventListener('url', onReceiveURL);
+      return () => {
+        Linking.removeAllListeners;
+      };
+    },
+    config,
+  };
 
   return (
     <RecoilRoot>
-      <NavigationContainer
-      linking={linking}
-      documentTitle={{ enabled: false }}
-      >
-        <Stack.Navigator 
-        initialRouteName="AccessToken"
-        >
+      <NavigationContainer linking={linking} documentTitle={{enabled: false}}>
+        <Stack.Navigator initialRouteName="AccessToken">
           <Stack.Screen
             name="AccessToken"
             component={AccessToken}
@@ -83,30 +73,25 @@ function App({navigation}: any) {
             component={Permission}
             options={{headerShown: false}}
           />
-          <Stack.Screen
-<<<<<<< HEAD
+          {/* <Stack.Screen
             name="Location"
             component={Location}
-=======
-            name="InitialStack" // 초기 위치 설정 관련 페이지들
-            component={InitialStack}
->>>>>>> 684d3b2fa85a10b996d4ede290b27a3dae468f91
             options={{headerShown: false}}
-          />
+          /> */}
           <Stack.Screen
             name="FullScreenStack"
             component={FullScreenStack}
-            options={{ 
+            options={{
               headerShown: false,
-              ...TransitionPresets.SlideFromRightIOS
-            }} 
+              ...TransitionPresets.SlideFromRightIOS,
+            }}
           />
           <Stack.Screen
             name="BottomTab"
             component={BottomTab}
-            options={{ 
+            options={{
               headerShown: false,
-             }} 
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>
