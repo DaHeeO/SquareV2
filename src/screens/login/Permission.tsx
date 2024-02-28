@@ -8,20 +8,42 @@ import {colors} from '../../components/common/globalStyles';
 // icon
 import Notification from '../../assets/icons/Notification';
 import Pin from '../../assets/icons/Pin';
-import User from '../../assets/icons/User';
+import Contact from '../../assets/icons/Contact';
 import Camera from '../../assets/icons/Camera';
 import Photo from '../../assets/icons/Photo';
 
-//componet
-import PermissionDiv from '../../components/Login/PermissionDiv';
-import PermissionUtil from './PermissionUtil';
-import { APP_PERMISSION_CODE } from '../../components/common/PermissionCode';
+//component
+import PermissionDiv from '../../components/permission/PermissionDiv';
+import PermissionUtil from '../../components/permission/PermissionUtil';
+import { APP_PERMISSION_CODE } from '../../components/permission/PermissionCode';
 
 const Permission = ({ navigation }: any) => {
 
+  // useEffect(() => {
+  //   PermissionUtil.cmmReqPermis([...APP_PERMISSION_CODE.location, ...APP_PERMISSION_CODE.notification, ...APP_PERMISSION_CODE.camera, ...APP_PERMISSION_CODE.photo, ...APP_PERMISSION_CODE.contact]);
+  // }, []);
+
+  // delay를 안먹이니깐 권한 창이 뜨고 화면이 렌더링 되어서
+  // 그걸 방지 하기 위해 delay 먹여놓음
   useEffect(() => {
-    PermissionUtil.cmmReqPermis([...APP_PERMISSION_CODE.location, ...APP_PERMISSION_CODE.notification, ...APP_PERMISSION_CODE.camera, ...APP_PERMISSION_CODE.photo, ...APP_PERMISSION_CODE.contact]);
+    // Add a delay of 1000 milliseconds (1 second)
+    const delay = 1000;
+
+    // Perform permission checks after the delay
+    const timeoutId = setTimeout(() => {
+      PermissionUtil.cmmReqPermis([
+        ...APP_PERMISSION_CODE.location,
+        ...APP_PERMISSION_CODE.notification,
+        ...APP_PERMISSION_CODE.camera,
+        ...APP_PERMISSION_CODE.photo,
+        ...APP_PERMISSION_CODE.contact,
+      ]);
+    }, delay);
+
+    // Clean up the timeout to prevent memory leaks
+    return () => clearTimeout(timeoutId);
   }, []);
+
 
   return (
     <S.Container>
@@ -50,31 +72,31 @@ const Permission = ({ navigation }: any) => {
         </Text>
         {/* 필요한 권한 추가 */}
         <PermissionDiv 
-        icon={<Pin  color={'#111111'} width={24} height={24} />}
+        icon={<Pin  color={'#111111'} size={24} />}
         permission={'위치'}
         isNeccessary={true}
         subText={'매장 위치 확인 및 검색, 주문 등에 사용'}
         />
         <PermissionDiv 
-        icon={<Notification  color={'#111111'} width={24} height={24} />}
+        icon={<Notification  color={'#111111'} size={24} />}
         permission={'알림'}
         isNeccessary={false}
         subText={'주문 정보 및 공지, 이벤트 알림 시 사용'}
         />
         <PermissionDiv 
-        icon={<Camera  color={'#111111'} width={24} height={24} />}
+        icon={<Camera  color={'#111111'} size={24} />}
         permission={'카메라'}
         isNeccessary={false}
         subText={'사진리뷰 및 프로필 설정 시 사진촬영, 주문 시 QR \n코드 스캔'}
         />
         <PermissionDiv 
-        icon={<Photo  color={'#111111'} width={24} height={24} />}
+        icon={<Photo  color={'#111111'} size={24} />}
         permission={'사진'}
         isNeccessary={false}
         subText={'사진리뷰 및 프로필 설정 시 이미지 첨부'}
         />
         <PermissionDiv 
-        icon={<User  color={'#111111'} width={24} height={24} />}
+        icon={<Contact  color={'#111111'} size={24} />}
         permission={'연락처'}
         isNeccessary={false}
         subText={'공유 시 연락처 목록 불러오기'}

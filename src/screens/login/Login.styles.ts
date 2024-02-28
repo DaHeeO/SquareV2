@@ -10,14 +10,15 @@ export const Container = styled.View`
 `;
 
 export const TextBox = styled.View`
-  padding: 300px 24px 0px;
+  flex: 1;
+  padding: 0px 24px;
+  justify-content: center;
 `;
 
 export const ButtonContainer = styled.View`
-  position: absolute;
-  bottom: 40px;
   width: 100%;
-  padding: 0px 24px;
+  padding: 0px 24px 40px 24px;
+  z-index: 5;
 `;
 
 export const SocialLoginButton = styled.TouchableOpacity<{color: string}>`

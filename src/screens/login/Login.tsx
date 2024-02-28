@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {WebView} from 'react-native-webview';
+// import {WebView} from 'react-native-webview';
 
 // styles
 import * as S from './Login.styles';
@@ -7,11 +7,10 @@ import {Text} from '../../components/common/fonts';
 import {colors} from '../../components/common/globalStyles';
 
 // icon
-// import Kakao from '../../assets/images/kakaoIcon.png';
+import Kakao from '../../assets/images/KakaoIcon.png';
 
 // component
 import Wave from './Wave';
-import {Dimensions} from 'react-native';
 
 // import Kakao from '../../assets/images/kakaoIcon.png'
 
