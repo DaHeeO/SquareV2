@@ -5,9 +5,9 @@ import { Dimensions } from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 export const Container = styled.View`
   flex: 1;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
-  background-color: #F7F7F7;
+  background-color: #FFFFFF;
 `;
 
 export const TopBarContainer = styled.View`
